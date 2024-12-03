@@ -9,17 +9,30 @@ body {
 }
 
 .navbar{
-  background-color: #0056b3;
-  
+  background-color: #0033b3;
+  display: flex;
+}
+
+.container-fluid{
+  float: right;
 }
 
 .card{
   z-index: 1;
   margin-top: 30px;
 }
-.nav-item{
+
+#Home{
 
 }
+#house-door-fill{
+  margin-top: 6px;
+  margin-left: 14px;
+  width: 30px;
+  height: 30px;
+}
+
+
 
 .sidebar {
   width: 250px;
@@ -90,14 +103,9 @@ body {
 .apply-button:hover {
     background-color: #0056b3;
 }
-
-.content {
-
-    color: black;
-}
   
   h1 {
-    font-family: "Lato", sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     font-size: 36px;
     font-weight: 300;
     color: black;
@@ -163,7 +171,7 @@ body {
   }
   .icon-expand::before {
     background: #c82647;
-    box-shadow: inset 0 0 0 60px #0056b3;
+    box-shadow: inset 0 0 0 60px #0033b3;
   }
   .icon-expand:hover::before {
     box-shadow: inset 0 0 0 1px #2d2c3e;
