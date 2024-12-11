@@ -9,11 +9,11 @@ toggleButton.addEventListener('click', () => {
 });
 
 window.addEventListener('load', () => {
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 12; i++) {
         const cardHTML = `
             <div class="col-lg-3">
                 <div class="card" style="width: 18rem;">
-                    <a href="#"><img src="./img/notavaible.jpg" class="card-img-top" alt="..."></a>
+                    <a href="#"><img src="../img/notavaible.jpg" class="card-img-top" alt="..."></a>
                     <div class="card-body">
                         <h5 class="card-title">Card title ${i + 1}</h5>
                     </div>
