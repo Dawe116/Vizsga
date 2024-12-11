@@ -163,8 +163,8 @@ body {
     box-shadow: inset 0 0 0 1px #c82647;
   }
   .icon-expand::before {
-    background: #c82647;
-    box-shadow: inset 0 0 0 60px rgb(238,39,240);
+    background: red;
+    box-shadow: inset 0 0 0 60px green;
   }
   .icon-expand:hover::before {
     box-shadow: inset 0 0 0 1px #2d2c3e;
