@@ -65,3 +65,4 @@ openModal.addEventListener('click', () => {
         alert("Jelenleg fejlesztés alatt kérnék egy kis türelmet hozzá!");
     });
 });
+  
