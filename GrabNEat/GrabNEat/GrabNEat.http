@@ -1,0 +1,6 @@
+@GrabNEat_HostAddress = http://localhost:5220
+
+GET {{GrabNEat_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
