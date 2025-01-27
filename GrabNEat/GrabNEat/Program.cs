@@ -67,7 +67,7 @@ namespace GrabNEat
 
         public static void Main(string[] args)
         {
-            LoggedInUsers["token"] = new User { PermissionId = 9 };
+            LoggedInUsers["token"] = new User { LoginNev = "Test User", PermissionId = 9 };
 
 
             var builder = WebApplication.CreateBuilder(args);

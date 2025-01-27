@@ -58,6 +58,30 @@ namespace GrabNEat.Controllers
             }
         }
 
+        [HttpGet("{id},{token}")]
+        public async Task<IActionResult> GetId( int id, string token)
+        {
+            if (Program.LoggedInUsers.ContainsKey(token) && Program.LoggedInUsers[token].PermissionId == 9)
+            {
+                try
+                {
+                    using (var cx = new FoodorderContext())
+                    {
+                        return Ok(await cx.Users.FirstOrDefaultAsync(f => f.Id == id));
+
+                    }
+                }
+                catch (Exception e)
+                {
+                    return BadRequest(e.InnerException?.Message);
+                }
+            }
+            else
+            {
+                return BadRequest("Nincs jogod hozzá");
+            }
+        }
+
 
         [HttpPost("{token}")]
         public IActionResult Post(string token, User user)

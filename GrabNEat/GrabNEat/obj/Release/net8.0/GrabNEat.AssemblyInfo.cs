@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GrabNEat")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7ff5c526759b9f8510f64ff04d097c22bcf4884c")]
 [assembly: System.Reflection.AssemblyProductAttribute("GrabNEat")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GrabNEat")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -4,10 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 
-
-
 namespace GrabNEat.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class LoginController : ControllerBase
     {
         [HttpPost("SaltRequest/{loginName}")]

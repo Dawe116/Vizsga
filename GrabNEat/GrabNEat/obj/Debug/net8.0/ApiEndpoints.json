@@ -1,5 +1,42 @@
 [
   {
+    "ContainingType": "GrabNEat.Controllers.BackupRestoreController",
+    "Method": "SQLBackupAsync",
+    "RelativePath": "api/BackupRestore/Backup/{token},{fileName}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "fileName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GrabNEat.Controllers.BackupRestoreController",
+    "Method": "SQLRestoreAsync",
+    "RelativePath": "api/BackupRestore/Restore/{token}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "GrabNEat.Controllers.FileUploadController",
     "Method": "FileUploadBackEnd",
     "RelativePath": "api/FileUpload/BackEndServer",
@@ -17,6 +54,80 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GrabNEat.Controllers.JelszoController",
+    "Method": "ElfelejtettJelszo",
+    "RelativePath": "api/Jelszo/{Email}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "Email",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GrabNEat.Controllers.JelszoController",
+    "Method": "JelszoMosositas",
+    "RelativePath": "api/Jelszo/{loginName},{oldPassword},{newPassword}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginName",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "oldPassword",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "newPassword",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GrabNEat.Controllers.LoginController",
+    "Method": "Login",
+    "RelativePath": "api/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginDTO",
+        "Type": "GrabNEat.DTOs.LoginDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GrabNEat.Controllers.LoginController",
+    "Method": "SaltRequest",
+    "RelativePath": "api/Login/SaltRequest/{loginName}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginName",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -111,6 +222,48 @@
   },
   {
     "ContainingType": "GrabNEat.Controllers.UserController",
+    "Method": "Put",
+    "RelativePath": "api/User/{token}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "user",
+        "Type": "GrabNEat.Models.User",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GrabNEat.Controllers.UserController",
+    "Method": "Post",
+    "RelativePath": "api/User/{token},{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "GrabNEat.Controllers.UserController",
     "Method": "GetEmailName",
     "RelativePath": "EmailName/{token}",
     "HttpMethod": "GET",
@@ -119,22 +272,6 @@
     "Parameters": [
       {
         "Name": "token",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "GrabNEat.Controllers.LoginController",
-    "Method": "SaltRequest",
-    "RelativePath": "SaltRequest/{loginName}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "loginName",
         "Type": "System.String",
         "IsRequired": true
       }
