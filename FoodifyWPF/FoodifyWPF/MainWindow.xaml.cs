@@ -1,5 +1,6 @@
 ﻿using FoodifyWPF.Models;
 using FoodifyWPF.Windows;
+using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows;
@@ -52,6 +53,11 @@ namespace FoodifyWPF
             }
         }
         #endregion
+
+        public static HttpClient sharedClient = new HttpClient() {
+            BaseAddress = new Uri("http://localhost:5000/")
+        };
+
         public MainWindow()
         {
             InitializeComponent();
@@ -60,6 +66,7 @@ namespace FoodifyWPF
         private void OpenLoginWindow_Click(object sender, RoutedEventArgs e)
         {
             LoginWindow loginWindow = new LoginWindow();
+            loginWindow.client = sharedClient;
             loginWindow.ShowDialog();
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,14 +20,18 @@ namespace FoodifyWPF.Windows
     /// </summary>
     public partial class LoginWindow : Window
     {
+        public HttpClient client;
         public LoginWindow()
         {
             InitializeComponent();
         }
 
-        private void Login_Click(object sender, RoutedEventArgs e)
+        private async void Login_Click(object sender, RoutedEventArgs e)
         {
-            
+            var response = await client.PostAsync($"api/Login/SaltRequest/{tbxUsername.Text}", new StringContent(tbxUsername.Text, Encoding.UTF8, "text/plain"));
+
+            string salt = await response.Content.ReadAsStringAsync();
+            MessageBox.Show(salt);
         }
 
         private void Cancel_Clcik(object sender, RoutedEventArgs e)
