@@ -7,79 +7,49 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../CSS/kosarstyle.css">
   <link rel="icon" type="image/x-icon" href="../img/foodify_logo.jpg">
-    <title>Kosár</title>
+    <title>Kosár / Foodify</title>
 </head>
 <body>
   <header>
     <!--NavBar-->
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <span class="navbar-brand mb-0 h1" ><img id="title" src="../img/foodify_logo.jpg" alt="Logónk"></span>
+          <span class="navbar-brand mb-0 h1" ><a href="fooldal.html"><img id="title" src="../img/foodify_logo.jpg" alt="Logónk"></a></span>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-              <li class="nav-item">
-                <a href="fooldal.html"><div class="icon icon-fill"><i><img id="home" src="../img/house-door-fill.svg" alt="Home Page"></i></div></a>
-              </li>
-              
-              <li class="nav-item">
-                <div class="icon icon-enter"><i> <img id="shop" src="../img/shop.svg" alt="Üzletek"></i></div>
-              </li>
-
-              <li class="nav-item">
-                <div class="icon icon-expand"> <i class="fa fa-bars"></i></div>
-              </li>
-
-              <li class="nav-item">
-                <div class="icon icon-collapse"><i> <img id="three-dots" src="../img/three-dots.svg" alt=""></i></div>
-              </li>
-
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <div class="icon icon-rotate"><i class="fa fa-phone"></i></div>
+              <ul id="main">
+                <li><a href="fooldal.html">Főoldal</a></li>
+                <li>Rólunk</li>
+                <li>Fiókom
+                  <ul class="drop">
+                    <div>
+                      <li><span id="openModal">Bejelentkezés</span></li>
+                      <li>Regisztráció</li>
+                      <li>Elfelejtett jelszó</li>
+                      <li>Segítség</li>
+                    </div>
+                  </ul>
                 </li>
-              </ul>
-
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Action</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-
-
+                <li><a href="kosar.html">Kosár</a></li>
+                <li>Kapcsolat</li>
+                <div id="marker"></div>
             </ul>
-            
-            <div id="jobb">
-              <li class="nav-item">
-                <a href="fooldal.html"><div class="icon icon-fill"><i><img id="cart" src="../img/cart4.svg" alt="Home Page"></i></div></a>
-              </li>
-            </div>
-          
-            <div id="jobb">
-                <li class="nav-item">
-                  <button id="openModal"><div class="icon icon-rotate"><i><img id="profile" src="../img/person-circle.svg"  alt="Profile"></i></div></button>
-                </li>
-            </div>
-
+          </div>
           </div>
         </div>
       </nav>
+
       <!--NavBar vége-->
   </header>
-  
+
+
+
+
             <!-- A modál -->
-            <div id="myModal" class="modal">
-        
-            </div>
-                   <!-- A modál vége -->
-  
+      <div id="myModal" class="modal"></div>
+             <!-- A modál vége -->
       
-    <script src="../JavaScripts/kosarjs.js"></script>
+    <script src="../JavaScripts/fooldaljs.js"></script>
 </body>
 </html>
