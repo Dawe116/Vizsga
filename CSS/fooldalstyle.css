@@ -270,7 +270,7 @@ text-decoration: none;
     }
   }
 }
-/*--------------Kategória Választókártya vége------------------*/
+/*---------------------------------------------Kategória Választókártya vége----------------------------*/
 
 h1{
   margin-bottom: 40px;
@@ -280,7 +280,7 @@ h1{
   margin: 40px;
 }
 
-/*-----------Éttermek---------------*/
+/*-----------------------------------------------Éttermek------------------------------------------------------------*/
 
 @import url("https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap");
 :root {
@@ -368,7 +368,7 @@ h1{
   background-image: url("../img/pizzahut_ettermek.png");
 }
 
-.content {
+.content_etterem {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -378,7 +378,7 @@ h1{
   transition: transform var(--d) var(--e);
   z-index: 1;
 }
-.content > * + * {
+.content_etterem > * + * {
   margin-top: 1rem;
 }
 
@@ -386,6 +386,7 @@ h1{
   font-size: 1.3rem;
   font-weight: bold;
   line-height: 1.2;
+  color: black;
 }
 
 .copy {
@@ -420,10 +421,10 @@ h1{
     transform: translateY(0);
   }
 
-  .content {
+  .content_etterem {
     transform: translateY(calc(100% - 4.5rem));
   }
-  .content > *:not(.title) {
+  .content_etterem > *:not(.title) {
     opacity: 0;
     transform: translateY(1rem);
     transition: transform var(--d) var(--e), opacity var(--d) var(--e);
@@ -441,24 +442,20 @@ h1{
 .card:focus-within:after {
     transform: translateY(-50%);
   }
-  .card:hover .content,
-.card:focus-within .content {
+  .card:hover .content_etterem,
+.card:focus-within .content_etterem {
     transform: translateY(0);
   }
-  .card:hover .content > *:not(.title),
-.card:focus-within .content > *:not(.title) {
+  .card:hover .content_etterem > *:not(.title),
+.card:focus-within .content_etterem > *:not(.title) {
     opacity: 1;
     transform: translateY(0);
     transition-delay: calc(var(--d) / 8);
   }
 
   .card:focus-within:before, .card:focus-within:after,
-.card:focus-within .content,
-.card:focus-within .content > *:not(.title) {
+.card:focus-within .content_etterem,
+.card:focus-within .content_etterem > *:not(.title) {
     transition-duration: 0s;
   }
-}
-
-.title{
-  color: black;
 }
