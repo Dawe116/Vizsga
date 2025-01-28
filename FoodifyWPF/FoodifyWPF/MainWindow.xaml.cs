@@ -68,6 +68,15 @@ namespace FoodifyWPF
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.client = sharedClient;
             loginWindow.ShowDialog();
+            if (uId != "")
+            {
+                mitemFelhasznalok.IsEnabled = true;
+                mitemBejelentkezes.IsEnabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Sikertelen bejelentkezés!");
+            }
         }
     }
 }

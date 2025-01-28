@@ -8,8 +8,12 @@
         Title="Foodify Karbantartó" Height="450" Width="800">
     <Grid>
         <Menu>
-            <MenuItem Header="Bejelentkezés" Click="OpenLoginWindow_Click"/>
-            <MenuItem Header="Felhasználók" IsEnabled="False">
+            <MenuItem Header="Bejelentkezés" 
+                      Click="OpenLoginWindow_Click"
+                      Name="mitemBejelentkezes"/>
+            <MenuItem Header="Felhasználók"
+                      IsEnabled="False"
+                      Name="mitemFelhasznalok">
                 <MenuItem Header="Felhasználók listázása"/>
                 <MenuItem Header="Felhasználók rögzítése"/>
                 <MenuItem Header="Felhasználók törlése"/>

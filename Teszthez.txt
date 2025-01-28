@@ -1,0 +1,3 @@
+Salt: t5PenJw3ITh7aYKQTfLhV5xI9aiBKsnZCYFGWPjN5GZCwbhBMUWmbgSfvvo8VaTd
+tmpHash(teszthez kell): 5f2d17fbbdbd0a8c5e0b8559f5c9b3058d2b7f8ebdb6b85b670815e26b3b8801
+adatb-be lévő hash: 820cbb9f26caea5ab0b35b65bfe6a799ac7223842f808d35e157c6621be4ced5
