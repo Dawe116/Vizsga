@@ -85,5 +85,11 @@ namespace FoodifyWPF
             ListWindow listWindow = new ListWindow();
             listWindow.ShowDialog();
         }
+
+        private void NewUserWindow_Click(object sender, RoutedEventArgs e)
+        {
+            NewUserWindow newUserWindow = new NewUserWindow();
+            newUserWindow.ShowDialog();
+        }
     }
 }

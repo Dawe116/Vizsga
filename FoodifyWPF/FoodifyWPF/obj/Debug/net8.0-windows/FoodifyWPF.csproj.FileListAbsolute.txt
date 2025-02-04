@@ -52,3 +52,5 @@ C:\Users\Dawe\Desktop\Vizsga\Asztali\Vizsga\FoodifyWPF\FoodifyWPF\obj\Debug\net8
 C:\Users\Dawe\Desktop\Vizsga\Asztali\Vizsga\FoodifyWPF\FoodifyWPF\obj\Debug\net8.0-windows\ref\FoodifyWPF.dll
 C:\Users\Dawe\Desktop\Vizsga\Asztali\Vizsga\FoodifyWPF\FoodifyWPF\obj\Debug\net8.0-windows\UserManagemant\ListWindow.g.cs
 C:\Users\Dawe\Desktop\Vizsga\Asztali\Vizsga\FoodifyWPF\FoodifyWPF\obj\Debug\net8.0-windows\UserManagemant\ListWindow.baml
+C:\Users\Dawe\Desktop\Vizsga\Asztali\Vizsga\FoodifyWPF\FoodifyWPF\obj\Debug\net8.0-windows\UserManagemant\NewUserWindow.g.cs
+C:\Users\Dawe\Desktop\Vizsga\Asztali\Vizsga\FoodifyWPF\FoodifyWPF\obj\Debug\net8.0-windows\UserManagemant\NewUserWindow.baml

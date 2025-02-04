@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Users\Dawe\Desktop\Vizsga\Asztali\Vizsga\FoodifyWPF\FoodifyWPF\App.xaml
-3-571447012
+4-2018624121
 
-11649394965
+12-1711261937
 199-1863121733
-MainWindow.xaml;UserManagemant\ListWindow.xaml;Windows\LoginWindow.xaml;
+MainWindow.xaml;UserManagemant\ListWindow.xaml;UserManagemant\NewUserWindow.xaml;Windows\LoginWindow.xaml;
 
 True
 
