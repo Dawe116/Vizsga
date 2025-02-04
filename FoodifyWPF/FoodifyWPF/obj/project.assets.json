@@ -725,23 +725,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dawe116\\.nuget\\packages\\": {},
+    "C:\\Users\\Dawe\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dawe116\\Desktop\\Git\\Dawe116\\Asztali\\FoodifyWPF\\FoodifyWPF\\FoodifyWPF.csproj",
+      "projectUniqueName": "C:\\Users\\Dawe\\Desktop\\Vizsga\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\FoodifyWPF.csproj",
       "projectName": "FoodifyWPF",
-      "projectPath": "C:\\Users\\Dawe116\\Desktop\\Git\\Dawe116\\Asztali\\FoodifyWPF\\FoodifyWPF\\FoodifyWPF.csproj",
-      "packagesPath": "C:\\Users\\Dawe116\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dawe116\\Desktop\\Git\\Dawe116\\Asztali\\FoodifyWPF\\FoodifyWPF\\obj\\",
+      "projectPath": "C:\\Users\\Dawe\\Desktop\\Vizsga\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\FoodifyWPF.csproj",
+      "packagesPath": "C:\\Users\\Dawe\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Dawe\\Desktop\\Vizsga\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Dawe116\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Dawe\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -811,7 +811,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

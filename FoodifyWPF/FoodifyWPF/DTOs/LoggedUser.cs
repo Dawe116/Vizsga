@@ -1,4 +1,4 @@
-﻿namespace GrabNEat.DTOs
+﻿namespace FoodifyWPF.DTOs
 {
     public class LoggedUser
     {

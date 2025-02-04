@@ -1,4 +1,5 @@
 ﻿using FoodifyWPF.Models;
+using FoodifyWPF.UserManagemant;
 using FoodifyWPF.Windows;
 using System.Net.Http;
 using System.Security.Cryptography;
@@ -77,6 +78,12 @@ namespace FoodifyWPF
             {
                 MessageBox.Show("Sikertelen bejelentkezés!");
             }
+        }
+
+        private void UserListWindow_Click(object sender, RoutedEventArgs e)
+        {
+            ListWindow listWindow = new ListWindow();
+            listWindow.ShowDialog();
         }
     }
 }

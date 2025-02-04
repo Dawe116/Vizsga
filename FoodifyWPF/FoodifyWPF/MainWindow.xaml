@@ -14,8 +14,9 @@
             <MenuItem Header="Felhasználók"
                       IsEnabled="False"
                       Name="mitemFelhasznalok">
-                <MenuItem Header="Felhasználók listázása"/>
+                <MenuItem Header="Felhasználók listázása" Click="UserListWindow_Click"/>
                 <MenuItem Header="Felhasználók rögzítése"/>
+                <MenuItem Header="Felhasználók módosítás"/>
                 <MenuItem Header="Felhasználók törlése"/>
             </MenuItem>
         </Menu>
