@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Dawe\\Desktop\\Vizsga\\Asztali\\Vizsga\\FoodifyWPF\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|c:\\users\\dawe\\desktop\\vizsga\\asztali\\vizsga\\foodifywpf\\foodifywpf\\usermanagemant\\newuserwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|solutionrelative:foodifywpf\\usermanagemant\\newuserwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|c:\\users\\dawe\\desktop\\vizsga\\asztali\\vizsga\\foodifywpf\\foodifywpf\\usermanagemant\\newuserwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|solutionrelative:foodifywpf\\usermanagemant\\newuserwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
@@ -13,10 +17,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|c:\\users\\dawe\\desktop\\vizsga\\asztali\\vizsga\\foodifywpf\\foodifywpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|solutionrelative:foodifywpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|c:\\users\\dawe\\desktop\\vizsga\\asztali\\vizsga\\foodifywpf\\foodifywpf\\usermanagemant\\newuserwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|solutionrelative:foodifywpf\\usermanagemant\\newuserwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|c:\\users\\dawe\\desktop\\vizsga\\asztali\\vizsga\\foodifywpf\\foodifywpf\\windows\\loginwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -74,27 +74,27 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "NewUserWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Dawe\\Desktop\\Vizsga\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\UserManagemant\\NewUserWindow.xaml.cs",
               "RelativeDocumentMoniker": "FoodifyWPF\\UserManagemant\\NewUserWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Dawe\\Desktop\\Vizsga\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\UserManagemant\\NewUserWindow.xaml.cs",
               "RelativeToolTip": "FoodifyWPF\\UserManagemant\\NewUserWindow.xaml.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAjwB8AAABbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T12:00:32.552Z"
+              "WhenOpened": "2025-02-04T12:00:32.552Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "NewUserWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Dawe\\Desktop\\Vizsga\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\UserManagemant\\NewUserWindow.xaml",
               "RelativeDocumentMoniker": "FoodifyWPF\\UserManagemant\\NewUserWindow.xaml",
               "ToolTip": "C:\\Users\\Dawe\\Desktop\\Vizsga\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\UserManagemant\\NewUserWindow.xaml",
               "RelativeToolTip": "FoodifyWPF\\UserManagemant\\NewUserWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-04T11:47:06.155Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-04T11:47:06.155Z"
             },
             {
               "$type": "Document",
@@ -121,7 +121,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\Users\\Dawe\\Desktop\\Vizsga\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\MainWindow.xaml",
               "RelativeDocumentMoniker": "FoodifyWPF\\MainWindow.xaml",
@@ -132,7 +132,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Dawe\\Desktop\\Vizsga\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "FoodifyWPF\\MainWindow.xaml.cs",
