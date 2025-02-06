@@ -178,14 +178,10 @@ gap: 10px;
       no-repeat 50% / cover;
   }
   &:nth-of-type(8) {
-    background: url("/public/img/vegetarian_menu.jpg")
-      no-repeat 50% / cover;
-  }
-  &:nth-of-type(9) {
     background: url("/public/img/salads_menu.jpg")
       no-repeat 50% / cover;
   }
-  &:nth-of-type(10) {
+  &:nth-of-type(9) {
     background: url("/public/img/dessert_menu.jpg")
       no-repeat 50% / cover;
   }

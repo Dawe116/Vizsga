@@ -55,17 +55,16 @@ return (
         </div>
         <div>
           <div className="content">
-            <h2 className="kategoria">Vegán</h2>
+            <h2 className="kategoria">Saláták</h2>
             <span className="leiras">Leírás</span>
           </div>
         </div>
         <div>
           <div className="content">
-            <h2 className="kategoria">Saláták</h2>
+            <h2 className="kategoria">Desszert</h2>
             <span className="leiras">Leírás</span>
           </div>
         </div>
-
       </div>
     </div>
 
