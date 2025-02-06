@@ -32,7 +32,7 @@ font-size: 0;
 text-transform: uppercase;
 display: inline-block;
 padding: 0;
-margin: 50px auto;
+margin: auto;
 }
 
 #main li {
@@ -233,7 +233,7 @@ gap: 10px;
 /*---------------------------------------------Kategória Választókártya vége----------------------------*/
 
 h1{
-margin-bottom: 40px;
+margin: 40px;
 }
 
 .etterem{
