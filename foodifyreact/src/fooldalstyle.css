@@ -1,0 +1,425 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  background: #100721;
+  color: white;
+  text-align: center;
+
+  min-height: 2rem;
+    display: grid;
+    place-items: center;
+    background: #100721;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: 400;
+
+    display: grid;
+place-items: center;
+}
+
+#title{
+width: 80px;
+height: 80px;
+border-radius: 100%;
+}
+
+/* -------------------------------------Nav---------------------------------------------------*/
+
+#main {
+position: relative;
+list-style: none;
+background: #6bbe92;
+font-weight: 400;
+font-size: 0;
+text-transform: uppercase;
+display: inline-block;
+padding: 0;
+margin: 50px auto;
+}
+
+#main li {
+font-size: 0.7rem;
+display: inline-block;
+position: relative;
+padding: 15px 20px;
+cursor: pointer;
+z-index: 5;
+min-width: 120px;
+text-align: center;
+}
+
+#main li a {
+display: block;
+color: white;
+text-decoration: none;
+}
+
+.drop {
+overflow: hidden;
+list-style: none;
+position: absolute;
+padding: 0;
+width: 100%;
+left: 0;
+top: 46px;
+visibility: hidden;
+opacity: 0;
+z-index: 10;
+transform: translateY(-20px);
+transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+}
+
+#main li:hover .drop {
+visibility: visible;
+opacity: 1;
+transform: translateY(0);
+}
+
+.drop li {
+display: block;
+padding: 0;
+width: 100%;
+background: #3e8760 !important;
+}
+
+#marker {
+height: 6px;
+background: #3e8760 !important;
+position: absolute;
+bottom: 0;
+width: 120px;
+z-index: 2;
+-webkit-transition: all 0.35s;
+-moz-transition: all 0.35s;
+-ms-transition: all 0.35s;
+transition: all 0.35s;
+transform: translateX(0px);
+}
+
+#main li:nth-child(1):hover ~ #marker {
+transform: translateX(0px);
+}
+
+#main li:nth-child(2):hover ~ #marker {
+transform: translateX(120px);
+}
+
+#main li:nth-child(3):hover ~ #marker {
+transform: translateX(240px);
+}
+
+#main li:nth-child(4):hover ~ #marker {
+transform: translateX(360px);
+}
+
+#main li:nth-child(5):hover ~ #marker {
+transform: translateX(480px);
+}
+
+#main li:nth-child(1):hover ul div,
+#main li:nth-child(2):hover ul div,
+#main li:nth-child(3):hover ul div,
+#main li:nth-child(4):hover ul div,
+#main li:nth-child(5):hover ul div {
+-webkit-transform: translate(0, 0);
+-moz-transform: translate(0, 0);
+-ms-transform: translate(0, 0);
+transform: translate(0, 0);
+}
+
+a{
+color: white;
+text-decoration: none;
+}
+
+/*---------Nav vége------------*/
+
+/*---------------Kategória Választókártya-------------*/
+.container {
+width: 100%;
+display: flex;
+justify-content: center;
+height: 500px;
+gap: 10px;
+
+> div {
+  flex: 0 0 120px;
+  border-radius: 0.5rem;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  box-shadow: 1px 5px 15px #1e0e3e;
+  position: relative;
+  overflow: hidden;
+
+  &:nth-of-type(1) {
+    background: url("/public/img/hambugers_menu.jpg")
+      no-repeat 50% / cover;
+  }
+  &:nth-of-type(2) {
+    background: url("/public/img/pizzas_menu.jpg")
+      no-repeat 50% / cover;
+  }
+  &:nth-of-type(3) {
+    background: url("/public/img/hungarian_menu.jpg")
+      no-repeat 50% / cover;
+  }
+  &:nth-of-type(4) {
+    background: url("/public/img/american_menu.jpg")
+      no-repeat 50% / cover;
+  }
+  &:nth-of-type(5) {
+    background: url("/public/img/italian_menu.jpg")
+      no-repeat 50% / cover;
+  }
+  &:nth-of-type(6) {
+    background: url("/public/img/gyros_menu.jpg")
+      no-repeat 50% / cover;
+  }
+  &:nth-of-type(7) {
+    background: url("/public/img/asian_menu.jpg")
+      no-repeat 50% / cover;
+  }
+  &:nth-of-type(8) {
+    background: url("/public/img/vegetarian_menu.jpg")
+      no-repeat 50% / cover;
+  }
+  &:nth-of-type(9) {
+    background: url("/public/img/salads_menu.jpg")
+      no-repeat 50% / cover;
+  }
+  &:nth-of-type(10) {
+    background: url("/public/img/dessert_menu.jpg")
+      no-repeat 50% / cover;
+  }
+
+  .content {
+    font-size: 1.5rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    opacity: 0;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-end;
+    background: rgb(2, 2, 46);
+    background: linear-gradient(
+      0deg,
+      rgba(2, 2, 46, 0.6755077030812324) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: translatey(100%);
+    transition: opacity 0.5s ease-in-out, transform 0.5s 0.2s;
+    visibility: hidden;
+
+    span {
+      display: block;
+      margin-top: 5px;
+      font-size: 1.2rem;
+    }
+  }
+
+  &:hover {
+    flex: 0 0 250px;
+    box-shadow: 1px 3px 15px #7645d8;
+    transform: translatey(-30px);
+  }
+
+  &:hover .content {
+    opacity: 1;
+    transform: translatey(0%);
+    visibility: visible;
+  }
+}
+}
+/*---------------------------------------------Kategória Választókártya vége----------------------------*/
+
+h1{
+margin-bottom: 40px;
+}
+
+.etterem{
+margin: 40px;
+}
+
+/*-----------------------------------------------Éttermek------------------------------------------------------------*/
+
+@import url("https://fonts.googleapis.com/css?family=Cardo:400i|Rubik:400,700&display=swap");
+:root {
+--d: 700ms;
+--e: cubic-bezier(0.19, 1, 0.22, 1);
+--font-sans: "Rubik", sans-serif;
+--font-serif: "Cardo", serif;
+}
+
+* {
+box-sizing: border-box;
+}
+
+.page-content {
+display: grid;
+grid-gap: 1rem;
+padding: 1rem;
+max-width: 1024px;
+margin: 0 auto;
+font-family: var(--font-sans);
+}
+@media (min-width: 600px) {
+.page-content {
+  grid-template-columns: repeat(2, 1fr);
+}
+}
+@media (min-width: 800px) {
+.page-content {
+  grid-template-columns: repeat(4, 1fr);
+}
+}
+
+.card {
+position: relative;
+display: flex;
+align-items: flex-end;
+overflow: hidden;
+padding: 1rem;
+width: 100%;
+text-align: center;
+color: whitesmoke;
+background-color: whitesmoke;
+box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1);
+}
+@media (min-width: 600px) {
+.card {
+  height: 350px;
+}
+}
+.card:before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 110%;
+background-size: cover;
+background-position: 0 0;
+transition: transform calc(var(--d) * 1.5) var(--e);
+pointer-events: none;
+}
+.card:after {
+content: "";
+display: block;
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 200%;
+pointer-events: none;
+background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.009) 11.7%, rgba(0, 0, 0, 0.034) 22.1%, rgba(0, 0, 0, 0.072) 31.2%, rgba(0, 0, 0, 0.123) 39.4%, rgba(0, 0, 0, 0.182) 46.6%, rgba(0, 0, 0, 0.249) 53.1%, rgba(0, 0, 0, 0.32) 58.9%, rgba(0, 0, 0, 0.394) 64.3%, rgba(0, 0, 0, 0.468) 69.3%, rgba(0, 0, 0, 0.54) 74.1%, rgba(0, 0, 0, 0.607) 78.8%, rgba(0, 0, 0, 0.668) 83.6%, rgba(0, 0, 0, 0.721) 88.7%, rgba(0, 0, 0, 0.762) 94.1%, rgba(0, 0, 0, 0.79) 100%);
+transform: translateY(-50%);
+transition: transform calc(var(--d) * 2) var(--e);
+}
+.card:nth-child(1):before {
+background-image: url("/public/img/mcdonalds_ettermek.avif");
+}
+.card:nth-child(2):before {
+background-image: url("/public/img/burgerking_ettermek.jpg");
+}
+.card:nth-child(3):before {
+background-image: url("/public/img/kfc_ettermek.avif");
+}
+.card:nth-child(4):before {
+background-image: url("/public/img/pizzahut_ettermek.png");
+}
+
+.content_etterem {
+position: relative;
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
+padding: 1rem;
+transition: transform var(--d) var(--e);
+z-index: 1;
+}
+.content_etterem > * + * {
+margin-top: 1rem;
+}
+
+.title {
+font-size: 1.3rem;
+font-weight: bold;
+line-height: 1.2;
+color: black;
+}
+
+.copy {
+font-family: var(--font-serif);
+font-size: 1.125rem;
+font-style: italic;
+line-height: 1.35;
+}
+
+.btn {
+cursor: pointer;
+margin-top: 1.5rem;
+padding: 0.75rem 1.5rem;
+font-size: 0.65rem;
+font-weight: bold;
+letter-spacing: 0.025rem;
+text-transform: uppercase;
+color: white;
+background-color: black;
+border: none;
+}
+.btn:hover {
+background-color: #0d0d0d;
+}
+.btn:focus {
+outline: 1px dashed yellow;
+outline-offset: 3px;
+}
+
+@media (hover: hover) and (min-width: 600px) {
+.card:after {
+  transform: translateY(0);
+}
+
+.content_etterem {
+  transform: translateY(calc(100% - 4.5rem));
+}
+.content_etterem > *:not(.title) {
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: transform var(--d) var(--e), opacity var(--d) var(--e);
+}
+
+.card:hover,
+.card:focus-within {
+  align-items: center;
+}
+.card:hover:before,
+.card:focus-within:before {
+  transform: translateY(-4%);
+}
+.card:hover:after,
+.card:focus-within:after {
+  transform: translateY(-50%);
+}
+.card:hover .content_etterem,
+.card:focus-within .content_etterem {
+  transform: translateY(0);
+}
+.card:hover .content_etterem > *:not(.title),
+.card:focus-within .content_etterem > *:not(.title) {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: calc(var(--d) / 8);
+}
+
+.card:focus-within:before, .card:focus-within:after,
+.card:focus-within .content_etterem,
+.card:focus-within .content_etterem > *:not(.title) {
+  transition-duration: 0s;
+}
+}
+
+
+/*-----------------------------------------------------*/
+
