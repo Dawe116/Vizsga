@@ -1,4 +1,4 @@
 NetHely: 
-maszball999@gmail.com
+maszbal999@gmail.com
 Jelszó:
-  MaszBallKuki999
+  MaszBalKuki999
