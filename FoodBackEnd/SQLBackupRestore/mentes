@@ -1,0 +1,154 @@
+-- MySqlBackup.NET 2.3.8.0
+-- Dump Time: 2025-01-27 11:06:31
+-- --------------------------------------
+-- Server version 10.4.32-MariaDB mariadb.org binary distribution
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+-- 
+-- Definition of county
+-- 
+
+DROP TABLE IF EXISTS `county`;
+CREATE TABLE IF NOT EXISTS `county` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(100) NOT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `Name` (`Name`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+-- 
+-- Dumping data for table county
+-- 
+
+/*!40000 ALTER TABLE `county` DISABLE KEYS */;
+INSERT INTO `county`(`Id`,`Name`) VALUES(1,'Bács-Kiskun'),(2,'Baranya'),(3,'Békés'),(4,'Borsod-Abaúj-Zemplén'),(5,'Csongrád-Csanád'),(6,'Fejér'),(7,'Győr-Moson-Sopron'),(8,'Hajdú-Bihar'),(9,'Heves'),(10,'Jász-Nagykun-Szolnok'),(11,'Komárom-Esztergom'),(12,'Nógrád'),(13,'Pest'),(14,'Somogy'),(15,'Szabolcs-Szatmár-Bereg'),(16,'Tolna'),(17,'Vas'),(18,'Veszprém'),(19,'Zala');
+/*!40000 ALTER TABLE `county` ENABLE KEYS */;
+
+-- 
+-- Definition of restaurant
+-- 
+
+DROP TABLE IF EXISTS `restaurant`;
+CREATE TABLE IF NOT EXISTS `restaurant` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(50) NOT NULL,
+  `Address_Id` int(11) NOT NULL,
+  `Menu_Id` int(11) NOT NULL,
+  PRIMARY KEY (`Id`),
+  UNIQUE KEY `Name` (`Name`),
+  KEY `Menu_Id` (`Menu_Id`),
+  KEY `Address_Id` (`Address_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+-- 
+-- Dumping data for table restaurant
+-- 
+
+/*!40000 ALTER TABLE `restaurant` DISABLE KEYS */;
+
+/*!40000 ALTER TABLE `restaurant` ENABLE KEYS */;
+
+-- 
+-- Definition of address
+-- 
+
+DROP TABLE IF EXISTS `address`;
+CREATE TABLE IF NOT EXISTS `address` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `County_Id` int(11) NOT NULL,
+  `Postal_code` int(4) NOT NULL,
+  `City` varchar(100) NOT NULL,
+  `Street` varchar(100) NOT NULL,
+  `House_number` varchar(10) NOT NULL,
+  `Floor` int(5) DEFAULT NULL,
+  `Door` int(5) DEFAULT NULL,
+  PRIMARY KEY (`Id`),
+  UNIQUE KEY `County` (`County_Id`),
+  UNIQUE KEY `Postal_code` (`Postal_code`),
+  UNIQUE KEY `County_Id` (`County_Id`),
+  UNIQUE KEY `Postal_code_2` (`Postal_code`),
+  KEY `County_Id_2` (`County_Id`),
+  CONSTRAINT `address_ibfk_1` FOREIGN KEY (`Id`) REFERENCES `restaurant` (`Address_Id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+-- 
+-- Dumping data for table address
+-- 
+
+/*!40000 ALTER TABLE `address` DISABLE KEYS */;
+
+/*!40000 ALTER TABLE `address` ENABLE KEYS */;
+
+-- 
+-- Definition of menu
+-- 
+
+DROP TABLE IF EXISTS `menu`;
+CREATE TABLE IF NOT EXISTS `menu` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(50) NOT NULL,
+  `Picture` mediumblob NOT NULL,
+  PRIMARY KEY (`Id`),
+  UNIQUE KEY `Name` (`Name`),
+  CONSTRAINT `menu_ibfk_1` FOREIGN KEY (`Id`) REFERENCES `restaurant` (`Menu_Id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+-- 
+-- Dumping data for table menu
+-- 
+
+/*!40000 ALTER TABLE `menu` DISABLE KEYS */;
+
+/*!40000 ALTER TABLE `menu` ENABLE KEYS */;
+
+-- 
+-- Definition of user
+-- 
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `LoginNev` varchar(16) NOT NULL,
+  `HASH` varchar(64) NOT NULL,
+  `SALT` varchar(64) NOT NULL,
+  `Name` varchar(64) NOT NULL,
+  `PermissionId` int(11) NOT NULL,
+  `Active` tinyint(1) NOT NULL,
+  `Email` varchar(64) NOT NULL,
+  `ProfilePicturePath` varchar(64) NOT NULL,
+  PRIMARY KEY (`Id`),
+  UNIQUE KEY `LoginNev` (`LoginNev`),
+  UNIQUE KEY `Email` (`Email`),
+  KEY `Jog` (`PermissionId`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_hungarian_ci;
+
+-- 
+-- Dumping data for table user
+-- 
+
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user`(`Id`,`LoginNev`,`HASH`,`SALT`,`Name`,`PermissionId`,`Active`,`Email`,`ProfilePicturePath`) VALUES(1,'kerenyir','d5fe0e517520122f1ab363b6b7ee9ae616e7ad393693ef00d81a7f287a79931a','Gm63C4jiWnYvfZfiKUu2cu8AHPNDj8NoHhtQn88yiJhyOunBNSd7tRoWo5wwqg9X','Kerényi Róbert',2,1,'kerenyir@kkszki.hu','img\\kerenyir.jpg'),(11,'zalanhaha','473287f8298dba7163a897908958f7c0eae733e25d2e027992ea2edc9bed2fa8','string','string',1,0,'zimazalan@gmail.com','string'),(12,'zalankandos','473287f8298dba7163a897908958f7c0eae733e25d2e027992ea2edc9bed2fa8','string','string',1,1,'zimaz@kkszki.hu','string');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+
+-- Dump completed on 2025-01-27 11:06:32
+-- Total time: 0:0:0:0:235 (d:h:m:s:ms)
