@@ -101,6 +101,63 @@ return (
       <button class="btn">Rendelés</button>
     </div>
   </div>
+  <div class="card">
+    <div class="content_etterem">
+      <h2 class="title">McDonald's®</h2>
+      <p class="copy">I'm lovin' it</p>
+      <button class="btn">Rendelés</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="content_etterem">
+      <h2 class="title">BURGER KING®</h2>
+      <p class="copy">Pont, ahogy szereted!</p>
+      <button class="btn">Rendelés</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="content_etterem">
+      <h2 class="title">KFC</h2>
+      <p class="copy">A frissen készült étel a legfinomabb.</p>
+      <button class="btn">Rendelés</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="content_etterem">
+      <h2 class="title">Pizza Hut</h2>
+      <p class="copy">No One Outpizzas the Hut!</p>
+      <button class="btn">Rendelés</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="content_etterem">
+      <h2 class="title">McDonald's®</h2>
+      <p class="copy">I'm lovin' it</p>
+      <button class="btn">Rendelés</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="content_etterem">
+      <h2 class="title">BURGER KING®</h2>
+      <p class="copy">Pont, ahogy szereted!</p>
+      <button class="btn">Rendelés</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="content_etterem">
+      <h2 class="title">KFC</h2>
+      <p class="copy">A frissen készült étel a legfinomabb.</p>
+      <button class="btn">Rendelés</button>
+    </div>
+  </div>
+  <div class="card">
+    <div class="content_etterem">
+      <h2 class="title">Pizza Hut</h2>
+      <p class="copy">No One Outpizzas the Hut!</p>
+      <button class="btn">Rendelés</button>
+    </div>
+  </div>
+  
 </div>
 </div>
     );

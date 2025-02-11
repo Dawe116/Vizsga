@@ -1,0 +1,133 @@
+body {
+  font-family: "Open Sans", sans-serif;
+  background: #100721;
+  color: white;
+  text-align: center;
+
+  min-height: 2rem;
+    display: grid;
+    place-items: center;
+    background: #100721;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: 400;
+
+    display: grid;
+place-items: center;
+}
+
+#title{
+width: 80px;
+height: 80px;
+border-radius: 100%;
+}
+
+/* -------------------------------------Nav---------------------------------------------------*/
+
+#main {
+position: relative;
+list-style: none;
+background: #6bbe92;
+font-weight: 400;
+font-size: 0;
+text-transform: uppercase;
+display: inline-block;
+padding: 0;
+margin: auto;
+}
+
+#main li {
+font-size: 0.7rem;
+display: inline-block;
+position: relative;
+padding: 15px 20px;
+cursor: pointer;
+z-index: 5;
+min-width: 120px;
+text-align: center;
+}
+
+#main li a {
+display: block;
+color: white;
+text-decoration: none;
+}
+
+.drop {
+overflow: hidden;
+list-style: none;
+position: absolute;
+padding: 0;
+width: 100%;
+left: 0;
+top: 46px;
+visibility: hidden;
+opacity: 0;
+z-index: 10;
+transform: translateY(-20px);
+transition: opacity 0.5s ease, visibility 0.5s ease, transform 0.5s ease;
+}
+
+#main li:hover .drop {
+visibility: visible;
+opacity: 1;
+transform: translateY(0);
+}
+
+.drop li {
+display: block;
+padding: 0;
+width: 100%;
+background: #3e8760 !important;
+}
+
+#marker {
+height: 6px;
+background: #3e8760 !important;
+position: absolute;
+bottom: 0;
+width: 120px;
+z-index: 2;
+-webkit-transition: all 0.35s;
+-moz-transition: all 0.35s;
+-ms-transition: all 0.35s;
+transition: all 0.35s;
+transform: translateX(0px);
+}
+
+#main li:nth-child(1):hover ~ #marker {
+transform: translateX(0px);
+}
+
+#main li:nth-child(2):hover ~ #marker {
+transform: translateX(120px);
+}
+
+#main li:nth-child(3):hover ~ #marker {
+transform: translateX(240px);
+}
+
+#main li:nth-child(4):hover ~ #marker {
+transform: translateX(360px);
+}
+
+#main li:nth-child(5):hover ~ #marker {
+transform: translateX(480px);
+}
+
+#main li:nth-child(1):hover ul div,
+#main li:nth-child(2):hover ul div,
+#main li:nth-child(3):hover ul div,
+#main li:nth-child(4):hover ul div,
+#main li:nth-child(5):hover ul div {
+-webkit-transform: translate(0, 0);
+-moz-transform: translate(0, 0);
+-ms-transform: translate(0, 0);
+transform: translate(0, 0);
+}
+
+a{
+color: white;
+text-decoration: none;
+}
+
+/*---------Nav vége------------*/
