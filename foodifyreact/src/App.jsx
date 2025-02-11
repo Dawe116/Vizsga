@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-do
 import './fooldalstyle.css';
 import { FoodifyHome } from "./FoodifyHome";
 import { Kosar } from "./Kosar";
+import { Kapcsolat } from "./Kapcsolat";
 export const App = () => {
 
   return (
@@ -27,7 +28,7 @@ export const App = () => {
                   </ul>
                 </li>
                  <li><NavLink to="./Kosar">Kosár</NavLink></li> 
-                <li>Kapcsolat</li>
+                <li><NavLink to="./Kapcsolat">Kapcsolat</NavLink></li>
                 <div id="marker"></div>
             </ul>
             </ul>
@@ -40,6 +41,7 @@ export const App = () => {
               <Route path="/" element={<FoodifyHome />} />
               <Route path="*" element={<FoodifyHome />} />
               <Route path="/Kosar" element={<Kosar />} />
+              <Route path="/Kapcsolat" element={<Kapcsolat />} />
             </Routes>
           </Router>
 
