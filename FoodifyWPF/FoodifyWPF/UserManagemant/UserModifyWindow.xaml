@@ -1,0 +1,70 @@
+﻿<Window x:Class="FoodifyWPF.UserManagemant.UserModifyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FoodifyWPF.UserManagemant"
+        mc:Ignorable="d"
+        Title="Felhasználó módosítása" Height="500" Width="400">
+
+        <Window.Resources>
+            <Style TargetType="Button">
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="Padding" Value="10"/>
+            </Style>
+        </Window.Resources>
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel>
+            <ComboBox Name="cbxUsers" SelectionChanged="cbxUsers_SelectionChanged" />
+            <Label Content="Felhasználónév:"/>
+                <TextBox x:Name="txbUsername"/>
+
+
+                <Label Content="Teljes név:"/>
+                <TextBox x:Name="txbFullName"/>
+
+                <Label Content="Email:"/>
+                <TextBox x:Name="txbEmail"/>
+
+                <Label Content="Jogosultság:"/>
+                <ComboBox x:Name="cbxPermission"/>
+
+
+            <CheckBox x:Name="cbActive" Content="Aktív" IsChecked="True" />
+                <Label Content="ProfilKép"/>
+                <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                    
+                <Image Name="imgProfilePics"
+                Width="100"
+                Height="100"
+                Stretch="UniformToFill"
+                Margin="5"/>
+
+                    <TextBlock Name="tbProfilPics"
+                    Text="Nincs kiválasztva"
+                    VerticalAlignment="Center"
+                    Margin="5"/>
+
+                    <Button Content="Kép kiválasztása"
+                 Height="40"
+                 Padding="10"
+                 Click="ImageSelect_Click"
+                 Margin="5"/>
+                    
+                </StackPanel>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
+                <Button Content="Mentés" Click="Save_Click"/>
+                <Button Content="Mégse" Click="Cancel_Click"/>
+                <Button Content="Törlés" Click="DeleteUser_Click"/>
+        </StackPanel>
+        </Grid>
+</Window>

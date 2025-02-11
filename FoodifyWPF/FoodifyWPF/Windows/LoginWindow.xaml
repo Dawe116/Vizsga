@@ -21,10 +21,10 @@
     <Grid>
         <StackPanel>
             <Label Content="Felhasználónév: "/>
-            <TextBox Name="tbxUsername"/>
+            <TextBox Name="tbxUsername" Text="Dawe"/>
 
             <Label Content="Jelszó: "/>
-            <PasswordBox Name="tbxPassword" />
+            <PasswordBox Name="tbxPassword" Password="cigany"/>
             
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Content="Bejelentkezés" Click="Login_Click"/>

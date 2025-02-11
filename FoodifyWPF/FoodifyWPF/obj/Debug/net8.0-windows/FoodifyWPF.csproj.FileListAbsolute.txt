@@ -54,3 +54,7 @@ C:\Users\Dawe\Desktop\Vizsga\Asztali\Vizsga\FoodifyWPF\FoodifyWPF\obj\Debug\net8
 C:\Users\Dawe\Desktop\Vizsga\Asztali\Vizsga\FoodifyWPF\FoodifyWPF\obj\Debug\net8.0-windows\UserManagemant\ListWindow.baml
 C:\Users\Dawe\Desktop\Vizsga\Asztali\Vizsga\FoodifyWPF\FoodifyWPF\obj\Debug\net8.0-windows\UserManagemant\NewUserWindow.g.cs
 C:\Users\Dawe\Desktop\Vizsga\Asztali\Vizsga\FoodifyWPF\FoodifyWPF\obj\Debug\net8.0-windows\UserManagemant\NewUserWindow.baml
+C:\Users\Dawe\Desktop\Vizsga\Asztali\Vizsga\FoodifyWPF\FoodifyWPF\obj\Debug\net8.0-windows\UserManagemant\UserModifyWindow.g.cs
+C:\Users\Dawe\Desktop\Vizsga\Asztali\Vizsga\FoodifyWPF\FoodifyWPF\obj\Debug\net8.0-windows\UserManagemant\DeleteUserWindow.g.cs
+C:\Users\Dawe\Desktop\Vizsga\Asztali\Vizsga\FoodifyWPF\FoodifyWPF\obj\Debug\net8.0-windows\UserManagemant\UserModifyWindow.baml
+C:\Users\Dawe\Desktop\Vizsga\Asztali\Vizsga\FoodifyWPF\FoodifyWPF\obj\Debug\net8.0-windows\UserManagemant\DeleteUserWindow.baml

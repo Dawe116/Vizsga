@@ -16,8 +16,7 @@
                       Name="mitemFelhasznalok">
                 <MenuItem Header="Felhasználók listázása" Click="UserListWindow_Click"/>
                 <MenuItem Header="Felhasználók rögzítése" Click="NewUserWindow_Click"/>
-                <MenuItem Header="Felhasználók módosítás"/>
-                <MenuItem Header="Felhasználók törlése"/>
+                <MenuItem Header="Felhasználók módosítás" Click="UserModify_Click"/>
             </MenuItem>
         </Menu>
     </Grid>

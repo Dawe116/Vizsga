@@ -91,5 +91,12 @@ namespace FoodifyWPF
             NewUserWindow newUserWindow = new NewUserWindow();
             newUserWindow.ShowDialog();
         }
+
+        private void UserModify_Click(object sender, RoutedEventArgs e)
+        {
+            UserModifyWindow userModifyWindow = new UserModifyWindow();
+            userModifyWindow.ShowDialog();
+        }
+
     }
 }
