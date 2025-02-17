@@ -44,6 +44,6 @@ export const App = () => {
               <Route path="/Kapcsolat" element={<Kapcsolat />} />
             </Routes>
           </Router>
-
+      
   );
 };
