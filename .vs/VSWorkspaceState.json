@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\FoodifyWPF",
+    "\\FoodifyWPF\\FoodifyWPF"
   ],
-  "SelectedNode": "\\C:\\Users\\Zalan\\Source\\Repos\\Vizsga",
+  "SelectedNode": "\\FoodifyWPF\\FoodifyWPF\\obj",
   "PreviewInSolutionExplorer": false
 }

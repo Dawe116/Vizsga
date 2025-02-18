@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace FoodBackEnd.Models;
 
@@ -22,10 +23,10 @@ public partial class User
     public string Email { get; set; } = null!;
 
     public string ProfilePicturePath { get; set; } = null!;
-
+    [JsonIgnore]
     public virtual Address? Address { get; set; }
-
+    [JsonIgnore]
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
-
+    [JsonIgnore]
     public virtual Permission? Permission { get; set; } = null!;
 }
