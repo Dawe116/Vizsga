@@ -25,7 +25,5 @@ public partial class Address
 
     public virtual County County { get; set; } = null!;
 
-    public virtual ICollection<Restaurant> Restaurants { get; set; } = new List<Restaurant>();
-
     public virtual User User { get; set; } = null!;
 }

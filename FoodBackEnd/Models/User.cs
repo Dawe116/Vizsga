@@ -25,5 +25,7 @@ public partial class User
 
     public virtual Address? Address { get; set; }
 
-    public virtual Permission?    Permission { get; set; } = null!;
+    public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
+
+    public virtual Permission? Permission { get; set; } = null!;
 }

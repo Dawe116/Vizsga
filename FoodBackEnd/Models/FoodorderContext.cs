@@ -21,11 +21,15 @@ public partial class FoodorderContext : DbContext
 
     public virtual DbSet<Menu> Menus { get; set; }
 
+    public virtual DbSet<Order> Orders { get; set; }
+
     public virtual DbSet<Permission> Permissions { get; set; }
 
     public virtual DbSet<Restaurant> Restaurants { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
+
+    public virtual DbSet<Userorder> Userorders { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -39,15 +43,11 @@ public partial class FoodorderContext : DbContext
 
             entity.ToTable("address");
 
-            entity.HasIndex(e => e.CountyId, "County").IsUnique();
+            entity.HasIndex(e => e.CountyId, "County");
 
-            entity.HasIndex(e => e.CountyId, "County_Id").IsUnique();
+            entity.HasIndex(e => e.CountyId, "County_Id");
 
-            entity.HasIndex(e => e.CountyId, "County_Id_2");
-
-            entity.HasIndex(e => e.PostalCode, "Postal_code").IsUnique();
-
-            entity.HasIndex(e => e.PostalCode, "Postal_code_2").IsUnique();
+            entity.HasIndex(e => e.PostalCode, "Postal_code");
 
             entity.HasIndex(e => e.UserId, "User_Id").IsUnique();
 
@@ -73,8 +73,8 @@ public partial class FoodorderContext : DbContext
                 .HasColumnType("int(11)")
                 .HasColumnName("User_Id");
 
-            entity.HasOne(d => d.County).WithOne(p => p.Address)
-                .HasForeignKey<Address>(d => d.CountyId)
+            entity.HasOne(d => d.County).WithMany(p => p.Addresses)
+                .HasForeignKey(d => d.CountyId)
                 .HasConstraintName("address_ibfk_2");
 
             entity.HasOne(d => d.User).WithOne(p => p.Address)
@@ -102,9 +102,36 @@ public partial class FoodorderContext : DbContext
 
             entity.HasIndex(e => e.Name, "Name").IsUnique();
 
+            entity.HasIndex(e => e.RestaurantId, "restaurantId");
+
             entity.Property(e => e.Id).HasColumnType("int(11)");
             entity.Property(e => e.Name).HasMaxLength(50);
             entity.Property(e => e.Picture).HasColumnType("mediumblob");
+            entity.Property(e => e.RestaurantId)
+                .HasColumnType("int(11)")
+                .HasColumnName("restaurantId");
+
+            entity.HasOne(d => d.Restaurant).WithMany(p => p.Menus)
+                .HasForeignKey(d => d.RestaurantId)
+                .HasConstraintName("menu_ibfk_1");
+        });
+
+        modelBuilder.Entity<Order>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("orders");
+
+            entity.HasIndex(e => e.UserId, "userId");
+
+            entity.Property(e => e.Id).HasColumnType("int(11)");
+            entity.Property(e => e.UserId)
+                .HasColumnType("int(11)")
+                .HasColumnName("userId");
+
+            entity.HasOne(d => d.User).WithMany(p => p.Orders)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("orders_ibfk_1");
         });
 
         modelBuilder.Entity<Permission>(entity =>
@@ -129,28 +156,12 @@ public partial class FoodorderContext : DbContext
 
             entity.ToTable("restaurant");
 
-            entity.HasIndex(e => e.AddressId, "Address_Id");
-
-            entity.HasIndex(e => e.MenuId, "Menu_Id");
-
             entity.HasIndex(e => e.Name, "Name").IsUnique();
 
             entity.Property(e => e.Id).HasColumnType("int(11)");
-            entity.Property(e => e.AddressId)
-                .HasColumnType("int(11)")
-                .HasColumnName("Address_Id");
-            entity.Property(e => e.MenuId)
-                .HasColumnType("int(11)")
-                .HasColumnName("Menu_Id");
+            entity.Property(e => e.Category).HasMaxLength(25);
+            entity.Property(e => e.Description).HasMaxLength(50);
             entity.Property(e => e.Name).HasMaxLength(50);
-
-            entity.HasOne(d => d.Address).WithMany(p => p.Restaurants)
-                .HasForeignKey(d => d.AddressId)
-                .HasConstraintName("restaurant_ibfk_1");
-
-            entity.HasOne(d => d.Menu).WithMany(p => p.Restaurants)
-                .HasForeignKey(d => d.MenuId)
-                .HasConstraintName("restaurant_ibfk_2");
         });
 
         modelBuilder.Entity<User>(entity =>
@@ -184,6 +195,33 @@ public partial class FoodorderContext : DbContext
                 .HasPrincipalKey(p => p.Szint)
                 .HasForeignKey(d => d.PermissionId)
                 .HasConstraintName("user_ibfk_1");
+        });
+
+        modelBuilder.Entity<Userorder>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PRIMARY");
+
+            entity.ToTable("userorder");
+
+            entity.HasIndex(e => e.MenuId, "menuId");
+
+            entity.HasIndex(e => e.OrdersId, "ordersId");
+
+            entity.Property(e => e.Id).HasColumnType("int(11)");
+            entity.Property(e => e.MenuId)
+                .HasColumnType("int(11)")
+                .HasColumnName("menuId");
+            entity.Property(e => e.OrdersId)
+                .HasColumnType("int(11)")
+                .HasColumnName("ordersId");
+
+            entity.HasOne(d => d.Menu).WithMany(p => p.Userorders)
+                .HasForeignKey(d => d.MenuId)
+                .HasConstraintName("userorder_ibfk_2");
+
+            entity.HasOne(d => d.Orders).WithMany(p => p.Userorders)
+                .HasForeignKey(d => d.OrdersId)
+                .HasConstraintName("userorder_ibfk_1");
         });
 
         OnModelCreatingPartial(modelBuilder);

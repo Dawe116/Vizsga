@@ -9,11 +9,9 @@ public partial class Restaurant
 
     public string Name { get; set; } = null!;
 
-    public int AddressId { get; set; }
+    public string Description { get; set; } = null!;
 
-    public int MenuId { get; set; }
+    public string Category { get; set; } = null!;
 
-    public virtual Address Address { get; set; } = null!;
-
-    public virtual Menu Menu { get; set; } = null!;
+    public virtual ICollection<Menu> Menus { get; set; } = new List<Menu>();
 }

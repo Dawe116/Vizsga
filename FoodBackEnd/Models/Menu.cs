@@ -11,5 +11,9 @@ public partial class Menu
 
     public byte[] Picture { get; set; } = null!;
 
-    public virtual ICollection<Restaurant> Restaurants { get; set; } = new List<Restaurant>();
+    public int RestaurantId { get; set; }
+
+    public virtual Restaurant Restaurant { get; set; } = null!;
+
+    public virtual ICollection<Userorder> Userorders { get; set; } = new List<Userorder>();
 }
