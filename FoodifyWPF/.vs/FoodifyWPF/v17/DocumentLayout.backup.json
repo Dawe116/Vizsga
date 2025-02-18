@@ -9,6 +9,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|c:\\users\\dawe\\desktop\\vizsga\\asztali\\vizsga\\foodifywpf\\foodifywpf\\usermanagemant\\usermodifywindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|solutionrelative:foodifywpf\\usermanagemant\\usermodifywindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|c:\\users\\dawe\\desktop\\vizsga\\asztali\\vizsga\\foodifywpf\\foodifywpf\\usermanagemant\\newuserwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|solutionrelative:foodifywpf\\usermanagemant\\newuserwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,13 +54,25 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NewUserWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Dawe\\Desktop\\Vizsga\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\UserManagemant\\NewUserWindow.xaml.cs",
+              "RelativeDocumentMoniker": "FoodifyWPF\\UserManagemant\\NewUserWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Dawe\\Desktop\\Vizsga\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\UserManagemant\\NewUserWindow.xaml.cs",
+              "RelativeToolTip": "FoodifyWPF\\UserManagemant\\NewUserWindow.xaml.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAxwCkAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-18T10:55:06.114Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "UserModifyWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\Dawe\\Desktop\\Vizsga\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\UserManagemant\\UserModifyWindow.xaml.cs",
               "RelativeDocumentMoniker": "FoodifyWPF\\UserManagemant\\UserModifyWindow.xaml.cs",
               "ToolTip": "C:\\Users\\Dawe\\Desktop\\Vizsga\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\UserManagemant\\UserModifyWindow.xaml.cs",
               "RelativeToolTip": "FoodifyWPF\\UserManagemant\\UserModifyWindow.xaml.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAAAD0AAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAGYAAAAAAAAAAAA/wHoAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-04T16:49:37.997Z",
               "EditorCaption": ""
@@ -70,8 +86,7 @@
               "ToolTip": "C:\\Users\\Dawe\\Desktop\\Vizsga\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\UserManagemant\\UserModifyWindow.xaml",
               "RelativeToolTip": "FoodifyWPF\\UserManagemant\\UserModifyWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-04T16:47:20.915Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-04T16:47:20.915Z"
             }
           ]
         }

@@ -1,5 +1,4 @@
-﻿using FoodifyWPF.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace FoodifyWPF.Models;

@@ -1,4 +1,5 @@
 ﻿using FoodifyWPF.Models;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,10 +33,10 @@ namespace FoodifyWPF.UserManagemant
         {
             InitializeComponent();
             client = MainWindow.sharedClient;
-            LoadUserData();
+            LoadUserDataAndPermission();
         }
 
-        private async void LoadUserData()
+        private async void LoadUserDataAndPermission()
         {
             try
             {
@@ -47,8 +48,19 @@ namespace FoodifyWPF.UserManagemant
             {
                 MessageBox.Show($"Hiba a felhasználó betöltésekor: {ex.Message}");
             }
+            try
+            {
+                string url = $"{client.BaseAddress}api/Permission/{MainWindow.uId}?token={MainWindow.uId}";
+                permissions = await client.GetFromJsonAsync<List<Permission>>(url);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Hiba a jogosultságok betöltésekor: {ex.Message}");
+            }
             cbxUsers.DisplayMemberPath = "Id";
             cbxUsers.ItemsSource = users;
+            cbxPermission.DisplayMemberPath = "Szint";
+            cbxPermission.ItemsSource = permissions;
         }
 
         private async void Save_Click(object sender, RoutedEventArgs e)
@@ -88,10 +100,41 @@ namespace FoodifyWPF.UserManagemant
 
         }
 
-        private void DeleteUser_Click(object sender, RoutedEventArgs e)
+        private async void DeleteUser_Click(object sender, RoutedEventArgs e)
         {
 
+            int userId = (cbxUsers.SelectedValue as User).Id;
+
+            MessageBoxResult result = MessageBox.Show(
+                "Biztosan törölni szeretnéd ezt a felhasználót?",
+                "Megerősítés",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Question);
+
+            if (result == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    HttpResponseMessage response = await client.DeleteAsync($"api/User/{MainWindow.uId},{userId}");
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("Felhasználó sikeresen törölve!", "Siker", MessageBoxButton.OK, MessageBoxImage.Information);
+                        LoadUserDataAndPermission();
+                    }
+                    else
+                    {
+                        MessageBox.Show($"Hiba történt: {response.ReasonPhrase}", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Hiba a szerverrel való kommunikáció során: {ex.Message}", "Hiba", MessageBoxButton.OK, MessageBoxImage.Error);
+                    
+                }
+            }
         }
+
 
         private async void cbxUsers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -102,8 +145,7 @@ namespace FoodifyWPF.UserManagemant
                     txbUsername.Text = selectedUser.LoginNev;
                     txbEmail.Text = selectedUser.Email;
                     txbFullName.Text = selectedUser.Name;
-                cbxPermission.Items.Add("9");
-                    cbxPermission.SelectedItem = (selectedUser.PermissionId);
+                    cbxPermission.SelectedItem = selectedUser.PermissionId;
                 }
             
             
