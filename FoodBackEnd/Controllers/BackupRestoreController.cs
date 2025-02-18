@@ -24,7 +24,7 @@ namespace FoodBackEnd.Controllers
             if (Program.LoggedInUsers.ContainsKey(token) && Program.LoggedInUsers[token].PermissionId == 9)
             {
                 string hibaUzenet = "";
-                using (var context = new FoodorderContext())
+                using (var context = new FoodifyContext())
                 {
                     string? sqlDataSource = context.Database.GetConnectionString();
                     MySqlCommand command = new MySqlCommand();
@@ -72,7 +72,7 @@ namespace FoodBackEnd.Controllers
             {
                 try
                 {
-                    var context = new FoodorderContext();
+                    var context = new FoodifyContext();
                     string? sqlDataSource = context.Database.GetConnectionString();
                     var httpRequest = Request.Form;
                     var postedFile = httpRequest.Files[0];

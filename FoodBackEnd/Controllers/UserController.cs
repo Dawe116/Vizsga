@@ -17,7 +17,7 @@ namespace FoodBackEnd.Controllers
             {
                 try
                 {
-                    using (var cx = new FoodorderContext())
+                    using (var cx = new FoodifyContext())
                     {
                         return Ok(await cx.Users.ToListAsync());
                     }
@@ -40,7 +40,7 @@ namespace FoodBackEnd.Controllers
             {
                 try
                 {
-                    using (var cx = new FoodorderContext())
+                    using (var cx = new FoodifyContext())
                     {
                         return Ok(await cx.Users.Select(f=> new EmailNameDTO { Email = f.Email, Name = f.Name}).ToListAsync());
                     }
@@ -63,7 +63,7 @@ namespace FoodBackEnd.Controllers
             {
                 try
                 {
-                    using (var cx = new FoodorderContext())
+                    using (var cx = new FoodifyContext())
                     {
                         return Ok(await cx.Users.FirstOrDefaultAsync( f => f.Id == id ));
                     }
@@ -86,7 +86,7 @@ namespace FoodBackEnd.Controllers
             {
                 try
                 {
-                    using (var cx = new FoodorderContext())
+                    using (var cx = new FoodifyContext())
                     {
                         cx.Users.Add(user);
                         cx.SaveChanges();
@@ -111,7 +111,7 @@ namespace FoodBackEnd.Controllers
             {
                 try
                 {
-                    using (var cx = new FoodorderContext())
+                    using (var cx = new FoodifyContext())
                     {
                         cx.Users.Update(user);
                         cx.SaveChanges();
@@ -136,7 +136,7 @@ namespace FoodBackEnd.Controllers
             {
                 try
                 {
-                    using (var cx = new FoodorderContext())
+                    using (var cx = new FoodifyContext())
                     {
                         cx.Users.Remove(new Models.User { Id=id });
                         cx.SaveChanges();

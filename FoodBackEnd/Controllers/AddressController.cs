@@ -17,7 +17,7 @@ namespace FoodBackEnd.Controllers
             {
                 try
                 {
-                    using (var cx = new FoodorderContext())
+                    using (var cx = new FoodifyContext())
                     {
                         return Ok(await cx.Addresses.ToListAsync());
                     }
@@ -40,7 +40,7 @@ namespace FoodBackEnd.Controllers
             {
                 try
                 {
-                    using (var cx = new FoodorderContext())
+                    using (var cx = new FoodifyContext())
                     {
                         return Ok(await cx.Addresses.FirstOrDefaultAsync(f => f.Id == id));
                     }
@@ -63,7 +63,7 @@ namespace FoodBackEnd.Controllers
             {
                 try
                 {
-                    using (var cx = new FoodorderContext())
+                    using (var cx = new FoodifyContext())
                     {
                         cx.Addresses.Add(address);
                         cx.SaveChanges();
@@ -88,7 +88,7 @@ namespace FoodBackEnd.Controllers
             {
                 try
                 {
-                    using (var cx = new FoodorderContext())
+                    using (var cx = new FoodifyContext())
                     {
                         cx.Addresses.Update(address);
                         cx.SaveChanges();
@@ -113,7 +113,7 @@ namespace FoodBackEnd.Controllers
             {
                 try
                 {
-                    using (var cx = new FoodorderContext())
+                    using (var cx = new FoodifyContext())
                     {
                         cx.Addresses.Remove(new Models.Address { Id = id });
                         cx.SaveChanges();

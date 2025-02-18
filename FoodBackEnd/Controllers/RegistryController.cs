@@ -13,7 +13,7 @@ namespace FoodBackEnd.Controllers
 
         public async Task<IActionResult> Registry(User user)
         {
-            using (var cx = new FoodorderContext())
+            using (var cx = new FoodifyContext())
             {
                 try
                 {
@@ -46,7 +46,7 @@ namespace FoodBackEnd.Controllers
 
         public async Task<IActionResult> EndOfTheRegistry(string LoginNev, string email)
         {
-            using (var cx = new FoodorderContext())
+            using (var cx = new FoodifyContext())
             {
                 User user = await cx.Users.FirstOrDefaultAsync(f => f.LoginNev == LoginNev && f.Email == email);
                 if (user == null)

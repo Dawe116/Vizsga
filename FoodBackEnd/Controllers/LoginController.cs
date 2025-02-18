@@ -14,7 +14,7 @@ namespace FoodBackEnd.Controllers
 
         public async Task<IActionResult> SaltRequest(string loginName)
         {
-            using (var cx = new FoodorderContext())
+            using (var cx = new FoodifyContext())
             {
                 try
                 {
@@ -33,7 +33,7 @@ namespace FoodBackEnd.Controllers
 
         public async Task<IActionResult> Login(LoginDTO loginDTO)
         {
-            using (var cx = new FoodorderContext())
+            using (var cx = new FoodifyContext())
             {
                 try
                 {

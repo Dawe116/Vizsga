@@ -14,7 +14,7 @@ namespace FoodBackEnd.Controllers
         {
             try
             {
-                using (var context = new FoodorderContext())
+                using (var context = new FoodifyContext())
                 {
                     User? user = context.Users.FirstOrDefault(f => f.LoginNev == loginName);
                     if (user != null)
@@ -46,7 +46,7 @@ namespace FoodBackEnd.Controllers
         [HttpPost("{Email}")]
         public async Task<IActionResult> ElfelejtettJelszo(string Email)
         {
-            using (var context = new FoodorderContext())
+            using (var context = new FoodifyContext())
             {
                 try
                 {

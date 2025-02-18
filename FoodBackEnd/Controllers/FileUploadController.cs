@@ -53,7 +53,7 @@ namespace FoodBackEnd.Controllers
 
                 var url = "ftp://ftp.nethely.hu" + subFolder + "/" + fileName;
                 FtpWebRequest request = (FtpWebRequest)WebRequest.Create(url);
-                request.Credentials = new NetworkCredential("Foodorder", "Foodorder1234");
+                request.Credentials = new NetworkCredential("Foodify", "Foodify1234");
                 request.Method = WebRequestMethods.Ftp.UploadFile;
                 await using (Stream ftpStream = request.GetRequestStream())
                 {
