@@ -13,6 +13,8 @@ import { GyrosLista } from "./GyrosLista";
 import { AzsiaiLista } from "./AzsiaiLista";
 import { SalatakLista } from "./SalatakLista";
 import { DesszertLista } from "./DesszertLista";
+import { useWindowSize } from './AblakMeret';
+
 export const App = () => {
 
   return (
@@ -65,3 +67,13 @@ export const App = () => {
     </Router>
   );
 };
+
+function ResponsiveComponent() {
+  const { width } = useWindowSize();
+
+  return (
+    <div>
+      {width > 768 ? <p>Nagy képernyő</p> : <p>Kis képernyő</p>}
+    </div>
+  );
+}
