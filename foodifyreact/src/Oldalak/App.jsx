@@ -4,16 +4,16 @@ import './fooldalstyle.css';
 import { FoodifyHome } from "./FoodifyHome";
 import { Kosar } from "./Kosar";
 import { Kapcsolat } from "./Kapcsolat";
-import { HamburgerLista } from "./HamburgerLista";
-import { PizzaLista } from "./PizzaLista";
-import { MagyarLista } from "./MagyarLista";
-import { AmerikaiLista } from "./AmerikaiLista";
-import { OlaszLista } from "./OlaszLista";
-import { GyrosLista } from "./GyrosLista";
-import { AzsiaiLista } from "./AzsiaiLista";
-import { SalatakLista } from "./SalatakLista";
-import { DesszertLista } from "./DesszertLista";
-import { useWindowSize } from './AblakMeret';
+import { HamburgerLista } from "../Kategoriak/HamburgerLista";
+import { PizzaLista } from "../Kategoriak/PizzaLista";
+import { MagyarLista } from "../Kategoriak/MagyarLista";
+import { AmerikaiLista } from "../Kategoriak/AmerikaiLista";
+import { OlaszLista } from "../Kategoriak/OlaszLista";
+import { GyrosLista } from "../Kategoriak/GyrosLista";
+import { AzsiaiLista } from "../Kategoriak/AzsiaiLista";
+import { SalatakLista } from "../Kategoriak/SalatakLista";
+import { DesszertLista } from "../Kategoriak/DesszertLista";
+import { useWindowSize } from '../Komponensek/AblakMeret';
 
 export const App = () => {
 

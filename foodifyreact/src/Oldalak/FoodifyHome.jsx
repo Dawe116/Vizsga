@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, NavLink, useNavigate } from "react-router-dom";
-import Footer from './Footer';
+import Footer from '../Komponensek/Footer';
 import './fooldalstyle.css';
 
 export const FoodifyHome = () => {
