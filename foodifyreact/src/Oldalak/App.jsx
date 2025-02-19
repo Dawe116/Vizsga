@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
-import './fooldalstyle.css';
+import '../Stilusok/fooldalstyle.css';
 import { FoodifyHome } from "./FoodifyHome";
 import { Kosar } from "./Kosar";
 import { Kapcsolat } from "./Kapcsolat";

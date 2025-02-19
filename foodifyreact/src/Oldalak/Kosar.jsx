@@ -1,5 +1,5 @@
 import React from "react";
-import './kosar.css';
+import '../Stilusok/Kosar.css';
 
 export const Kosar = () => {
     return (

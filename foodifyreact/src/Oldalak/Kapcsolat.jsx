@@ -1,4 +1,5 @@
 import React from 'react';
+import '../Stilusok/Kapcsolat.css';
 
 export const Kapcsolat = () => {
     return (

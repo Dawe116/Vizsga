@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, NavLink, useNavigate } from "react-router-dom";
 import Footer from '../Komponensek/Footer';
-import './fooldalstyle.css';
+import '../Stilusok/fooldalstyle.css';
 
 export const FoodifyHome = () => {
   const navigate = useNavigate();

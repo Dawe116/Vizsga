@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import './Ettermek.css';
+import '../Stilusok/Ettermek.css';
 
 export const DesszertLista = () => {
   const [restaurants, setRestaurants] = useState([]);
