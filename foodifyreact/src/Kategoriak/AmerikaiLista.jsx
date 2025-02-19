@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import './Ettermek.css';
+import '../Stilusok/Ettermek.css';
 
-export const MagyarLista = () => {
+export const AmerikaiLista = () => {
   const [restaurants, setRestaurants] = useState([]);
   const [error, setError] = useState(null);
 

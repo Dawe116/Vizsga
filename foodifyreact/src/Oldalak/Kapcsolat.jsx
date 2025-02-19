@@ -1,4 +1,6 @@
 import React from 'react';
+import Footer from '../Komponensek/Footer';
+import '../Stilusok/Kapcsolat.css';
 
 export const Kapcsolat = () => {
     return (
@@ -9,6 +11,7 @@ export const Kapcsolat = () => {
             <h4>E-mail: maszbal999@gmail.com</h4>
             <h4>Telefon: +36 1 123 456</h4>
             <input type='button' content='Ügyfélszolgálat' value='Ügyfélszolgálat' className='btn btn-primary'/>
+            <Footer />
         </div>
     );
 }

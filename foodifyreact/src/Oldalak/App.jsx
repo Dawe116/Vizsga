@@ -1,18 +1,22 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
-import './fooldalstyle.css';
+import '../Stilusok/fooldalstyle.css';
 import { FoodifyHome } from "./FoodifyHome";
 import { Kosar } from "./Kosar";
 import { Kapcsolat } from "./Kapcsolat";
-import { HamburgerLista } from "./HamburgerLista";
-import { PizzaLista } from "./PizzaLista";
-import { MagyarLista } from "./MagyarLista";
-import { AmerikaiLista } from "./AmerikaiLista";
-import { OlaszLista } from "./OlaszLista";
-import { GyrosLista } from "./GyrosLista";
-import { AzsiaiLista } from "./AzsiaiLista";
-import { SalatakLista } from "./SalatakLista";
-import { DesszertLista } from "./DesszertLista";
+import { HamburgerLista } from "../Kategoriak/HamburgerLista";
+import { PizzaLista } from "../Kategoriak/PizzaLista";
+import { MagyarLista } from "../Kategoriak/MagyarLista";
+import { AmerikaiLista } from "../Kategoriak/AmerikaiLista";
+import { OlaszLista } from "../Kategoriak/OlaszLista";
+import { GyrosLista } from "../Kategoriak/GyrosLista";
+import { AzsiaiLista } from "../Kategoriak/AzsiaiLista";
+import { SalatakLista } from "../Kategoriak/SalatakLista";
+import { DesszertLista } from "../Kategoriak/DesszertLista";
+import { useWindowSize } from '../Komponensek/AblakMeret';
+import { Iranyelvek } from '../Oldalak/Iranyelvek';
+import { Feltetelek } from '../Oldalak/Feltetelek';
+
 export const App = () => {
 
   return (
@@ -61,7 +65,19 @@ export const App = () => {
               <Route path="/AzsiaiLista" element={<AzsiaiLista />} />
               <Route path="/SalatakLista" element={<SalatakLista />} />
               <Route path="/DesszertLista" element={<DesszertLista />} />
+              <Route path="/Iranyelvek" element={<Iranyelvek />} />
+              <Route path="/Feltetelek" element={<Feltetelek />} />
             </Routes>
     </Router>
   );
 };
+
+function ResponsiveComponent() {
+  const { width } = useWindowSize();
+
+  return (
+    <div>
+      {width > 768 ? <p>Nagy képernyő</p> : <p>Kis képernyő</p>}
+    </div>
+  );
+}
