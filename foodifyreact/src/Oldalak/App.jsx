@@ -14,6 +14,8 @@ import { AzsiaiLista } from "../Kategoriak/AzsiaiLista";
 import { SalatakLista } from "../Kategoriak/SalatakLista";
 import { DesszertLista } from "../Kategoriak/DesszertLista";
 import { useWindowSize } from '../Komponensek/AblakMeret';
+import { Iranyelvek } from '../Oldalak/Iranyelvek';
+import { Feltetelek } from '../Oldalak/Feltetelek';
 
 export const App = () => {
 
@@ -63,6 +65,8 @@ export const App = () => {
               <Route path="/AzsiaiLista" element={<AzsiaiLista />} />
               <Route path="/SalatakLista" element={<SalatakLista />} />
               <Route path="/DesszertLista" element={<DesszertLista />} />
+              <Route path="/Iranyelvek" element={<Iranyelvek />} />
+              <Route path="/Feltetelek" element={<Feltetelek />} />
             </Routes>
     </Router>
   );
