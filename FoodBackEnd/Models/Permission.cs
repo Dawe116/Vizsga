@@ -13,6 +13,6 @@ public partial class Permission
     public string Név { get; set; } = null!;
 
     public string Leírás { get; set; } = null!;
-    [JsonIgnore]
+
     public virtual ICollection<User> Users { get; set; } = new List<User>();
 }

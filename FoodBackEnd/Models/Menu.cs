@@ -13,8 +13,8 @@ public partial class Menu
     public byte[] Picture { get; set; } = null!;
 
     public int RestaurantId { get; set; }
-    [JsonIgnore]
+
     public virtual Restaurant Restaurant { get; set; } = null!;
-    [JsonIgnore]
+
     public virtual ICollection<Userorder> Userorders { get; set; } = new List<Userorder>();
 }

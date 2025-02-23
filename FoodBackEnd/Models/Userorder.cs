@@ -11,8 +11,8 @@ public partial class Userorder
     public int OrdersId { get; set; }
 
     public int MenuId { get; set; }
-    [JsonIgnore]
+  
     public virtual Menu Menu { get; set; } = null!;
-    [JsonIgnore]
+  
     public virtual Order Orders { get; set; } = null!;
 }

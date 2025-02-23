@@ -13,6 +13,6 @@ public partial class Restaurant
     public string Description { get; set; } = null!;
 
     public string Category { get; set; } = null!;
-    [JsonIgnore]
+
     public virtual ICollection<Menu> Menus { get; set; } = new List<Menu>();
 }

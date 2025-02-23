@@ -43,8 +43,6 @@ public partial class FoodifyContext : DbContext
 
             entity.ToTable("address");
 
-            entity.HasIndex(e => e.CountyId, "County");
-
             entity.HasIndex(e => e.CountyId, "County_Id");
 
             entity.HasIndex(e => e.PostalCode, "Postal_code");
@@ -73,13 +71,13 @@ public partial class FoodifyContext : DbContext
                 .HasColumnType("int(11)")
                 .HasColumnName("User_Id");
 
-            entity.HasOne(d => d.County).WithMany(p => p.Addresses)
-                .HasForeignKey(d => d.CountyId)
-                .HasConstraintName("address_ibfk_2");
+            //entity.HasOne(d => d.County).WithMany(p => p.Addresses)
+            //    .HasForeignKey(d => d.CountyId)
+            //    .HasConstraintName("address_ibfk_2");
 
-            entity.HasOne(d => d.User).WithOne(p => p.Address)
-                .HasForeignKey<Address>(d => d.UserId)
-                .HasConstraintName("address_ibfk_3");
+            //entity.HasOne(d => d.User).WithOne(p => p.Address)
+            //    .HasForeignKey<Address>(d => d.UserId)
+            //    .HasConstraintName("address_ibfk_3");
         });
 
         modelBuilder.Entity<County>(entity =>
