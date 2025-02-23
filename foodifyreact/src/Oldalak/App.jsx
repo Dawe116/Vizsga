@@ -16,6 +16,8 @@ import { DesszertLista } from "../Kategoriak/DesszertLista";
 import { useWindowSize } from '../Komponensek/AblakMeret';
 import { Iranyelvek } from '../Oldalak/Iranyelvek';
 import { Feltetelek } from '../Oldalak/Feltetelek';
+import { Bejelentkezes } from '../Teszteles-Alatt/Bejelentkezes';
+import { Regisztracio } from '../Teszteles-Alatt/Regisztracio';
 
 export const App = () => {
 
@@ -33,10 +35,9 @@ export const App = () => {
                 <li>Fiókom
                   <ul className="drop">
                     <div>
-                      <li><span id="openModal">Bejelentkezés</span></li>
-                      <li>Regisztráció</li>
+                      <li><NavLink to="./Bejelentkezes">Bejelentkezés</NavLink></li>
+                      <li><NavLink to="./Regisztracio">Regisztráció</NavLink></li>
                       <li>Elfelejtett jelszó</li>
-                      <li>Segítség</li>
                     </div>
                   </ul>
                 </li>
@@ -67,6 +68,8 @@ export const App = () => {
               <Route path="/DesszertLista" element={<DesszertLista />} />
               <Route path="/Iranyelvek" element={<Iranyelvek />} />
               <Route path="/Feltetelek" element={<Feltetelek />} />
+              <Route path="/Bejelentkezes" element={<Bejelentkezes />} />
+              <Route path="/Regisztracio" element={<Regisztracio />} />
             </Routes>
     </Router>
   );
