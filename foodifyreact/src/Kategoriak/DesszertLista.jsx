@@ -1,46 +1,44 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import '../Stilusok/Ettermek.css';
+import Footer from '../Komponensek/Footer';
 
 export const DesszertLista = () => {
-  const [restaurants, setRestaurants] = useState([]);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    const fetchRestaurants = async () => {
-      try {
-        const response = await axios.get("http://localhost/phpmyadmin/index.php?route=/database/structure&db=foodorder", {
-          headers: {
-            "Content-Type": "application/json"
-          },
-          withCredentials: true
+    const [error, setError] = useState(null);
+    const [data, setData] = useState([]); 
+  
+    useEffect(() => {
+      axios.get("http://localhost:5000/api/Restaurant/token")
+        .then(response => {
+          setData(response.data);
+          console.log(response.data);
+        })
+        .catch(error => {
+          console.error("Hiba történt:", error);
+          setError(error.message); // Hibakezelés hozzáadása
         });
-        setRestaurants(response.data);
-      } catch (err) {
-        console.error("Hiba az adatok lekérésekor:", err);
-        setError("Nem sikerült betölteni az éttermeket. Kérlek, próbáld újra később.");
-      }
-    };
-    
-    fetchRestaurants();
-  }, []);
+    }, []);
 
   return (
+    <div>
     <div className="page-content">
-      {error && <p className="error-message">{error}</p>}
-      {restaurants.map((restaurant) => (
-        <div key={restaurant.id} className="card">
-          <div
-            className="card-image"
-            style={{ backgroundImage: `url(${restaurant.image})` }}
-          ></div>
-          <div className="content_etterem">
-            <h2 className="title">{restaurant.name}</h2>
-            <p className="copy">{restaurant.description}</p>
-            <button className="btn">Rendelés</button>
-          </div>
+    {error && <p className="error-message">{error}</p>}
+    {data.length === 0 && !error && <p>Nincs elérhető étterem.</p>} {/* Üres állapot kezelése */}
+    {data.map((restaurant) => (
+      <div key={restaurant.name} className="card"> {/* Helyes key attribútum */}
+        <div
+          className="card-image"
+          style={{ backgroundImage: `url(${restaurant.image})` }}
+        ></div>
+        <div className="content_etterem">
+          <h2 className="title">{restaurant.name}</h2>
+          <p className="copy">{restaurant.description}</p>
+          <button className="btn">Rendelés</button>
         </div>
-      ))}
-    </div>
+      </div>
+    ))}
+  </div>
+  <Footer />
+  </div>
   );
 };

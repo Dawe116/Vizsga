@@ -16,7 +16,6 @@ body {
     display: grid;
     place-items: center;
     align-items: center;
-    background: #100721;
     font-family: "Times New Roman", Times, serif;
     font-weight: 400;
 
@@ -152,12 +151,13 @@ text-decoration: none;
 /*---------Nav vége------------*/
 
 /*---------------Kategória Választókártya-------------*/
-.container {
+.category-container {
 width: 100%;
 display: flex;
 justify-content: center;
 height: 500px;
 gap: 10px;
+margin-bottom: 40px;
 
 flex-direction: row;
 flex-wrap: wrap;

@@ -6,20 +6,6 @@ import '../Stilusok/fooldalstyle.css';
 
 export const FoodifyHome = () => {
   const navigate = useNavigate();
-  const [error, setError] = useState(null);
-  const [data, setData] = useState([]); 
-
-  useEffect(() => {
-    axios.get("http://localhost:5000/api/Restaurant/token")
-      .then(response => {
-        setData(response.data);
-        console.log(response.data);
-      })
-      .catch(error => {
-        console.error("Hiba történt:", error);
-        setError(error.message); // Hibakezelés hozzáadása
-      });
-  }, []);
 
   const goToRestaurantsHamburger = () => {
     navigate("/HamburgerLista");
@@ -54,13 +40,10 @@ return (
 <div>
 
 <div>
-      <h1>Foodify Home</h1>
     </div>
-
-
         <h1>Konyhatípusok / Főkategóriák</h1>
 
-      <div className="container">
+      <div className="category-container">
         <div>
           <div className="content">
             <h2 className="kategoria">Hamburger</h2>
@@ -126,28 +109,6 @@ return (
         </div>
       </div>
     </div>
-
-
-
-  <h1 className="etterem">Összes étterem</h1>
-
-  <div className="page-content">
-    {error && <p className="error-message">{error}</p>}
-    {data.length === 0 && !error && <p>Nincs elérhető étterem.</p>} {/* Üres állapot kezelése */}
-    {data.map((restaurant) => (
-      <div key={restaurant.name} className="card"> {/* Helyes key attribútum */}
-        <div
-          className="card-image"
-          style={{ backgroundImage: `url(${restaurant.image})` }}
-        ></div>
-        <div className="content_etterem">
-          <h2 className="title">{restaurant.name}</h2>
-          <p className="copy">{restaurant.description}</p>
-          <button className="btn">Rendelés</button>
-        </div>
-      </div>
-    ))}
-  </div>
   <Footer />
 </div>
 );
