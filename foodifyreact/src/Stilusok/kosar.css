@@ -11,8 +11,8 @@ body {
     font-family: "Times New Roman", Times, serif;
     font-weight: 400;
 
-    display: grid;
-place-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 #title{

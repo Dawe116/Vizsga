@@ -13,8 +13,9 @@ body {
   box-sizing: border-box;
 
   min-height: 2rem;
-    display: flex;
+    display: grid;
     place-items: center;
+    align-items: center;
     background: #100721;
     font-family: "Times New Roman", Times, serif;
     font-weight: 400;
@@ -28,7 +29,7 @@ flex-wrap: wrap;
   margin: 0 auto;
 
   flex-direction: row;
-  flex-wrap: wrap;
+flex-wrap: wrap;
 }
 
 
