@@ -1,111 +1,71 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { BrowserRouter as Router, Routes, Route, NavLink, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, NavLink, Link, useNavigate } from "react-router-dom";
 import Footer from '../Komponensek/Footer';
 import '../Stilusok/fooldalstyle.css';
 
 export const FoodifyHome = () => {
-  const navigate = useNavigate();
-
-  const goToRestaurantsHamburger = () => {
-    navigate("/HamburgerLista");
-  };
-  const goToRestaurantsPizza = () => {
-    navigate("/PizzaLista");
-  };
-  const goToRestaurantsMagyar = () => {
-    navigate("/MagyarLista");
-  };
-  const goToRestaurantsAmerikai = () => {
-    navigate("/AmerikaiLista");
-  };
-  const goToRestaurantsOlasz = () => {
-    navigate("/OlaszLista");
-  };
-  const goToRestaurantsGyros = () => {
-    navigate("/GyrosLista");
-  };
-  const goToRestaurantsAzsiai = () => {
-    navigate("/AzsiaiLista");
-  };
-  const goToRestaurantsSalatak = () => {
-    navigate("/SalatakLista");
-  };
-  const goToRestaurantsDesszert = () => {
-    navigate("/DesszertLista");
-  };
-
 return (
-  <div>
 <div>
-
+<div>
 <div>
     </div>
         <h1>Konyhatípusok / Főkategóriák</h1>
 
       <div className="category-container">
         <div>
-          <div className="content">
+        <Link to="/hamburgerlista"><div className="content">
             <h2 className="kategoria">Hamburger</h2>
             <span className="leiras">Klasszikus és gourmet burgerek szaftos húspogácsával és ízletes feltétekkel</span>
-            <button className="btn" onClick={goToRestaurantsHamburger}>Megtekintés</button>
-          </div>
+          </div></Link>
         </div>
         <div>
-          <div className="content">
+        <Link to="/pizzalista"><div className="content">
             <h2 className="kategoria">Pizza</h2>
             <span className="leiras">Ropogós tészta, olvadó sajt és változatos feltétek olasz stílusban</span>
-            <button className="btn" onClick={goToRestaurantsPizza}>Megtekintés</button>
-          </div>
+          </div></Link>
         </div>
         <div>
-          <div className="content">
+        <Link to="/magyarlista"><div className="content">
             <h2 className="kategoria">Magyar</h2>
             <span className="leiras">Hagyományos magyar ételek gazdag ízekkel és fűszeres fogásokkal</span>
-            <button className="btn" onClick={goToRestaurantsMagyar}>Megtekintés</button>
-          </div>
+          </div></Link>
         </div>
         <div>
-          <div className="content">
+        <Link to="/amerikailista"><div className="content">
             <h2 className="kategoria">Amerikai</h2>
             <span className="leiras">Klasszikus amerikai ételek, mint steak, BBQ és sült krumpli</span>
-            <button className="btn" onClick={goToRestaurantsAmerikai}>Megtekintés</button>
-          </div>
+          </div></Link>
         </div>
         <div>
-          <div className="content">
+        <Link to="/olaszlista"><div className="content">
             <h2 className="kategoria">Olasz</h2>
             <span className="leiras">Tészták, pizzák és mediterrán ízek friss alapanyagokkal</span>
-            <button className="btn" onClick={goToRestaurantsOlasz}>Megtekintés</button>
-          </div>
+          </div></Link>
         </div>
         <div>
-          <div className="content">
+        <Link to="/gyroslista"><div className="content">
             <h2 className="kategoria">Gyros</h2>
             <span className="leiras">Fűszeres, grillezett hús pitában vagy tálon, friss zöldségekkel és ízletes öntetekkel</span>
-            <button className="btn" onClick={goToRestaurantsGyros}>Megtekintés</button>
-          </div>
+          </div></Link>
         </div>
         <div>
-          <div className="content">
+        <Link to="/azsiailista"><div className="content">
             <h2 className="kategoria">Ázsiai</h2>
             <span className="leiras">Keleti ízek, wok ételek, sushi és fűszeres specialitások</span>
-            <button className="btn" onClick={goToRestaurantsAzsiai}>Megtekintés</button>
-          </div>
+          </div></Link>
         </div>
         <div>
-          <div className="content">
+        <Link to="/salataklista"><div className="content">
             <h2 className="kategoria">Saláták</h2>
             <span className="leiras">Friss, könnyed és egészséges zöldséges fogások</span>
-            <button className="btn" onClick={goToRestaurantsSalatak}>Megtekintés</button>
-          </div>
+          </div></Link>
         </div>
         <div>
-          <div className="content">
+        <Link to="/desszertlista"><div className="content">
             <h2 className="kategoria">Desszert</h2>
             <span className="leiras">Édes finomságok, sütemények, fagylaltok és krémes édességek</span>
-            <button className="btn" onClick={goToRestaurantsDesszert}>Megtekintés</button>
-          </div>
+          </div></Link>
         </div>
       </div>
     </div>
