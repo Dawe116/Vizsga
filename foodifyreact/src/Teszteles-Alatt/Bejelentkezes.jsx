@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import "../Teszteles-Alatt/Bejelentkezes.css";
+import Footer from '../Komponensek/Footer';
 
 // Bejelentkezés oldal
 export const Bejelentkezes = () => {
@@ -18,6 +19,7 @@ export const Bejelentkezes = () => {
   };
 
   return (
+    <div>
     <div className="auth-container">
       <h2 className="auth-h2">Bejelentkezés</h2>
       {error && <p className="error">{error}</p>}
@@ -27,6 +29,8 @@ export const Bejelentkezes = () => {
         <button type="submit">Bejelentkezés</button>
       </form>
       <p className="auth-p">Nincs fiókod? <Link to="/regisztracio">Regisztráció</Link></p>
+    </div>
+    <Footer />
     </div>
   );
 };

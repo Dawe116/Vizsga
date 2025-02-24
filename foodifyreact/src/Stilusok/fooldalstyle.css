@@ -20,11 +20,17 @@ body {
     font-weight: 400;
     display: grid;
 place-items: center;
+
+flex-direction: row;
+flex-wrap: wrap;
 }
 
 .container {
   max-width: 1500px;
   margin: 0 auto;
+
+  flex-direction: row;
+flex-wrap: wrap;
 }
 
 
@@ -154,6 +160,9 @@ justify-content: center;
 height: 500px;
 gap: 10px;
 
+flex-direction: row;
+flex-wrap: wrap;
+
 > div {
   flex: 0 0 120px;
   border-radius: 0.5rem;
@@ -245,6 +254,9 @@ gap: 10px;
 
 h1{
 margin: 40px;
+
+flex-direction: row;
+flex-wrap: wrap;
 }
 
 .etterem{
@@ -295,6 +307,9 @@ text-align: center;
 color: whitesmoke;
 background-color: whitesmoke;
 box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1);
+
+flex-direction: row;
+flex-wrap: wrap;
 }
 @media (min-width: 600px) {
 .card {
