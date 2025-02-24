@@ -6,6 +6,20 @@ import '../Stilusok/fooldalstyle.css';
 
 export const FoodifyHome = () => {
   const navigate = useNavigate();
+  const [error, setError] = useState(null);
+  const [data, setData] = useState([]); 
+
+  useEffect(() => {
+    axios.get("http://localhost:5000/api/Restaurant/token")
+      .then(response => {
+        setData(response.data);
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.error("Hiba történt:", error);
+        setError(error.message); // Hibakezelés hozzáadása
+      });
+  }, []);
 
   const goToRestaurantsHamburger = () => {
     navigate("/HamburgerLista");
@@ -34,20 +48,6 @@ export const FoodifyHome = () => {
   const goToRestaurantsDesszert = () => {
     navigate("/DesszertLista");
   };
-
-  const categories = [
-    { name: "Hamburger", desc: "Klasszikus és gourmet burgerek", path: "/HamburgerLista" },
-    { name: "Pizza", desc: "Olasz stílusú pizza", path: "/PizzaLista" },
-    { name: "Magyar", desc: "Hagyományos magyar ételek", path: "/MagyarLista" }
-  ];
-  
-  const restaurants = [
-    { name: "McDonald's®", slogan: "I'm lovin' it" },
-    { name: "BURGER KING®", slogan: "Pont, ahogy szereted!" },
-    { name: "KFC", slogan: "A frissen készült étel a legfinomabb." },
-    { name: "Pizza Hut", slogan: "No One Outpizzas the Hut!" }
-  ];
- 
 
 return (
   <div>
@@ -132,90 +132,21 @@ return (
   <h1 className="etterem">Összes étterem</h1>
 
   <div className="page-content">
-  <div className="card">
-    <div className="content_etterem">
-      <h2 className="title">McDonald's®</h2>
-      <p className="copy">I'm lovin' it</p>
-      <button className="btn">Rendelés</button>
-    </div>
-  </div>
-  <div className="card">
-    <div className="content_etterem">
-      <h2 className="title">BURGER KING®</h2>
-      <p className="copy">Pont, ahogy szereted!</p>
-      <button className="btn">Rendelés</button>
-    </div>
-  </div>
-  <div className="card">
-    <div className="content_etterem">
-      <h2 className="title">KFC</h2>
-      <p className="copy">A frissen készült étel a legfinomabb.</p>
-      <button className="btn">Rendelés</button>
-    </div>
-  </div>
-  <div className="card">
-    <div className="content_etterem">
-      <h2 className="title">Pizza Hut</h2>
-      <p className="copy">No One Outpizzas the Hut!</p>
-      <button className="btn">Rendelés</button>
-    </div>
-  </div>
-  <div className="card">
-    <div className="content_etterem">
-      <h2 className="title">McDonald's®</h2>
-      <p className="copy">I'm lovin' it</p>
-      <button className="btn">Rendelés</button>
-    </div>
-  </div>
-  <div className="card">
-    <div className="content_etterem">
-      <h2 className="title">BURGER KING®</h2>
-      <p className="copy">Pont, ahogy szereted!</p>
-      <button className="btn">Rendelés</button>
-    </div>
-  </div>
-  <div className="card">
-    <div className="content_etterem">
-      <h2 className="title">KFC</h2>
-      <p className="copy">A frissen készült étel a legfinomabb.</p>
-      <button className="btn">Rendelés</button>
-    </div>
-  </div>
-  <div className="card">
-    <div className="content_etterem">
-      <h2 className="title">Pizza Hut</h2>
-      <p className="copy">No One Outpizzas the Hut!</p>
-      <button className="btn">Rendelés</button>
-    </div>
-  </div>
-  <div className="card">
-    <div className="content_etterem">
-      <h2 className="title">McDonald's®</h2>
-      <p className="copy">I'm lovin' it</p>
-      <button className="btn">Rendelés</button>
-    </div>
-  </div>
-  <div className="card">
-    <div className="content_etterem">
-      <h2 className="title">BURGER KING®</h2>
-      <p className="copy">Pont, ahogy szereted!</p>
-      <button className="btn">Rendelés</button>
-    </div>
-  </div>
-  <div className="card">
-    <div className="content_etterem">
-      <h2 className="title">KFC</h2>
-      <p className="copy">A frissen készült étel a legfinomabb.</p>
-      <button className="btn">Rendelés</button>
-    </div>
-  </div>
-  <div className="card">
-    <div className="content_etterem">
-      <h2 className="title">Pizza Hut</h2>
-      <p className="copy">No One Outpizzas the Hut!</p>
-      <button className="btn">Rendelés</button>
-    </div>
-  </div>
+    {error && <p className="error-message">{error}</p>}
+    {data.length === 0 && !error && <p>Nincs elérhető étterem.</p>} {/* Üres állapot kezelése */}
+    {data.map((restaurant) => (
+      <div key={restaurant.name} className="card"> {/* Helyes key attribútum */}
+        <div
+          className="card-image"
+          style={{ backgroundImage: `url(${restaurant.image})` }}
+        ></div>
+        <div className="content_etterem">
+          <h2 className="title">{restaurant.name}</h2>
+          <p className="copy">{restaurant.description}</p>
+          <button className="btn">Rendelés</button>
+        </div>
+      </div>
+    ))}
   </div>
 </div>
 );

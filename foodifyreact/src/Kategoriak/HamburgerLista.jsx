@@ -3,33 +3,27 @@ import axios from "axios";
 import '../Stilusok/Ettermek.css';
 
 export const HamburgerLista = () => {
-  const [restaurants, setRestaurants] = useState([]);
   const [error, setError] = useState(null);
+  const [data, setData] = useState([]); // Alapértelmezett érték [] (üres tömb)
 
   useEffect(() => {
-    const fetchRestaurants = async () => {
-      try {
-        const response = await axios.get("http://localhost/phpmyadmin/index.php?route=/database/structure&db=foodorder", {
-          headers: {
-            "Content-Type": "application/json"
-          },
-          withCredentials: true
-        });
-        setRestaurants(response.data);
-      } catch (err) {
-        console.error("Hiba az adatok lekérésekor:", err);
-        setError("Nem sikerült betölteni az éttermeket. Kérlek, próbáld újra később.");
-      }
-    };
-    
-    fetchRestaurants();
+    axios.get("http://localhost:5000/api/Restaurant/token")
+      .then(response => {
+        setData(response.data);
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.error("Hiba történt:", error);
+        setError(error.message); // Hibakezelés hozzáadása
+      });
   }, []);
 
   return (
     <div className="page-content">
       {error && <p className="error-message">{error}</p>}
-      {restaurants.map((restaurant) => (
-        <div key={restaurant.id} className="card">
+      {data.length === 0 && !error && <p>Nincs elérhető étterem.</p>} {/* Üres állapot kezelése */}
+      {data.map((restaurant) => (
+        <div key={restaurant.name} className="card"> {/* Helyes key attribútum */}
           <div
             className="card-image"
             style={{ backgroundImage: `url(${restaurant.image})` }}
