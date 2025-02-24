@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { BrowserRouter as Router, Routes, Route, NavLink, useNavigate } from "react-router-dom";
 import Footer from '../Komponensek/Footer';
 import '../Stilusok/fooldalstyle.css';
@@ -33,11 +34,30 @@ export const FoodifyHome = () => {
   const goToRestaurantsDesszert = () => {
     navigate("/DesszertLista");
   };
+
+  const categories = [
+    { name: "Hamburger", desc: "Klasszikus és gourmet burgerek", path: "/HamburgerLista" },
+    { name: "Pizza", desc: "Olasz stílusú pizza", path: "/PizzaLista" },
+    { name: "Magyar", desc: "Hagyományos magyar ételek", path: "/MagyarLista" }
+  ];
+  
+  const restaurants = [
+    { name: "McDonald's®", slogan: "I'm lovin' it" },
+    { name: "BURGER KING®", slogan: "Pont, ahogy szereted!" },
+    { name: "KFC", slogan: "A frissen készült étel a legfinomabb." },
+    { name: "Pizza Hut", slogan: "No One Outpizzas the Hut!" }
+  ];
  
 
 return (
   <div>
 <div>
+
+<div>
+      <h1>Foodify Home</h1>
+    </div>
+
+
         <h1>Konyhatípusok / Főkategóriák</h1>
 
       <div className="container">
@@ -197,7 +217,6 @@ return (
     </div>
   </div>
   </div>
-    <Footer />
 </div>
 );
 }
