@@ -24,7 +24,7 @@ const Footer = () => {
             <li><Link to="/fooldal">Főoldal</Link></li>
             <li><Link to="/kapcsolat">Kapcsolat</Link></li>
             <li><Link to="/iranyelvek">Irányelvek</Link></li>
-            <li><Link to="/adatvedelem">Adatvédelem</Link></li>
+            <li><Link to="/feltetelek">Feltetélek</Link></li>
           </ul>
         </div>
       </div>
