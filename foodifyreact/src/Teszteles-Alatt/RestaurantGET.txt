@@ -1,4 +1,4 @@
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]); 
 
   useEffect(() => {
     axios.get("http://localhost:5000/api/Restaurant/token")
@@ -8,5 +8,6 @@
       })
       .catch(error => {
         console.error("Hiba történt:", error);
+        setError(error.message); // Hibakezelés hozzáadása
       });
   }, []);

@@ -1,23 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
-import '../Stilusok/fooldalstyle.css';
-import { FoodifyHome } from "./FoodifyHome";
-import { Kosar } from "./Kosar";
-import { Kapcsolat } from "./Kapcsolat";
-import { HamburgerLista } from "../Kategoriak/HamburgerLista";
-import { PizzaLista } from "../Kategoriak/PizzaLista";
-import { MagyarLista } from "../Kategoriak/MagyarLista";
-import { AmerikaiLista } from "../Kategoriak/AmerikaiLista";
-import { OlaszLista } from "../Kategoriak/OlaszLista";
-import { GyrosLista } from "../Kategoriak/GyrosLista";
-import { AzsiaiLista } from "../Kategoriak/AzsiaiLista";
-import { SalatakLista } from "../Kategoriak/SalatakLista";
-import { DesszertLista } from "../Kategoriak/DesszertLista";
-import { useWindowSize } from '../Komponensek/AblakMeret';
-import { Iranyelvek } from '../Oldalak/Iranyelvek';
-import { Feltetelek } from '../Oldalak/Feltetelek';
-import { Bejelentkezes } from '../Teszteles-Alatt/Bejelentkezes';
-import { Regisztracio } from '../Teszteles-Alatt/Regisztracio';
+import './Stilusok/fooldalstyle.css';
+import { FoodifyHome } from "./Oldalak/FoodifyHome";
+import { Kosar } from "./Oldalak/Kosar";
+import { Kapcsolat } from "./Oldalak/Kapcsolat";
+import { HamburgerLista } from "./Kategoriak/HamburgerLista";
+import { PizzaLista } from "./Kategoriak/PizzaLista";
+import { MagyarLista } from "./Kategoriak/MagyarLista";
+import { AmerikaiLista } from "./Kategoriak/AmerikaiLista";
+import { OlaszLista } from "./Kategoriak/OlaszLista";
+import { GyrosLista } from "./Kategoriak/GyrosLista";
+import { AzsiaiLista } from "./Kategoriak/AzsiaiLista";
+import { SalatakLista } from "./Kategoriak/SalatakLista";
+import { DesszertLista } from "./Kategoriak/DesszertLista";
+//import { useWindowSize } from './Komponensek/AblakMeret';
+import { Iranyelvek } from './Oldalak/Iranyelvek';
+import { Feltetelek } from './Oldalak/Feltetelek';
+import { Bejelentkezes } from './Teszteles-Alatt/Bejelentkezes';
+import { Regisztracio } from './Teszteles-Alatt/Regisztracio';
 
 export const App = () => {
 
@@ -75,12 +75,11 @@ export const App = () => {
   );
 };
 
-function ResponsiveComponent() {
+/*function ResponsiveComponent() {
   const { width } = useWindowSize();
 
-  return (
-    <div>
+  return (    <div>
       {width > 768 ? <p>Nagy képernyő</p> : <p>Kis képernyő</p>}
     </div>
   );
-}
+}*/
