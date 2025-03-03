@@ -15,7 +15,7 @@ export const HamburgerLista = () => {
         })
         .catch(error => {
           console.error("Hiba történt:", error);
-          setError(error.message); // Hibakezelés hozzáadása
+          setError(error.message);
         });
     }, []);
 
@@ -23,20 +23,21 @@ export const HamburgerLista = () => {
     <div>
     <div className="page-content">
     {error && <p className="error-message">{error}</p>}
-    {data.length === 0 && !error && <p>Nincs elérhető étterem.</p>} {/* Üres állapot kezelése */}
+    {data.length === 0 && !error && <p>Nincs elérhető étterem.</p>}
     {data.map((restaurant) => (
-      <div key={restaurant.name} className="card"> {/* Helyes key attribútum */}
-        <div
-          className="card-image"
-          style={{ backgroundImage: `url(${restaurant.image})` }}
-        ></div>
-        <div className="content_etterem">
-          <h2 className="title">{restaurant.name}</h2>
-          <p className="copy">{restaurant.description}</p>
-          <button className="btn">Rendelés</button>
-        </div>
-      </div>
-    ))}
+  <div 
+    key={restaurant.name} 
+    className="card" 
+    style={{ 
+      backgroundImage: `url(data:image/png;base64,${restaurant.logo})`, 
+    }}>
+    <div className="content_etterem">
+      <h2 className="title">{restaurant.name}</h2>
+      <p className="copy">{restaurant.description}</p>
+      <button className="btn">Rendelés</button>
+    </div>
+  </div>
+))}
   </div>
   <Footer />
   </div>
