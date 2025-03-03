@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { BrowserRouter as Router, Routes, Route, NavLink, Link, useNavigate } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import Footer from '../Komponensek/Footer';
 import '../Stilusok/fooldalstyle.css';
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-import "../Teszteles-Alatt/Bejelentkezes.css";
+import "../Stilusok/Bejelentkezes.css";
 import Footer from '../Komponensek/Footer';
 import sha256 from 'js-sha256';
 

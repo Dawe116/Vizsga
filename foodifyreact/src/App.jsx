@@ -13,11 +13,11 @@ import { GyrosLista } from "./Kategoriak/GyrosLista";
 import { AzsiaiLista } from "./Kategoriak/AzsiaiLista";
 import { SalatakLista } from "./Kategoriak/SalatakLista";
 import { DesszertLista } from "./Kategoriak/DesszertLista";
-//import { useWindowSize } from './Komponensek/AblakMeret';
 import { Iranyelvek } from './Oldalak/Iranyelvek';
 import { Feltetelek } from './Oldalak/Feltetelek';
-import { Bejelentkezes } from './Teszteles-Alatt/Bejelentkezes';
+import { Bejelentkezes } from './Oldalak/Bejelentkezes';
 import { Regisztracio } from './Teszteles-Alatt/Regisztracio';
+import { Elfelejtett } from './Oldalak/Elfelejtett';
 
 export const App = () => {
 
@@ -37,7 +37,7 @@ export const App = () => {
                     <div>
                       <li><NavLink to="./Bejelentkezes">Bejelentkezés</NavLink></li>
                       <li><NavLink to="./Regisztracio">Regisztráció</NavLink></li>
-                      <li>Elfelejtett jelszó</li>
+                      <li><NavLink to="./Elfelejtett">Elfelejtett jelszó</NavLink></li>
                     </div>
                   </ul>
                 </li>
@@ -70,16 +70,8 @@ export const App = () => {
               <Route path="/Feltetelek" element={<Feltetelek />} />
               <Route path="/Bejelentkezes" element={<Bejelentkezes />} />
               <Route path="/Regisztracio" element={<Regisztracio />} />
+              <Route path="/Elfelejtett" element={<Elfelejtett />} />
             </Routes>
     </Router>
   );
 };
-
-/*function ResponsiveComponent() {
-  const { width } = useWindowSize();
-
-  return (    <div>
-      {width > 768 ? <p>Nagy képernyő</p> : <p>Kis képernyő</p>}
-    </div>
-  );
-}*/
