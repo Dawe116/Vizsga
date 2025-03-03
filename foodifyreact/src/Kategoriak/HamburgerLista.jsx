@@ -8,7 +8,7 @@ export const HamburgerLista = () => {
     const [data, setData] = useState([]); 
   
     useEffect(() => {
-      axios.get("http://localhost:5000/api/Restaurant")
+      axios.get("http://localhost:5000/api/Restaurant/category/Burger")
         .then(response => {
           setData(response.data);
           console.log(response.data);
