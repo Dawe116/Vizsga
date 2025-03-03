@@ -9,7 +9,7 @@ namespace FoodBackEnd.Controllers
     [ApiController]
     public class RestaurantController : ControllerBase
     {
-        [HttpGet("{token}")]
+        [HttpGet]
         public async Task<IActionResult> GetFull(string token)
         {
             if (Program.LoggedInUsers.ContainsKey(token) && Program.LoggedInUsers[token].PermissionId == 9)
