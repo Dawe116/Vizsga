@@ -26,13 +26,13 @@ namespace FoodBackEnd.Controllers
         }
 
         [HttpGet("category/{id}")]
-        public async Task<IActionResult> GetCategory(string id)
+        public async Task<IActionResult> GetCategory(string category)
         {
             try
             {
                 using (var cx = new FoodifyContext())
                 {
-                    return Ok(await cx.Restaurants.Where(f => f.Category == id).ToListAsync());
+                    return Ok(await cx.Restaurants.Where(f => f.Category == category).ToListAsync());
                 }
             }
             catch (Exception ex)
