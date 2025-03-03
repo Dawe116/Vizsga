@@ -11,7 +11,7 @@ namespace FoodBackEnd.Controllers
     public class AddressController : ControllerBase
     {
         [HttpGet]
-        public async Task<IActionResult> GetFull(string token)
+        public async Task<IActionResult> GetFull()
         {
             
                 try

@@ -10,9 +10,8 @@ namespace FoodBackEnd.Controllers
     public class RestaurantController : ControllerBase
     {
         [HttpGet]
-        public async Task<IActionResult> GetFull(string token)
+        public async Task<IActionResult> GetFull()
         {
-            
                 try
                 {
                     using (var cx = new FoodifyContext())
@@ -24,8 +23,22 @@ namespace FoodBackEnd.Controllers
                 {
                     return BadRequest(ex.InnerException?.Message);
                 }
-            
-            
+        }
+
+        [HttpGet("category/{id}")]
+        public async Task<IActionResult> GetCategory(string id)
+        {
+            try
+            {
+                using (var cx = new FoodifyContext())
+                {
+                    return Ok(await cx.Restaurants.Where(f => f.Category == id).ToListAsync());
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.InnerException?.Message);
+            }
         }
 
         [HttpGet("{id},{token}")]
