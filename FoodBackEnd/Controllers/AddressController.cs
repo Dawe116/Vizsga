@@ -13,8 +13,7 @@ namespace FoodBackEnd.Controllers
         [HttpGet]
         public async Task<IActionResult> GetFull(string token)
         {
-            if (Program.LoggedInUsers.ContainsKey(token) && Program.LoggedInUsers[token].PermissionId == 9)
-            {
+            
                 try
                 {
                     using (var cx = new FoodifyContext())
@@ -26,11 +25,7 @@ namespace FoodBackEnd.Controllers
                 {
                     return BadRequest(ex.InnerException?.Message);
                 }
-            }
-            else
-            {
-                return BadRequest("Nem található a cím!");
-            }
+            
         }
 
         [HttpGet("{id},{token}")]
