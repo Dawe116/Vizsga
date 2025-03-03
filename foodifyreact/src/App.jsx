@@ -16,7 +16,7 @@ import { DesszertLista } from "./Kategoriak/DesszertLista";
 import { Iranyelvek } from './Oldalak/Iranyelvek';
 import { Feltetelek } from './Oldalak/Feltetelek';
 import { Bejelentkezes } from './Oldalak/Bejelentkezes';
-import { Regisztracio } from './Teszteles-Alatt/Regisztracio';
+import { Regisztracio } from './Oldalak/Regisztracio';
 import { Elfelejtett } from './Oldalak/Elfelejtett';
 
 export const App = () => {
