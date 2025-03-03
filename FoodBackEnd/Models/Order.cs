@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace FoodBackEnd.Models;
 
@@ -9,6 +10,7 @@ public partial class Order
 
     public int UserId { get; set; }
 
+    [JsonIgnore]
     public virtual User User { get; set; } = null!;
 
     public virtual ICollection<Userorder> Userorders { get; set; } = new List<Userorder>();
