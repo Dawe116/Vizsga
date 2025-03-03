@@ -63,7 +63,7 @@ namespace FoodBackEnd.Controllers
                         {
                             Program.LoggedInUsers.Add(token, loggedUser);
                         }
-                        return Ok(new LoggedUser { Name = loggedUser.Name, Email = loggedUser.Email, Permission = loggedUser.PermissionId, ProfilePicturePath = loggedUser.ProfilePicturePath, Token = token });
+                        return Ok(new LoggedUser { Name = loggedUser.Name, Email = loggedUser.Email, Permission = loggedUser.PermissionId,  Token = token });
                     }
                     else
                     {
@@ -72,7 +72,7 @@ namespace FoodBackEnd.Controllers
                 }
                 catch (Exception ex)
                 {
-                    return BadRequest(new LoggedUser { Permission = -1, Name = ex.Message, ProfilePicturePath = "", Email = "" });
+                    return BadRequest(new LoggedUser { Permission = -1, Name = ex.Message, Email = "" });
                 }
             }
         }

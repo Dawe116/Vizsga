@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
 
 namespace FoodBackEnd.Models;
 
@@ -24,8 +23,7 @@ public partial class Address
 
     public int UserId { get; set; }
 
-    
-    public virtual County? County { get; set; } = null!;
-    
-    public virtual User? User { get; set; } = null!;
+    public virtual County County { get; set; } = null!;
+
+    public virtual User User { get; set; } = null!;
 }
