@@ -25,7 +25,7 @@ namespace FoodBackEnd.Controllers
                 }
         }
 
-        [HttpGet("category/{id}")]
+        [HttpGet("category/{category}")]
         public async Task<IActionResult> GetCategory(string category)
         {
             try
