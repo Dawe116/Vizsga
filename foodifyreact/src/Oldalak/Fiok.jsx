@@ -26,7 +26,7 @@ const [address, setAddress] = useState("");
             <p><strong>Teljes név:</strong> </p>
           </div>
           <div className="account-address">
-            <label>Lakcím</label>
+            <label>Lakcím:</label>
             {isEditing ? (
               <input
                 type="text"
