@@ -5,13 +5,11 @@ import "../Stilusok/Bejelentkezes.css";
 import Footer from '../Komponensek/Footer';
 import sha256 from 'js-sha256';
 
-// Bejelentkezés oldal
 export const Bejelentkezes = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  localStorage.clear();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,28 +21,24 @@ export const Bejelentkezes = () => {
     try {
       // Salt lekérése a backendről
       const saltResponse = await axios.post(`http://localhost:5000/api/Login/SaltRequest/${username}`); 
-      
       const salt = saltResponse.data;
-      console.log(salt);
 
       // Jelszó hash-elése
       const tmpHash = sha256(password + salt.toString());
       const loginName = username;
+
       // Bejelentkezési kérés küldése
       const response = await axios.post("http://localhost:5000/api/Login", {
-       loginName,
-       tmpHash,
+        loginName,
+        tmpHash,
       });
       
       alert(`Sikeres bejelentkezés: ${response.data.token}`);
       localStorage.setItem("adatok", JSON.stringify(response.data));
       localStorage.setItem("token", JSON.stringify(response.data.token));
-      
-      const token = localStorage.getItem("token");
-      console.log(token);
-      const adatok = localStorage.getItem("adatok");
-      console.log(JSON.parse((adatok)));
-      navigate("/FoodifyHome");
+
+      // A token és adatok beállítása az App komponensben
+      navigate("/App", { replace: false }); // A navigáció újratöltés nélkül
     } catch (error) {
       setError(error.response?.data?.message || "Hiba történt a bejelentkezés során.");
     }
