@@ -1,4 +1,4 @@
 NetHely: 
-maszbal999@gmail.com
+foodifyhelp@gmail.com
 Jelszó:
-  MaszBalKuki999
+  foodifyHelp_0
