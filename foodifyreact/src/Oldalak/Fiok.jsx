@@ -3,8 +3,9 @@ import axios from "axios";
 import "../Stilusok/Fiok.css";
 import Footer from '../Komponensek/Footer';
 
-export const Fiok = ({ userData }) => {
-    const [address, setAddress] = useState("");
+export const Fiok = () => {
+
+const [address, setAddress] = useState("");
   const [isEditing, setIsEditing] = useState(false);
 
   const handleSave = () => {
@@ -13,15 +14,16 @@ export const Fiok = ({ userData }) => {
   };
 
   return (
-    <div className="account-page-container">
+    <div>
+
       <div className="account-card">
         <div className="account-card-header">
           <h2>Saját Fiók</h2>
         </div>
         <div className="account-card-content">
           <div className="account-info">
-            <p><strong>Felhasználónév:</strong> {userData.username}</p>
-            <p><strong>Teljes név:</strong> {userData.fullName}</p>
+            <p><strong>Felhasználónév:</strong> </p>
+            <p><strong>Teljes név:</strong> </p>
           </div>
           <div className="account-address">
             <label>Lakcím</label>
@@ -49,7 +51,7 @@ export const Fiok = ({ userData }) => {
           </div>
         </div>
       </div>
-          <Footer />
+        <Footer />
         </div>
     );
 };
