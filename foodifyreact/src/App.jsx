@@ -1,4 +1,4 @@
-import React ,{useEffect} from "react";
+import React ,{useEffect, useState} from "react";
 import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
 import './Stilusok/fooldalstyle.css';
 import { FoodifyHome } from "./Oldalak/FoodifyHome";
@@ -20,18 +20,19 @@ import { Regisztracio } from './Oldalak/Regisztracio';
 import { Elfelejtett } from './Oldalak/Elfelejtett';
 import { Fiok } from './Oldalak/Fiok';
 
+
 export const App = () => {
+  const [token, setToken] = useState(localStorage.getItem("token") || "");
+  const [logged, setLogged] = useState(!!localStorage.getItem("token"));
 
-  const token = localStorage.getItem("token");
-
+  // Token állapot frissítése minden rendernél
   useEffect(() => {
-    const tokenChanged = () => {
-      if (localStorage.getItem("token") !== token) {
-        window.location.reload();
-      }
-    };
-    window.addEventListener("storage", tokenChanged);
-  }, []);
+    const storedToken = localStorage.getItem("token");
+    if (storedToken !== token) {
+      setToken(storedToken || "");
+      setLogged(!!storedToken);
+    }
+  }, [token]); // Figyeli a token változását
 
   return (
     <Router>
@@ -46,12 +47,11 @@ export const App = () => {
                 <li>Fiókom
                   <ul className="drop">
                     <div>
-                      {token ? (
+                      {logged ? (
                         <>
                           <li><NavLink to="/Fiok">Saját fiók</NavLink></li>
                           <li onClick={() => {
                             localStorage.removeItem("token");
-                            window.location.reload();
                           }}>Kijelentkezés</li>
                         </>
                       ) : (
