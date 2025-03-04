@@ -1,0 +1,70 @@
+.account-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+  }
+  
+  .account-card {
+    width: 400px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .account-card-header {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .account-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .account-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+  }
+  
+  .account-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  .account-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .account-button.save {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .account-button.cancel {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .account-button.edit {
+    background-color: #2196f3;
+    color: white;
+  }
+  
+  .account-button:hover {
+    opacity: 0.9;
+  }
+  

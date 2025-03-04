@@ -18,6 +18,7 @@ import { Feltetelek } from './Oldalak/Feltetelek';
 import { Bejelentkezes } from './Oldalak/Bejelentkezes';
 import { Regisztracio } from './Oldalak/Regisztracio';
 import { Elfelejtett } from './Oldalak/Elfelejtett';
+import { Fiok } from './Oldalak/Fiok';
 
 export const App = () => {
 
@@ -47,7 +48,7 @@ export const App = () => {
                     <div>
                       {token ? (
                         <>
-                          <li><NavLink to="/fiokom">Saját fiók</NavLink></li>
+                          <li><NavLink to="/Fiok">Saját fiók</NavLink></li>
                           <li onClick={() => {
                             localStorage.removeItem("token");
                             window.location.reload();
@@ -91,6 +92,7 @@ export const App = () => {
         <Route path="/Bejelentkezes" element={<Bejelentkezes />} />
         <Route path="/Regisztracio" element={<Regisztracio />} />
         <Route path="/Elfelejtett" element={<Elfelejtett />} />
+        <Route path="/Fiok" element={<Fiok />} />
       </Routes>
     </Router>
   );
