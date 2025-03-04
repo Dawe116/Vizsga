@@ -1,14 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Footer from '../Komponensek/Footer';
 import '../Stilusok/fooldalstyle.css';
 
 export const FoodifyHome = () => {
+
 return (
 <div>
-<div>
-<div>
-    </div>
         <h1>Konyhatípusok / Főkategóriák</h1>
 
       <div className="category-container">
@@ -67,7 +65,7 @@ return (
           </div></Link>
         </div>
       </div>
-    </div>
+
   <Footer />
 </div>
 );

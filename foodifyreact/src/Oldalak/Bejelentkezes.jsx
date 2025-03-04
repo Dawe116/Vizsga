@@ -11,6 +11,7 @@ export const Bejelentkezes = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  localStorage.clear();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -38,8 +39,8 @@ export const Bejelentkezes = () => {
       alert(`Sikeres bejelentkezés: ${response.data.token}`);
       localStorage.setItem("adatok", JSON.stringify(response.data));
       localStorage.setItem("token", JSON.stringify(response.data.token));
-
-     const token = localStorage.getItem("token");
+      
+      const token = localStorage.getItem("token");
       console.log(token);
       const adatok = localStorage.getItem("adatok");
       console.log(JSON.parse((adatok)));
