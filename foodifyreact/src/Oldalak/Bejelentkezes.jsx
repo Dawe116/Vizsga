@@ -36,9 +36,11 @@ export const Bejelentkezes = () => {
       alert(`Sikeres bejelentkezés: ${response.data.token}`);
       localStorage.setItem("adatok", JSON.stringify(response.data));
       localStorage.setItem("token", JSON.stringify(response.data.token));
+      const adatok = localStorage.getItem("adatok");
+      console.log(adatok);
 
       // A token és adatok beállítása az App komponensben
-      navigate("/App", { replace: false }); // A navigáció újratöltés nélkül
+      navigate("/App");
     } catch (error) {
       setError(error.response?.data?.message || "Hiba történt a bejelentkezés során.");
     }
