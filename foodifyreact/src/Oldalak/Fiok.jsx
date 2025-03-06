@@ -6,11 +6,17 @@ import axios from "axios";
 export const Fiok = () => {
   const [data , setData] = useState([]);
   const [error, setError] = useState(null);
-  const [address, setAddress] = useState("");
+  const [county, setCounty] = useState("");
+  const [postalCode, setPostalCode] = useState("");
+  const [city, setCity] = useState("");
+  const [street, setStreet] = useState("");
+  const [houseNumber, setHouseNumber] = useState("");
+  const [floor, setFloor] = useState("");
+  const [door, setDoor] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [adatok] = useState(JSON.parse(localStorage.getItem("adatok")));
+  const [errorMessage, setErrorMessage] = useState("");
 
-  // LocalStorage ellenőrzés
   const storedCimek = localStorage.getItem("cimek");
   const [cimek, setCimek] = useState(storedCimek ? JSON.parse(storedCimek) : []);
 
@@ -33,15 +39,26 @@ export const Fiok = () => {
   }, []);
 
   const handleSave = () => {
-    const newCim = { street: address };
+    if (!county || !postalCode || !city || !street || !houseNumber) {
+      setErrorMessage("Minden kötelező mezőt ki kell tölteni!");
+      return;
+    }
+
+    setErrorMessage("");
+    const newCim = { county, postalCode, city, street, houseNumber, floor, door };
 
     axios.post("http://localhost:5000/api/Address", newCim)
       .then(response => {
-        setCimek(prev => [...prev, response.data]); // API válasza alapján frissítés
+        setCimek(prev => [...prev, response.data]);
         localStorage.setItem("cimek", JSON.stringify([...cimek, response.data]));
         setIsEditing(false);
       })
       .catch(error => console.error("Hiba történt a mentés során:", error));
+  };
+
+  const handleCancel = () => {
+    setIsEditing(false);
+    setErrorMessage("");
   };
 
   return (
@@ -56,23 +73,26 @@ export const Fiok = () => {
             <p><strong>Email: {adatok.email}</strong> </p>
           </div>
           <div className="account-address">
-            <label>Lakcím: {cimek[2].street ? cimek[1].street : "Nincs megadva"}</label>
+            <label>Lakcím: {cimek[1] ? null : "Nincs megadva"}</label>
 
             {isEditing ? (
-              <input
-                type="text"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-                placeholder="Add meg a lakcímedet..."
-                className="account-input"
-              />
+              <>
+                <input type="text" value={county} onChange={(e) => setCounty(e.target.value)} placeholder="Megye" className="account-input" />
+                <input type="text" value={postalCode} onChange={(e) => setPostalCode(e.target.value)} placeholder="Irányítószám" className="account-input" />
+                <input type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="Város" className="account-input" />
+                <input type="text" value={street} onChange={(e) => setStreet(e.target.value)} placeholder="Utca" className="account-input" />
+                <input type="text" value={houseNumber} onChange={(e) => setHouseNumber(e.target.value)} placeholder="Házszám" className="account-input" />
+                <input type="text" value={floor} onChange={(e) => setFloor(e.target.value)} placeholder="Emelet (nem kötelező)" className="account-input" />
+                <input type="text" value={door} onChange={(e) => setDoor(e.target.value)} placeholder="Ajtó (nem kötelező)" className="account-input" />
+              </>
             ) : null}
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
           </div>
           <div className="account-buttons">
             {isEditing ? (
               <>
                 <button onClick={handleSave} className="account-button save">Mentés</button>
-                <button onClick={() => setIsEditing(false)} className="account-button cancel">Mégse</button>
+                <button onClick={handleCancel} className="account-button cancel">Mégse</button>
               </>
             ) : (
               <button onClick={() => setIsEditing(true)} className="account-button edit">Szerkesztés</button>
