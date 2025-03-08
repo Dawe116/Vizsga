@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import '../Stilusok/Ettermek.css';
 import Footer from '../Komponensek/Footer';
@@ -15,7 +16,7 @@ export const OlaszLista = () => {
         })
         .catch(error => {
           console.error("Hiba történt:", error);
-          setError(error.message); // Hibakezelés hozzáadása
+          setError(error.message);
         });
     }, []);
 
@@ -34,7 +35,7 @@ export const OlaszLista = () => {
       <div className="content_etterem">
         <h2 className="title">{restaurant.name}</h2>
         <p className="copy">{restaurant.description}</p>
-        <button className="btn">Rendelés</button>
+        <Link to={`/rendeles/${restaurant.id}`}><button className="btn">Rendelés</button></Link>
       </div>
     </div>
   ))}

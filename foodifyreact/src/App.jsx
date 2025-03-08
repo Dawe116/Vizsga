@@ -19,6 +19,7 @@ import { Bejelentkezes } from './Oldalak/Bejelentkezes';
 import { Regisztracio } from './Oldalak/Regisztracio';
 import { Elfelejtett } from './Oldalak/Elfelejtett';
 import { Fiok } from './Oldalak/Fiok';
+import { Rendeles } from './Oldalak/Rendeles';
 import { TokenHandler } from "./Komponensek/TokenHandler";
 
 
@@ -90,6 +91,8 @@ export const App = () => {
         <Route path="/Regisztracio" element={<Regisztracio />} />
         <Route path="/Elfelejtett" element={<Elfelejtett />} />
         <Route path="/Fiok" element={<Fiok />} />
+        <Route path="/Rendeles" element={<Rendeles />} />
+        <Route path="/rendeles/:restaurantId" element={<Rendeles />} />
       </Routes>
     </Router>
   );
