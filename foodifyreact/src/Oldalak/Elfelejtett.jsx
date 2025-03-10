@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import Footer from '../Komponensek/Footer';
 import '../Stilusok/Elfelejtett.css';
+import Footer from '../Komponensek/Footer';
 
 export const Elfelejtett = () => {
     const [email, setEmail] = useState("");
@@ -42,7 +42,7 @@ export const Elfelejtett = () => {
     };
 
     return (
-        <div>
+<div id="root">
             <div className="auth-container">
                 <h2 className="auth-h2">Elfelejtett jelszó</h2>
                 <h3 className="auth-h2">Kérem adja meg az email címét, amelyre el tudjuk küldeni a helyettesítő jelszót</h3>

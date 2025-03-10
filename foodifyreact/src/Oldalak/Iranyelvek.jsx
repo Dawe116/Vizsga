@@ -1,10 +1,11 @@
 import React from 'react';
-import Footer from '../Komponensek/Footer';
 import '../Stilusok/Iranyelvek.css';
+import Footer from '../Komponensek/Footer';
 
 export const Iranyelvek = () => {
     return (
-        <div><h1>Adatvédelmi Irányelvek</h1>
+        <div id="root">
+            <h1>Adatvédelmi Irányelvek</h1>
         <div className='iranyelvek'>
 <h2>1. Bevezetés</h2>
 

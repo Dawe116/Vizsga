@@ -2,19 +2,28 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import '../Stilusok/Rendeles.css';
+import Footer from '../Komponensek/Footer';
 
 const Rendeles = ({ addToCart, cartItems }) => {
     const { restaurantId } = useParams();
     const [menuItems, setMenuItems] = useState([]);
     const [error, setError] = useState(null);
+    const [data, setData] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/Menu/${restaurantId}`)
-            .then(response => setMenuItems(response.data))
-            .catch(error => setError(error.message));
-    }, [restaurantId]);
-
+        axios.get(`http://localhost:5000/api/Menu/${restaurantId},token`)
+          .then(response => {
+            setData(response.data);
+            console.log(response.data);
+          })
+          .catch(error => {
+            console.error("Hiba történt:", error);
+            setError(error.message);
+          });
+      }, []);
+      
     return (
+        <div id="root">
         <div className="order-container">
             <div className="menu-list">
                 {error && <p className="error-message">{error}</p>}
@@ -23,6 +32,8 @@ const Rendeles = ({ addToCart, cartItems }) => {
                 ))}
             </div>
             <Cart cartItems={cartItems} />
+        </div>
+        <Footer />
         </div>
     );
 };

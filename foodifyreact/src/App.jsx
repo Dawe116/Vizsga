@@ -1,6 +1,5 @@
-import React ,{useEffect, useState} from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, NavLink, useLocation } from "react-router-dom";
-import './Stilusok/fooldalstyle.css';
 import { FoodifyHome } from "./Oldalak/FoodifyHome";
 import { Kosar } from "./Oldalak/Kosar";
 import { Kapcsolat } from "./Oldalak/Kapcsolat";
@@ -21,7 +20,7 @@ import { Elfelejtett } from './Oldalak/Elfelejtett';
 import { Fiok } from './Oldalak/Fiok';
 import { Rendeles } from './Oldalak/Rendeles';
 import { TokenHandler } from "./Komponensek/TokenHandler";
-
+import Navbar from "./Komponensek/Navbar";
 
 export const App = () => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
@@ -29,48 +28,8 @@ export const App = () => {
 
   return (
     <Router>
-      <TokenHandler setToken={setToken} setLogged={setLogged} /> {/* Ez figyeli az URL változásokat */}
-
-      <nav className="navbar navbar-expand-lg">
-        <div className="container-fluid">
-          <span className="navbar-brand mb-0 h1">
-            <NavLink to="/"><img id="title" src="../img/foodify_logo.jpg" alt="Logónk" /></NavLink>
-          </span>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <ul id="main">
-                <NavLink to="/"> <li>Főoldal</li></NavLink>
-                <li>Rólunk</li>
-                <li>Fiókom
-                  <ul className="drop">
-                    <div>
-                      {logged ? (
-                        <>
-                          <li><NavLink to="/Fiok">Saját fiók</NavLink></li>
-                          <li onClick={() => {
-                            localStorage.removeItem("token");
-                            window.location.reload();
-                          }}>Kijelentkezés</li>
-                        </>
-                      ) : (
-                        <>
-                          <li><NavLink to="/Bejelentkezes">Bejelentkezés</NavLink></li>
-                          <li><NavLink to="/Regisztracio">Regisztráció</NavLink></li>
-                          <li><NavLink to="/Elfelejtett">Elfelejtett jelszó</NavLink></li>
-                        </>
-                      )}
-                    </div>
-                  </ul>
-                </li>
-                <li><NavLink to="/Kosar">Kosár</NavLink></li> 
-                <li><NavLink to="/Kapcsolat">Kapcsolat</NavLink></li>
-                <div id="marker"></div>
-              </ul>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      
+      <TokenHandler setToken={setToken} setLogged={setLogged} />
+      <Navbar token={token} setToken={setToken} logged={logged} setLogged={setLogged} />
       <Routes>
         <Route path="/" element={<FoodifyHome />} />
         <Route path="*" element={<FoodifyHome />} />

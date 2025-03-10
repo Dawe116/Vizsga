@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../Stilusok/Fiok.css";
-import Footer from '../Komponensek/Footer';
 import axios from "axios";
+import Footer from '../Komponensek/Footer';
 
 export const Fiok = () => {
   const [data , setData] = useState([]);
@@ -62,7 +62,7 @@ export const Fiok = () => {
   };
 
   return (
-    <div>
+<div id="root">
       <div className="account-card">
         <div className="account-card-header">
           <h2>Saját Fiók</h2>

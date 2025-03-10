@@ -1,10 +1,10 @@
 import React from 'react';
-import Footer from '../Komponensek/Footer';
 import '../Stilusok/Feltetelek.css';
+import Footer from '../Komponensek/Footer';
 
 export const Feltetelek = () => {
     return (
-        <div>
+<div id="root">
         <h1>Felhasználási feltételek</h1>
         <div className='feltetelek'>
         <h2>1. Bevezetés</h2>

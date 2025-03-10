@@ -21,26 +21,27 @@ export const HamburgerLista = () => {
     }, []);
 
   return (
-    <div>
+    <div id="root">
+    <h1>Hamburger</h1>
     <div className="page-content">
     {error && <p className="error-message">{error}</p>}
     {data.length === 0 && !error && <p>Nincs elérhető étterem.</p>}
     {data.map((restaurant) => (
   <div 
     key={restaurant.id} 
-    className="card" 
+    className="menu-card" 
     style={{ 
       backgroundImage: `url(data:image/png;base64,${restaurant.logo})`, 
     }}>
     <div className="content_etterem">
-      <h2 className="title">{restaurant.name}</h2>
-      <p className="copy">{restaurant.description}</p>
+      <h2 className="menu-title">{restaurant.name}</h2>
+      <p className="menu-description">{restaurant.description}</p>
       <Link to={`/rendeles/${restaurant.id}`}><button className="btn">Rendelés</button></Link>
     </div>
   </div>
 ))}
-  </div>
-  <Footer />
-  </div>
+</div>
+<Footer />  
+</div>
   );
 };

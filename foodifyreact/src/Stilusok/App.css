@@ -1,3 +1,13 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(to bottom right,#670797,#6c0850,#b14861 );
+  padding-top: 100px;
+}
+
 .App {
   text-align: center;
 }
@@ -35,14 +45,4 @@
   to {
     transform: rotate(360deg);
   }
-}
-
-.footer-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.content {
-  flex-grow: 1;
 }

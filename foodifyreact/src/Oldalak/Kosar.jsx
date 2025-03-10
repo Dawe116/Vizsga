@@ -4,7 +4,7 @@ import Footer from '../Komponensek/Footer';
 
 export const Kosar = () => {
     return (
-        <div>
+        <div id="root">
             <h1>Kosár</h1>
             <Footer />
         </div>

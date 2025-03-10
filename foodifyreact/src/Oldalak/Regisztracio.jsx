@@ -2,8 +2,8 @@ import React, { useState, useRef } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "../Stilusok/Regisztracio.css";
-import Footer from "../Komponensek/Footer";
 import sha256 from "js-sha256";
+import Footer from '../Komponensek/Footer';
 
 export const Regisztracio = () => {
   const [formData, setFormData] = useState({
@@ -106,7 +106,7 @@ export const Regisztracio = () => {
   };
 
   return (
-    <div>
+    <div id="root">
       <div className="auth-container">
         <h2 className="auth-h2">Regisztráció</h2>
         {successMessage && <p className="success">{successMessage}</p>}

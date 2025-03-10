@@ -1,10 +1,10 @@
 import React from 'react';
-import Footer from '../Komponensek/Footer';
 import '../Stilusok/Kapcsolat.css';
+import Footer from '../Komponensek/Footer';
 
 export const Kapcsolat = () => {
     return (
-        <div>
+        <div id="root">
             <h2>Kapcsolat</h2>
             <h4>Ügyfélszolgálat</h4>
             <h5><i>Minden nap 0/24</i></h5>
