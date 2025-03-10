@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace FoodBackEnd.Models;
 
@@ -14,4 +15,8 @@ public partial class Restaurant
     public string Category { get; set; } = null!;
 
     public byte[] Logo { get; set; } = null!;
+
+    [JsonIgnore]
+
+    public virtual ICollection<Menu> Menus { get; set; } = new List<Menu>();
 }
