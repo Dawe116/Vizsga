@@ -105,15 +105,13 @@ public partial class FoodifyContext : DbContext
             entity.HasIndex(e => e.RestaurantId, "restaurantId");
 
             entity.Property(e => e.Id).HasColumnType("int(11)");
+            entity.Property(e => e.Description).HasMaxLength(1000);
             entity.Property(e => e.Name).HasMaxLength(50);
             entity.Property(e => e.Picture).HasColumnType("mediumblob");
+            entity.Property(e => e.Price).HasColumnType("int(10)");
             entity.Property(e => e.RestaurantId)
                 .HasColumnType("int(11)")
                 .HasColumnName("restaurantId");
-
-            entity.HasOne(d => d.Restaurant).WithMany(p => p.Menus)
-                .HasForeignKey(d => d.RestaurantId)
-                .HasConstraintName("menu_ibfk_1");
         });
 
         modelBuilder.Entity<Order>(entity =>

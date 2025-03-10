@@ -14,6 +14,4 @@ public partial class Restaurant
     public string Category { get; set; } = null!;
 
     public byte[] Logo { get; set; } = null!;
-
-    public virtual ICollection<Menu> Menus { get; set; } = new List<Menu>();
 }
