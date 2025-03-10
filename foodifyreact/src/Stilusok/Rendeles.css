@@ -9,7 +9,7 @@ border-radius: 100%;
 .order-container {
     display: flex;
     position: relative;
-    align-items: flex-end;
+    align-items: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 1200px;

@@ -7,9 +7,9 @@ html, body {
 }
 
 #root {
-  display: flex;
+  display: grid;
   flex-direction: column;
-  min-height: 100%;
+  min-height: 100vh;
 }
 
 .footer {
@@ -36,6 +36,7 @@ html, body {
   max-width: 2000px;
   margin: 0 auto;
   padding: 20px;
+  overflow: hidden;
 }
 
 .footer-container > div {

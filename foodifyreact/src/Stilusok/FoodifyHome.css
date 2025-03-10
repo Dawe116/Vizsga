@@ -45,6 +45,7 @@ flex-wrap: wrap;
 
 .category-card {
   flex: 0 0 120px;
+  height: 500px;
   border-radius: 0.5rem;
   transition: 0.5s ease-in-out;
   cursor: pointer;
