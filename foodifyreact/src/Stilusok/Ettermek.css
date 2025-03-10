@@ -114,7 +114,7 @@ font-style: italic;
 line-height: 1.35;
 }
 
-.btn {
+.order-btn {
 cursor: pointer;
 margin-top: 1.5rem;
 padding: 0.75rem 1.5rem;
@@ -126,16 +126,17 @@ color: white;
 background-color: black;
 border: none;
 }
-.btn:hover {
-background-color: #0d0d0d;
+.order-btn:hover {
+  color: black;
+  background-color: white;
 }
-.btn:focus {
+.order-btn:focus {
 outline: 1px dashed yellow;
 outline-offset: 3px;
 }
 
 @media (hover: hover) and (min-width: 600px) {
-.card:after {
+.menu-card:after {
   transform: translateY(0);
 }
 

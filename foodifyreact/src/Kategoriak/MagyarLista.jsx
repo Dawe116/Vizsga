@@ -36,7 +36,7 @@ export const MagyarLista = () => {
       <div className="content_etterem">
         <h2 className="menu-title">{restaurant.name}</h2>
         <p className="menu-description">{restaurant.description}</p>
-        <Link to={`/rendeles/${restaurant.id}`}><button className="btn">Rendelés</button></Link>
+        <Link to={`/rendeles/${restaurant.id}`}><button className="order-btn">Rendelés</button></Link>
       </div>
     </div>
   ))}
