@@ -58,7 +58,7 @@ export const Elfelejtett = () => {
                         onChange={(e) => setEmail(e.target.value)} 
                         required 
                     />
-                    <button type="submit">Küldés</button>
+                    <button className="submit-btn "  type="submit">Küldés</button>
                 </form>
                 
                 <p className="auth-p">
