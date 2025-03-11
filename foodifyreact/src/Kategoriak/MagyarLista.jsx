@@ -9,7 +9,7 @@ export const MagyarLista = ({ searchTerm }) => {
     const [data, setData] = useState([]); 
   
     useEffect(() => {
-      axios.get("http://localhost:5000/api/Restaurant/category/Magyar")
+      axios.get("https://localhost:5000/api/Restaurant/category/Magyar")
         .then(response => {
           setData(response.data);
           console.log(response.data);

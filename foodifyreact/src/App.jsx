@@ -19,6 +19,7 @@ import { Regisztracio } from './Oldalak/Regisztracio';
 import { Elfelejtett } from './Oldalak/Elfelejtett';
 import { Fiok } from './Oldalak/Fiok';
 import { Rendeles } from './Oldalak/Rendeles';
+import { Ettermek } from './Oldalak/Ettermek';
 import { TokenHandler } from "./Komponensek/TokenHandler";
 import Navbar from "./Komponensek/Navbar";
 
@@ -40,6 +41,7 @@ export const App = () => {
       <TokenHandler setToken={setToken} setLogged={setLogged} />
       <Navbar token={token} setToken={setToken} logged={logged} setLogged={setLogged} onSearch={handleSearch} searchTerm={searchTerm}/>
       <Routes>
+      <Route path="/" element={<FoodifyHome />} />
         <Route path="/FoodifyHome" element={<FoodifyHome />} />
         <Route path="/Kosar" element={<Kosar />} />
         <Route path="/Kapcsolat" element={<Kapcsolat />} />
@@ -60,6 +62,7 @@ export const App = () => {
         <Route path="/Fiok" element={<Fiok />} />
         <Route path="/Rendeles" element={<Rendeles searchTerm={searchTerm}/>} />
         <Route path="/rendeles/:restaurantId" element={<Rendeles searchTerm={searchTerm}/>} />
+        <Route path="/Ettermek" element={<Ettermek searchTerm={searchTerm}/>} />
       </Routes>
     </Router>
   );

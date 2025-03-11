@@ -9,7 +9,7 @@ export const OlaszLista = ({ searchTerm }) => {
     const [data, setData] = useState([]); 
   
     useEffect(() => {
-      axios.get("http://localhost:5000/api/Restaurant/category/Pizza")
+      axios.get("https://localhost:5000/api/Restaurant/category/Pizza")
         .then(response => {
           setData(response.data);
           console.log(response.data);

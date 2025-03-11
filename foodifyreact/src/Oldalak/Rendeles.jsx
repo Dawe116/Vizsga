@@ -11,7 +11,7 @@ const Rendeles = ({ addToCart, cartItems }) => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/api/Menu/${restaurantId},token`)
+        axios.get(`https://localhost:5000/api/Menu/${restaurantId}`)
           .then(response => {
             setData(response.data);
             console.log(response.data);

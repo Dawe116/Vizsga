@@ -9,7 +9,7 @@ export const AzsiaiLista = ({ searchTerm }) => {
     const [data, setData] = useState([]); 
   
     useEffect(() => {
-      axios.get("http://localhost:5000/api/Restaurant/category/Ázsiai")
+      axios.get("https://localhost:5000/api/Restaurant/category/Ázsiai")
         .then(response => {
           setData(response.data);
           console.log(response.data);

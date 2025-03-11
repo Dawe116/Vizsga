@@ -4,12 +4,12 @@
   import '../Stilusok/Ettermek.css';
   import Footer from '../Komponensek/Footer';
 
-  export const HamburgerLista = ({ searchTerm }) => {
+  export const Ettermek = ({ searchTerm }) => {
     const [error, setError] = useState(null);
     const [data, setData] = useState([]);
     
       useEffect(() => {
-        axios.get("https://localhost:5000/api/Restaurant/category/Burger")
+        axios.get("https://localhost:5000/api/Restaurant")
           .then(response => {
             setData(response.data);
             console.log(response.data);
@@ -26,7 +26,7 @@
 
     return (
       <div id="root">
-      <h1>Hamburger éttermek</h1>
+      <h1>Összes éttermek</h1>
       <div className="page-content">
       {error && <p className="error-message">{error}</p>}
       {filteredData.length === 0 && !error && <p>Nincs találat a keresésre.</p>}
