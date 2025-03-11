@@ -41,9 +41,8 @@ border-radius: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 300px;
+    height: 350px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
 }
 
 @media (min-width: 600px) {
@@ -64,6 +63,8 @@ border-radius: 100%;
     border-radius: 20px;
     align-items: center;
     justify-content:center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
 }
 
 .menu-card h3 {
@@ -110,9 +111,9 @@ border-radius: 100%;
     background: #ff0000;
     color: white;
     border: none;
-    padding: 10px;
+    padding: 5px;
     font-size: 16px;
-    margin-top: 10px;
+    margin: 5px;
     cursor: pointer;
     border-radius: 30px;
     transition: background 0.3s;
@@ -192,6 +193,10 @@ border-radius: 100%;
     cursor: pointer;
     border-radius: 100px;
     transition: background 0.3s;
+}
+
+.menu-name{
+    border-bottom: 3px solid #ffffff;
 }
 
 /*---------------------------------Rendelés vége---------------------------------*/

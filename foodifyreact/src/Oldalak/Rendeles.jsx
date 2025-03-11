@@ -62,9 +62,9 @@ const MenuItemCard = ({ menu, addToCart }) => {
     };
 
     return (
-        <div className="menu-card" style={{ backgroundImage: `url(data:image/png;base64,${menu.image})` }}>
+        <div className="menu-card" style={{ backgroundImage: `url(data:image/png;base64,${menu.picture})` }}>
             <div className="menu-content">
-                <h3>{menu.name}</h3>
+                <h3 className="menu-name">{menu.name}</h3>
                 <p>Leírás: {menu.description}</p>
                 <p>Ár: {menu.price} Ft</p>
                 <div className="quantity-control">
