@@ -60,7 +60,10 @@ border-radius: 100%;
 .menu-content {
     background: rgba(0, 0, 0, 0.5);
     padding: 10px;
-    border-radius: 8px;
+    margin: auto;
+    border-radius: 20px;
+    align-items: center;
+    justify-content:center;
 }
 
 .menu-card h3 {
@@ -82,22 +85,41 @@ border-radius: 100%;
 }
 
 .quantity-control button {
-    background: #ff9800;
     border: none;
     color: white;
     font-size: 18px;
     padding: 5px 10px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 100px;
     transition: background 0.3s;
 }
 
-.quantity-control button:hover {
-    background: #e68900;
+.minus-btn{
+    border: none;
+    border-radius: 100px;
+    background: #f44336;
+}
+
+.plus-btn{
+    border: none;
+    border-radius: 100px;
+    background: #4caf50;
+}
+
+.remove-item {
+    background: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: background 0.3s;
 }
 
 .add-to-cart {
-    background: #4caf50;
+    background: #860092;
     color: white;
     border: none;
     padding: 10px;
@@ -110,12 +132,14 @@ border-radius: 100%;
 }
 
 .add-to-cart:hover {
-    background: #388e3c;
+    background: #ee2fff;
 }
 
 .cart {
+    color: #ffffff;
     width: 30%;
-    background: white;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -134,13 +158,40 @@ border-radius: 100%;
 .cart li {
     font-size: 16px;
     padding: 10px 0;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #000;
+    border-top: 1px solid #000;
 }
 
 .cart h3 {
     margin-top: 15px;
     font-size: 20px;
-    color: #ff5722;
+    color: #ff0000;
+}
+
+.finalorder-button {
+    background: #860092;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-size: 18px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 100px;
+    transition: background 0.3s;
+}
+
+.cancelorder-button {
+    background: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-size: 18px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 100px;
+    transition: background 0.3s;
 }
 
 /*---------------------------------Rendelés vége---------------------------------*/

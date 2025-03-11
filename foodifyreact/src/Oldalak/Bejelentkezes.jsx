@@ -50,7 +50,7 @@ export const Bejelentkezes = () => {
         <form onSubmit={handleSubmit}>
           <input id="loginNev" type="username" placeholder="Fellhasználónév" value={username} onChange={(e) => setUsername(e.target.value)} required />
           <input id="password" type="password" placeholder="Jelszó" value={password} onChange={(e) => setPassword(e.target.value)} required />
-          <button type="submit">Bejelentkezés</button>
+          <button className="submit-btn" type="submit">Bejelentkezés</button>
         </form>
         <p className="auth-p">Nincs fiókod? <Link to="/regisztracio">Regisztráció</Link></p>
       </div>

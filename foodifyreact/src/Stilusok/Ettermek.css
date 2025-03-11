@@ -126,6 +126,7 @@ text-transform: uppercase;
 color: white;
 background-color: black;
 border: none;
+border-radius: 20px;
 }
 .order-btn:hover {
   color: black;

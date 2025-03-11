@@ -9,7 +9,7 @@ const Navbar = ({ token, setToken, logged, setLogged, onSearch }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const location = useLocation();
 
-  const isSearchActive = location.pathname.includes("/Ettermek") || location.pathname.includes("/hamburgerlista")|| location.pathname.includes("/pizzalista")|| location.pathname.includes("/magyarlista")|| location.pathname.includes("/amerikailista")|| location.pathname.includes("/olaszlista")|| location.pathname.includes("/gyroslista")|| location.pathname.includes("/azsiailista")|| location.pathname.includes("/salataklista") || location.pathname.includes("/desszertlista") || location.pathname.includes("/rendeles");
+  const isSearchActive = location.pathname.includes("/Ettermek") || location.pathname.includes("/hamburgerlista")|| location.pathname.includes("/pizzalista")|| location.pathname.includes("/magyarlista")|| location.pathname.includes("/amerikailista")|| location.pathname.includes("/olaszlista")|| location.pathname.includes("/gyroslista")|| location.pathname.includes("/azsiailista")|| location.pathname.includes("/salataklista") || location.pathname.includes("/desszertlista");
   const handleInputChange = (event) => {
     const value = event.target.value;
     setSearchTerm(value);
@@ -29,7 +29,6 @@ const Navbar = ({ token, setToken, logged, setLogged, onSearch }) => {
         <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
           <li><Link to="/" onClick={() => setMenuOpen(false)}>Főoldal</Link></li>
           <li><Link to="/Ettermek" onClick={() => setMenuOpen(false)}>Összes étterem</Link></li>
-          <li><Link to="/Kosar" onClick={() => setMenuOpen(false)}>Kosár</Link></li>
           <li><Link to="/Kapcsolat" onClick={() => setMenuOpen(false)}>Kapcsolat</Link></li>
 
           <li className="dropdown">

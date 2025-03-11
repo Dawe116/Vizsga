@@ -24,7 +24,7 @@
     font-size: 16px;
   }
   
-  button {
+  .submit-btn {
     width: 100%;
     background: #860092;
     color: white;
@@ -36,7 +36,7 @@
     transition: 0.3s;
   }
   
-  button:hover {
+  .submit-btn:hover {
     background: #ee2fff;
   }
   

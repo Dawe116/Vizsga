@@ -154,7 +154,7 @@ export const Regisztracio = () => {
             ref={confirmPasswordRef}
             required
           />
-          <button type="submit" disabled={loading}>
+          <button className="submit-btn" type="submit" disabled={loading}>
             {loading ? "Regisztráció..." : "Regisztráció"}
           </button>
         </form>

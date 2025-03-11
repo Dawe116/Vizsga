@@ -26,10 +26,26 @@ import Navbar from "./Komponensek/Navbar";
 export const App = () => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [logged, setLogged] = useState(!!localStorage.getItem("token"));
-  const [searchTerm, setSearchTerm] = useState(" ");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [cartItems, setCartItems] = useState([]);  // Kosár állapot hozzáadása
 
   const handleSearch = (query) => {
     setSearchTerm(query);
+  };
+
+  const addToCart = (item) => {
+    setCartItems((prevItems) => {
+      const existingItem = prevItems.find((cartItem) => cartItem.id === item.id);
+      if (existingItem) {
+        return prevItems.map((cartItem) =>
+          cartItem.id === item.id
+            ? { ...cartItem, quantity: Math.min(cartItem.quantity + item.quantity, 5) }
+            : cartItem
+        );
+      } else {
+        return [...prevItems, item];
+      }
+    });
   };
 
   useEffect(() => {
@@ -39,12 +55,12 @@ export const App = () => {
   return (
     <Router>
       <TokenHandler setToken={setToken} setLogged={setLogged} />
-      <Navbar token={token} setToken={setToken} logged={logged} setLogged={setLogged} onSearch={handleSearch} searchTerm={searchTerm}/>
+      <Navbar token={token} setToken={setToken} logged={logged} setLogged={setLogged} onSearch={handleSearch} searchTerm={searchTerm} />
       <Routes>
-      <Route path="/" element={<FoodifyHome />} />
-      <Route path="*" element={<FoodifyHome />} />
-      <Route path="/FoodifyHome" element={<FoodifyHome />} />
-        <Route path="/Kosar" element={<Kosar />} />
+        <Route path="/" element={<FoodifyHome />} />
+        <Route path="*" element={<FoodifyHome />} />
+        <Route path="/FoodifyHome" element={<FoodifyHome />} />
+        <Route path="/Kosar" element={<Kosar cartItems={cartItems} />} />
         <Route path="/Kapcsolat" element={<Kapcsolat />} />
         <Route path="/HamburgerLista" element={<HamburgerLista searchTerm={searchTerm}/>} />
         <Route path="/PizzaLista" element={<PizzaLista searchTerm={searchTerm}/>} />
@@ -61,8 +77,8 @@ export const App = () => {
         <Route path="/Regisztracio" element={<Regisztracio />} />
         <Route path="/Elfelejtett" element={<Elfelejtett />} />
         <Route path="/Fiok" element={<Fiok />} />
-        <Route path="/Rendeles" element={<Rendeles searchTerm={searchTerm}/>} />
-        <Route path="/rendeles/:restaurantId" element={<Rendeles searchTerm={searchTerm}/>} />
+        <Route path="/Rendeles" element={<Rendeles searchTerm={searchTerm} addToCart={addToCart} cartItems={cartItems} setCartItems={setCartItems}/>} />
+        <Route path="/rendeles/:restaurantId" element={<Rendeles searchTerm={searchTerm} addToCart={addToCart} cartItems={cartItems} setCartItems={setCartItems}/>} />
         <Route path="/Ettermek" element={<Ettermek searchTerm={searchTerm}/>} />
       </Routes>
     </Router>
