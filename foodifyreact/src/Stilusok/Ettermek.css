@@ -37,7 +37,7 @@ font-family: var(--font-sans);
 }
 }
 
-.menu-card {
+.restaurant-card {
 position: relative;
 display: flex;
 align-items: flex-end;
@@ -46,6 +46,7 @@ padding: 1rem;
 width: 100%;
 text-align: center;
 color: whitesmoke;
+border-radius: 12px;
 background-color: whitesmoke;
 box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 2px 2px rgba(0, 0, 0, 0.1), 0 4px 4px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.1), 0 16px 16px rgba(0, 0, 0, 0.1);
 
@@ -56,11 +57,11 @@ background-position: center;
 background-size: cover;
 }
 @media (min-width: 600px) {
-.menu-card {
-  height: 350px;
+.restaurant-card {
+  height: 300px;
 }
 }
-.menu-card:before {
+.restaurant-card:before {
 content: "";
 position: absolute;
 top: 0;
@@ -72,7 +73,7 @@ background-position: 0 0;
 transition: transform calc(var(--d) * 1.5) var(--e);
 pointer-events: none;
 }
-.menu-card:after {
+.restaurant-card:after {
 content: "";
 display: block;
 position: absolute;
@@ -100,14 +101,14 @@ z-index: 1;
 margin-top: 1rem;
 }
 
-.menu-title {
+.restaurant-title {
 font-size: 1.3rem;
 font-weight: bold;
 line-height: 1.2;
 color: white;
 }
 
-.menu-description {
+.restaurat-description {
 font-family: var(--font-serif);
 font-size: 1.125rem;
 font-style: italic;
@@ -136,7 +137,7 @@ outline-offset: 3px;
 }
 
 @media (hover: hover) and (min-width: 600px) {
-.menu-card:after {
+.restaurant-card:after {
   transform: translateY(0);
 }
 
@@ -149,32 +150,32 @@ outline-offset: 3px;
   transition: transform var(--d) var(--e), opacity var(--d) var(--e);
 }
 
-.menu-card:hover,
-.menu-card:focus-within {
+.restaurant-card:hover,
+.restaurant-card:focus-within {
   align-items: center;
 }
-.menu-card:hover:before,
-.menu-card:focus-within:before {
+.restaurant-card:hover:before,
+.restaurant-card:focus-within:before {
   transform: translateY(-4%);
 }
-.menu-card:hover:after,
-.menu-card:focus-within:after {
+.restaurant-card:hover:after,
+.restaurant-card:focus-within:after {
   transform: translateY(-50%);
 }
-.menu-card:hover .content_etterem,
-.menu-card:focus-within .content_etterem {
+.restaurant-card:hover .content_etterem,
+.restaurant-card:focus-within .content_etterem {
   transform: translateY(0);
 }
-.menu-card:hover .content_etterem > *:not(.title),
-.menu-card:focus-within .content_etterem > *:not(.title) {
+.restaurant-card:hover .content_etterem > *:not(.title),
+.restaurant-card:focus-within .content_etterem > *:not(.title) {
   opacity: 1;
   transform: translateY(0);
   transition-delay: calc(var(--d) / 8);
 }
 
-.menu-card:focus-within:before, .menu-card:focus-within:after,
-.menu-card:focus-within .content_etterem,
-.menu-card:focus-within .content_etterem > *:not(.title) {
+.restaurant-card:focus-within:before, .restaurant-card:focus-within:after,
+.restaurant-card:focus-within .content_etterem,
+.restaurant-card:focus-within .content_etterem > *:not(.title) {
   transition-duration: 0s;
 }
 }

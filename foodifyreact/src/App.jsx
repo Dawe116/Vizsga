@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, NavLink, useLocation } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { FoodifyHome } from "./Oldalak/FoodifyHome";
 import { Kosar } from "./Oldalak/Kosar";
 import { Kapcsolat } from "./Oldalak/Kapcsolat";
@@ -25,33 +25,41 @@ import Navbar from "./Komponensek/Navbar";
 export const App = () => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [logged, setLogged] = useState(!!localStorage.getItem("token"));
+  const [searchTerm, setSearchTerm] = useState(" ");
+
+  const handleSearch = (query) => {
+    setSearchTerm(query);
+  };
+
+  useEffect(() => {
+    setSearchTerm("");
+  }, [window.location.pathname]);
 
   return (
     <Router>
       <TokenHandler setToken={setToken} setLogged={setLogged} />
-      <Navbar token={token} setToken={setToken} logged={logged} setLogged={setLogged} />
+      <Navbar token={token} setToken={setToken} logged={logged} setLogged={setLogged} onSearch={handleSearch} searchTerm={searchTerm}/>
       <Routes>
-        <Route path="/" element={<FoodifyHome />} />
-        <Route path="*" element={<FoodifyHome />} />
+        <Route path="/FoodifyHome" element={<FoodifyHome />} />
         <Route path="/Kosar" element={<Kosar />} />
         <Route path="/Kapcsolat" element={<Kapcsolat />} />
-        <Route path="/HamburgerLista" element={<HamburgerLista />} />
-        <Route path="/PizzaLista" element={<PizzaLista />} />
-        <Route path="/MagyarLista" element={<MagyarLista />} />
-        <Route path="/AmerikaiLista" element={<AmerikaiLista />} />
-        <Route path="/OlaszLista" element={<OlaszLista />} />
-        <Route path="/GyrosLista" element={<GyrosLista />} />
-        <Route path="/AzsiaiLista" element={<AzsiaiLista />} />
-        <Route path="/SalatakLista" element={<SalatakLista />} />
-        <Route path="/DesszertLista" element={<DesszertLista />} />
+        <Route path="/HamburgerLista" element={<HamburgerLista searchTerm={searchTerm}/>} />
+        <Route path="/PizzaLista" element={<PizzaLista searchTerm={searchTerm}/>} />
+        <Route path="/MagyarLista" element={<MagyarLista searchTerm={searchTerm}/>} />
+        <Route path="/AmerikaiLista" element={<AmerikaiLista searchTerm={searchTerm}/>} />
+        <Route path="/OlaszLista" element={<OlaszLista searchTerm={searchTerm}/>} />
+        <Route path="/GyrosLista" element={<GyrosLista searchTerm={searchTerm}/>} />
+        <Route path="/AzsiaiLista" element={<AzsiaiLista searchTerm={searchTerm}/>} />
+        <Route path="/SalatakLista" element={<SalatakLista searchTerm={searchTerm}/>} />
+        <Route path="/DesszertLista" element={<DesszertLista searchTerm={searchTerm}/>} />
         <Route path="/Iranyelvek" element={<Iranyelvek />} />
         <Route path="/Feltetelek" element={<Feltetelek />} />
         <Route path="/Bejelentkezes" element={<Bejelentkezes />} />
         <Route path="/Regisztracio" element={<Regisztracio />} />
         <Route path="/Elfelejtett" element={<Elfelejtett />} />
         <Route path="/Fiok" element={<Fiok />} />
-        <Route path="/Rendeles" element={<Rendeles />} />
-        <Route path="/rendeles/:restaurantId" element={<Rendeles />} />
+        <Route path="/Rendeles" element={<Rendeles searchTerm={searchTerm}/>} />
+        <Route path="/rendeles/:restaurantId" element={<Rendeles searchTerm={searchTerm}/>} />
       </Routes>
     </Router>
   );
