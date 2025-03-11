@@ -21,7 +21,7 @@ export const Fiok = () => {
   const [cimek, setCimek] = useState(storedCimek ? JSON.parse(storedCimek) : []);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/Address")
+    axios.get("https://localhost:5000/api/Address")
       .then(response => {
         if (response.data && Array.isArray(response.data)) {
           setData(response.data);
@@ -47,7 +47,7 @@ export const Fiok = () => {
     setErrorMessage("");
     const newCim = { county, postalCode, city, street, houseNumber, floor, door };
 
-    axios.post("http://localhost:5000/api/Address", newCim)
+    axios.post("https://localhost:5000/api/Address", newCim)
       .then(response => {
         setCimek(prev => [...prev, response.data]);
         localStorage.setItem("cimek", JSON.stringify([...cimek, response.data]));

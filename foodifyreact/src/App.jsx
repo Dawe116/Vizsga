@@ -42,7 +42,8 @@ export const App = () => {
       <Navbar token={token} setToken={setToken} logged={logged} setLogged={setLogged} onSearch={handleSearch} searchTerm={searchTerm}/>
       <Routes>
       <Route path="/" element={<FoodifyHome />} />
-        <Route path="/FoodifyHome" element={<FoodifyHome />} />
+      <Route path="*" element={<FoodifyHome />} />
+      <Route path="/FoodifyHome" element={<FoodifyHome />} />
         <Route path="/Kosar" element={<Kosar />} />
         <Route path="/Kapcsolat" element={<Kapcsolat />} />
         <Route path="/HamburgerLista" element={<HamburgerLista searchTerm={searchTerm}/>} />

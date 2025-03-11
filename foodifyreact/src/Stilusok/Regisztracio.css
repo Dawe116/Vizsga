@@ -1,17 +1,17 @@
   .auth-container {
-    background:#7708ae;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
   padding: 2rem;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   text-align: center;
   max-width: 400px;
   width: 100%;
-  backdrop-filter: blur(10px);
-  margin: 30px auto;
+  margin: auto;
   }
   
 .auth-h2 {
-    color: #000000;
+    color: white;
     margin-bottom: 1rem;
   }
 
@@ -26,7 +26,7 @@
   
   button {
     width: 100%;
-    background: #b300c4;
+    background: #860092;
     color: white;
     border: none;
     padding: 10px;
@@ -37,7 +37,7 @@
   }
   
   button:hover {
-    background: #b300c4;
+    background: #ee2fff;
   }
   
   .error {
@@ -48,11 +48,11 @@
   
   .auth-p {
     margin-top: 10px;
-    color: #000000;
+    color: white;
   }
   
   .auth-p a {
-    color: white;
+    color: #b300c4;
     text-decoration: none;
     font-weight: bold;
   }

@@ -4,7 +4,7 @@ html, body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(to bottom right,#670797,#6c0850,#b14861 );
+  background-image: linear-gradient(to bottom right,#660896, #52073c, #993e53 );
   padding-top: 100px;
 }
 

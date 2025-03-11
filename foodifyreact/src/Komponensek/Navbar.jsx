@@ -18,7 +18,7 @@ const Navbar = ({ token, setToken, logged, setLogged, onSearch }) => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <Link to="/FoodifyHome" className="logo">
+        <Link to="/" className="logo">
           <img src="../img/foodify_logo.jpg" alt="Foodify Logo" />
         </Link>
 
@@ -27,7 +27,7 @@ const Navbar = ({ token, setToken, logged, setLogged, onSearch }) => {
         </button>
 
         <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
-          <li><Link to="/FoodifyHome" onClick={() => setMenuOpen(false)}>Főoldal</Link></li>
+          <li><Link to="/" onClick={() => setMenuOpen(false)}>Főoldal</Link></li>
           <li><Link to="/Ettermek" onClick={() => setMenuOpen(false)}>Összes étterem</Link></li>
           <li><Link to="/Kosar" onClick={() => setMenuOpen(false)}>Kosár</Link></li>
           <li><Link to="/Kapcsolat" onClick={() => setMenuOpen(false)}>Kapcsolat</Link></li>
@@ -45,7 +45,7 @@ const Navbar = ({ token, setToken, logged, setLogged, onSearch }) => {
                     setToken("");
                     setLogged(false);
                     window.location.reload();
-                  }}>Kijelentkezés</li>
+                  }}><Link to="/FoodifyHome" onClick={() => setMenuOpen(false)}>Kijelentkezés</Link></li>
                 </>
               ) : (
                 <>

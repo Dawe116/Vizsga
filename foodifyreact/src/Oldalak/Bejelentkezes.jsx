@@ -19,16 +19,13 @@ export const Bejelentkezes = () => {
     }
 
     try {
-      // Salt lekérése a backendről
-      const saltResponse = await axios.post(`http://localhost:5000/api/Login/SaltRequest/${username}`); 
+      const saltResponse = await axios.post(`https://localhost:5000/api/Login/SaltRequest/${username}`); 
       const salt = saltResponse.data;
 
-      // Jelszó hash-elése
       const tmpHash = sha256(password + salt.toString());
       const loginName = username;
 
-      // Bejelentkezési kérés küldése
-      const response = await axios.post("http://localhost:5000/api/Login", {
+      const response = await axios.post("https://localhost:5000/api/Login", {
         loginName,
         tmpHash,
       });
@@ -39,7 +36,6 @@ export const Bejelentkezes = () => {
       const adatok = localStorage.getItem("adatok");
       console.log(adatok);
 
-      // A token és adatok beállítása az App komponensben
       navigate("/App");
     } catch (error) {
       setError(error.response?.data?.message || "Hiba történt a bejelentkezés során.");
