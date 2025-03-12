@@ -21,8 +21,15 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+    padding: 0 20px;
+    position: relative; 
   }
   
+  .logo {
+    position: absolute;
+    left: 20px;
+  }
+
   .logo img {
     width: 60px;
     height: 60px;
