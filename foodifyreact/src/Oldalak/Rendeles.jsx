@@ -13,8 +13,7 @@ const Rendeles = ({ addToCart, cartItems, setCartItems }) => {
     const token = localStorage.getItem("token");
 
     useEffect(() => {
-        axios.get(`https://localhost:5000/api/Menu`, {
-            headers: token ? { Authorization: `Bearer ${token}` } : {}, 
+        axios.get(`https://localhost:5000/api/Menu`, { 
         })
         .then(response => {
             const allMenus = response.data;
