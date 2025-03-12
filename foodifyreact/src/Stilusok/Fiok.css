@@ -7,9 +7,9 @@ box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 text-align: center;
 max-width: 400px;
 width: 100%;
-margin: auto;
+margin: 50px auto;
 align-items: center;
-
+padding: auto;
 }
   
   .account-card-header {
@@ -26,6 +26,14 @@ align-items: center;
   }
   
   .account-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+  }
+
+  .megye-lista{
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -66,3 +74,8 @@ align-items: center;
     opacity: 0.9;
   }
   
+  .address-label{
+    font-size: 20px;
+    font-weight: bold;
+    margin: auto;
+  }

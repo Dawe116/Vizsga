@@ -4,8 +4,9 @@ import axios from "axios";
 import Footer from '../Komponensek/Footer';
 
 export const Fiok = () => {
-  const [data , setData] = useState([]);
+  const [data, setData] = useState([]);
   const [error, setError] = useState(null);
+  const [counties, setCounties] = useState([]);
   const [formData, setFormData] = useState({
     county: "",
     postalCode: "",
@@ -24,16 +25,29 @@ export const Fiok = () => {
   const [cimek, setCimek] = useState(storedCimek ? JSON.parse(storedCimek) : []);
 
   useEffect(() => {
+    axios.get("https://localhost:5000/api/County")
+      .then(response => {
+        console.log("Megye lista:", response.data);
+        if (response.data && Array.isArray(response.data)) {
+          setCounties(response.data);
+        } else {
+          console.error("Hibás adatformátum az API-tól");
+        }
+      })
+      .catch(error => {
+        console.error("Hiba a megyék lekérésekor:", error.response?.status, error.message);
+        setError("Hiba történt a megyék lekérésekor.");
+      });
+
     axios.get("https://localhost:5000/api/Address")
       .then(response => {
         if (response.data && Array.isArray(response.data)) {
           setData(response.data);
           setCimek(response.data);
           localStorage.setItem("cimek", JSON.stringify(response.data));
-          console.log(response.data);
           if (response.data.length > 0) {
             setFormData({
-              county: response.data[0].countyName, 
+              county: response.data[0].countyId,
               postalCode: response.data[0].postalCode,
               city: response.data[0].city,
               street: response.data[0].street,
@@ -49,7 +63,7 @@ export const Fiok = () => {
       })
       .catch(error => {
         console.error("Hiba történt:", error);
-        setError(error.message);
+        setError("Hiba történt az adatok lekérésekor.");
       });
   }, []);
 
@@ -72,14 +86,17 @@ export const Fiok = () => {
         setIsEditing(false);
         setOriginalData(formData);
       })
-      .catch(error => console.error("Hiba történt a mentés során:", error));
+      .catch(error => {
+        console.error("Hiba történt a mentés során:", error);
+        setErrorMessage("Hiba történt a mentés során.");
+      });
   };
 
   const handleCancel = () => {
     setIsEditing(false);
     setErrorMessage("");
     setFormData({
-      county: originalData.countyName || "",
+      county: originalData.countyId || "",
       postalCode: originalData.postalCode || "",
       city: originalData.city || "",
       street: originalData.street || "",
@@ -101,16 +118,26 @@ export const Fiok = () => {
             <p><strong>Email: {adatok.email}</strong> </p>
           </div>
           <div className="account-address">
-            <label>Lakcím: {cimek.length === 0 ? "Nincs megadva" : ""}</label>
-            {Object.keys(formData).map((key) => (
+            <label className="address-label"><strong>Lakcím:</strong> {cimek.length === 0 ? "Nincs megadva" : ""}</label>
+            <select
+              name="county" className="megye-lista"
+              value={formData.county || ""}
+              onChange={handleChange}
+              disabled={!isEditing}
+            >
+              <option value="">Válassz megyét</option>
+              {counties.map((county) => (
+                <option key={county.id} value={county.id}>{county.name}</option>
+              ))}
+            </select>
+            {Object.keys(formData).filter(key => key !== "county").map((key) => (
               <input
                 key={key}
                 type="text"
                 name={key}
                 value={formData[key] || ""}
                 onChange={handleChange}
-                placeholder={
-                  key === "county" ? "Megye" :
+                placeholder={ 
                   key === "postalCode" ? "Irányítószám" :
                   key === "city" ? "Város" :
                   key === "street" ? "Utca" :
