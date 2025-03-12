@@ -27,7 +27,7 @@ namespace FoodBackEnd.Controllers
 
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetId(int id, string token)
+        public async Task<IActionResult> GetId(int id)
         {
 
                 try
