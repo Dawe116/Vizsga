@@ -6,13 +6,16 @@ import Footer from '../Komponensek/Footer';
 export const Fiok = () => {
   const [data , setData] = useState([]);
   const [error, setError] = useState(null);
-  const [county, setCounty] = useState("");
-  const [postalCode, setPostalCode] = useState("");
-  const [city, setCity] = useState("");
-  const [street, setStreet] = useState("");
-  const [houseNumber, setHouseNumber] = useState("");
-  const [floor, setFloor] = useState("");
-  const [door, setDoor] = useState("");
+  const [formData, setFormData] = useState({
+    county: "",
+    postalCode: "",
+    city: "",
+    street: "",
+    houseNumber: "",
+    floor: "",
+    door: ""
+  });
+  const [originalData, setOriginalData] = useState({});
   const [isEditing, setIsEditing] = useState(false);
   const [adatok] = useState(JSON.parse(localStorage.getItem("adatok")));
   const [errorMessage, setErrorMessage] = useState("");
@@ -28,6 +31,18 @@ export const Fiok = () => {
           setCimek(response.data);
           localStorage.setItem("cimek", JSON.stringify(response.data));
           console.log(response.data);
+          if (response.data.length > 0) {
+            setFormData({
+              county: response.data[0].countyName, 
+              postalCode: response.data[0].postalCode,
+              city: response.data[0].city,
+              street: response.data[0].street,
+              houseNumber: response.data[0].houseNumber,
+              floor: response.data[0].floor,
+              door: response.data[0].door
+            });
+            setOriginalData(response.data[0]);
+          }
         } else {
           console.error("Hibás adatformátum az API-tól");
         }
@@ -38,20 +53,24 @@ export const Fiok = () => {
       });
   }, []);
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
   const handleSave = () => {
-    if (!county || !postalCode || !city || !street || !houseNumber) {
+    if (!formData.county || !formData.postalCode || !formData.city || !formData.street || !formData.houseNumber) {
       setErrorMessage("Minden kötelező mezőt ki kell tölteni!");
       return;
     }
 
     setErrorMessage("");
-    const newCim = { county, postalCode, city, street, houseNumber, floor, door };
-
-    axios.post("https://localhost:5000/api/Address", newCim)
+    axios.post("https://localhost:5000/api/Address", formData)
       .then(response => {
         setCimek(prev => [...prev, response.data]);
         localStorage.setItem("cimek", JSON.stringify([...cimek, response.data]));
         setIsEditing(false);
+        setOriginalData(formData);
       })
       .catch(error => console.error("Hiba történt a mentés során:", error));
   };
@@ -59,10 +78,19 @@ export const Fiok = () => {
   const handleCancel = () => {
     setIsEditing(false);
     setErrorMessage("");
+    setFormData({
+      county: originalData.countyName || "",
+      postalCode: originalData.postalCode || "",
+      city: originalData.city || "",
+      street: originalData.street || "",
+      houseNumber: originalData.houseNumber || "",
+      floor: originalData.floor || "",
+      door: originalData.door || ""
+    });
   };
 
   return (
-<div id="root">
+    <div id="root">
       <div className="account-card">
         <div className="account-card-header">
           <h2>Saját Fiók</h2>
@@ -73,19 +101,27 @@ export const Fiok = () => {
             <p><strong>Email: {adatok.email}</strong> </p>
           </div>
           <div className="account-address">
-            <label>Lakcím: {cimek[1] ? null : "Nincs megadva"}</label>
-
-            {isEditing ? (
-              <>
-                <input type="text" value={county} onChange={(e) => setCounty(e.target.value)} placeholder="Megye" className="account-input" />
-                <input type="text" value={postalCode} onChange={(e) => setPostalCode(e.target.value)} placeholder="Irányítószám" className="account-input" />
-                <input type="text" value={city} onChange={(e) => setCity(e.target.value)} placeholder="Város" className="account-input" />
-                <input type="text" value={street} onChange={(e) => setStreet(e.target.value)} placeholder="Utca" className="account-input" />
-                <input type="text" value={houseNumber} onChange={(e) => setHouseNumber(e.target.value)} placeholder="Házszám" className="account-input" />
-                <input type="text" value={floor} onChange={(e) => setFloor(e.target.value)} placeholder="Emelet (nem kötelező)" className="account-input" />
-                <input type="text" value={door} onChange={(e) => setDoor(e.target.value)} placeholder="Ajtó (nem kötelező)" className="account-input" />
-              </>
-            ) : null}
+            <label>Lakcím: {cimek.length === 0 ? "Nincs megadva" : ""}</label>
+            {Object.keys(formData).map((key) => (
+              <input
+                key={key}
+                type="text"
+                name={key}
+                value={formData[key] || ""}
+                onChange={handleChange}
+                placeholder={
+                  key === "county" ? "Megye" :
+                  key === "postalCode" ? "Irányítószám" :
+                  key === "city" ? "Város" :
+                  key === "street" ? "Utca" :
+                  key === "houseNumber" ? "Házszám" :
+                  key === "floor" ? "Emelet (nem kötelező)" :
+                  key === "door" ? "Ajtó (nem kötelező)" : key
+                }
+                className="account-input"
+                disabled={!isEditing}
+              />
+            ))}
             {errorMessage && <p className="error-message">{errorMessage}</p>}
           </div>
           <div className="account-buttons">
