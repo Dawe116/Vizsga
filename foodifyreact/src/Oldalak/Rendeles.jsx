@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import '../Stilusok/Rendeles.css';
 import Footer from '../Komponensek/Footer';
@@ -8,6 +8,7 @@ const Rendeles = ({ addToCart, cartItems, setCartItems }) => {
     const { restaurantId } = useParams();
     const [menuItems, setMenuItems] = useState([]);
     const [error, setError] = useState(null);
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const navigate = useNavigate();
 
     const token = localStorage.getItem("token");
@@ -31,10 +32,8 @@ const Rendeles = ({ addToCart, cartItems, setCartItems }) => {
     };
 
     const placeOrder = () => {
-        alert(`A rendelést átadtuk a kiszállító partnerünknek.\n\nTeljes fizetendő ár: ${cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0)} Ft\n\nKöszönjük, hogy a Foodify-al rendelt!`);
-        clearCart();
-        navigate("/");
-    };
+        setIsModalOpen(true);
+      };
 
     return (
         <div id="root">
@@ -47,6 +46,7 @@ const Rendeles = ({ addToCart, cartItems, setCartItems }) => {
                     ))}
                 </div>
                 <Cart cartItems={cartItems} setCartItems={setCartItems} clearCart={clearCart} placeOrder={placeOrder} />
+                {isModalOpen && <OrderModal cartItems={cartItems} closeModal={() => { setIsModalOpen(false); clearCart(); }} />}
             </div>
             <Footer />
         </div>
@@ -107,5 +107,21 @@ const Cart = ({ cartItems, setCartItems, clearCart, placeOrder }) => {
         </div>
     );
 };
+
+const OrderModal = ({ cartItems, closeModal }) => {
+    const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  
+    return (
+      <div className="order-modal">
+        <div className="modal-content">
+          <h2>Rendelés leadva!</h2>
+          <p>A rendelést átadtuk a kiszállító partnerünknek.</p>
+          <h3>Fizetendő összeg: {totalPrice} Ft</h3>
+          <p>Köszönjük, hogy a Foodify-n rendeltél!</p>
+          <Link to="/FoodifyHome"><button className="close-modal" onClick={closeModal}>Rendben</button></Link>
+        </div>
+      </div>
+    );
+  };  
 
 export { Rendeles, MenuItemCard, Cart };
