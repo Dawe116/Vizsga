@@ -7,10 +7,10 @@ import Footer from '../Komponensek/Footer';
 
 export const Regisztracio = () => {
   const [formData, setFormData] = useState({
-    loginNev: "",
-    password: "",
     name: "",
+    loginNev: "",
     email: "",
+    password: "",
     confirmPassword: "",
   });
   const [errorMessages, setErrorMessages] = useState({});
@@ -44,9 +44,9 @@ export const Regisztracio = () => {
     if (formData.password !== formData.confirmPassword) {
       errors.confirmPassword = "A jelszavak nem egyeznek!";
     }
-    
+
     setErrorMessages(errors);
-    
+
     if (Object.keys(errors).length > 0) {
       if (errors.name) nameRef.current.focus();
       else if (errors.loginNev) loginNevRef.current.focus();
@@ -71,6 +71,11 @@ export const Regisztracio = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (!formData.loginNev || !formData.name || !formData.email || !formData.password || !formData.confirmPassword) {
+      setErrorMessages({ server: "Minden mezőt ki kell tölteni!" });
+      return;
+    }
+
     if (!validateForm()) {
       return;
     }
@@ -79,19 +84,21 @@ export const Regisztracio = () => {
     const hashedPassword = sha256(formData.password + salt);
 
     const requestBody = {
-      id: 0,
       loginNev: formData.loginNev,
       name: formData.name,
-      salt,
-      hash: hashedPassword,
       email: formData.email,
+      hash: hashedPassword,
       permissionId: 1,
-      active: true
+      active: false
     };
 
     setLoading(true);
     try {
-      const response = await axios.post("https://localhost:5000/api/Registry", requestBody);
+      const response = await axios.post(
+        "https://localhost:5000/api/Registry",
+        requestBody,
+        { headers: { "Content-Type": "application/json" } }
+      );
 
       if (response.status === 200) {
         setSuccessMessage("Sikeres regisztráció! Most már bejelentkezhetsz.");
@@ -99,6 +106,7 @@ export const Regisztracio = () => {
         setErrorMessages({});
       }
     } catch (error) {
+      console.error("Regisztrációs hiba: ", error.response?.data); // Hiba részletes naplózása
       setErrorMessages({ server: error.response?.data?.message || "Hiba történt a regisztráció során!" });
     } finally {
       setLoading(false);
