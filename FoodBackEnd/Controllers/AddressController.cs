@@ -28,27 +28,20 @@ namespace FoodBackEnd.Controllers
             
         }
 
-        [HttpGet("{id},{token}")]
-        public async Task<IActionResult> GetId(int id, string token)
+        [HttpGet("{userId}")]
+        public async Task<IActionResult> GetId(int userId)
         {
-            if (Program.LoggedInUsers.ContainsKey(token) && Program.LoggedInUsers[token].PermissionId == 9)
-            {
                 try
                 {
                     using (var cx = new FoodifyContext())
                     {
-                        return Ok(await cx.Addresses.FirstOrDefaultAsync(f => f.Id == id));
+                        return Ok(await cx.Addresses.FirstOrDefaultAsync(f => f.UserId == userId));
                     }
                 }
                 catch (Exception ex)
                 {
                     return BadRequest(ex.InnerException?.Message);
                 }
-            }
-            else
-            {
-                return BadRequest("Nincs hozzá jogod!");
-            }
         }
 
         [HttpPost("{token}")]

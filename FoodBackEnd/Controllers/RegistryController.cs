@@ -26,12 +26,12 @@ namespace FoodBackEnd.Controllers
                         return Ok("Ezzel az e-mail címmel már regisztráltak!");
                     }
                     user.PermissionId = 1;
-                    user.Active = false;
+                    user.Active = true;
                     user.Hash = Program.CreateSHA256(user.Hash);
                     await cx.Users.AddAsync(user);
                     await cx.SaveChangesAsync();
 
-                    Program.SendEmail(user.Email, "Regisztráció", $"https://localhost:5001/api/Registry?LoginNev={user.LoginNev}&email={user.Email}");
+                    Program.SendEmail(user.Email, "Regisztráció", $"https://localhost:5000/api/Registry?LoginNev={user.LoginNev}&email={user.Email}");
 
                     return Ok("Sikeres regisztráció. Fejezze be a regisztrációját az e-mail címére küldött link segítségével!");
                 }
