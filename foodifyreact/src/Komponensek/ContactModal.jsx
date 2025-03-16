@@ -25,7 +25,7 @@ const ContactModal = ({ isOpen, onClose }) => {
             required
           />
           <div>
-            <button type="submit" className="submit-btn">Küldés</button>
+            <button type="submit" className="contact-submit-btn">Küldés</button>
             <button type="button" className="close-btn" onClick={onClose}>Mégse</button>
           </div>
         </form>
