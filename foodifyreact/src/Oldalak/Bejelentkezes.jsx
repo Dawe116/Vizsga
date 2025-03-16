@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
 import "../Stilusok/Bejelentkezes.css";
-import sha256 from 'js-sha256';
-import Footer from '../Komponensek/Footer';
+import sha256 from "js-sha256";
+import Footer from "../Komponensek/Footer";
+import AuthModal from "../Komponensek/AuthModal";
 
 export const Bejelentkezes = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -29,31 +33,46 @@ export const Bejelentkezes = () => {
         loginName,
         tmpHash,
       });
-      
-      alert(`Sikeres bejelentkezés: ${response.data.token}`);
+
       localStorage.setItem("adatok", JSON.stringify(response.data));
       localStorage.setItem("token", JSON.stringify(response.data.token));
-      const adatok = localStorage.getItem("adatok");
-      console.log(adatok);
 
-      navigate("/App");
+      setModalMessage("Sikeres bejelentkezés!");
+      setIsSuccess(true);
     } catch (error) {
-      setError(error.response?.data?.message || "Hiba történt a bejelentkezés során.");
+      setModalMessage(error.response?.data?.message || "Hiba történt a bejelentkezés során.");
+      setIsSuccess(false);
+    } finally {
+      setIsModalOpen(true);
     }
   };
 
+  const handleRetry = () => {
+    setIsModalOpen(false);
+    setUsername("");
+    setPassword("");
+  };
+
   return (
-<div id="root">
+    <div id="root">
       <div className="auth-container">
         <h2 className="auth-h2">Bejelentkezés</h2>
-        {error && <p className="error">{error}</p>}
         <form onSubmit={handleSubmit}>
-          <input id="loginNev" type="username" placeholder="Fellhasználónév" value={username} onChange={(e) => setUsername(e.target.value)} required />
+          <input id="loginNev" type="text" placeholder="Felhasználónév" value={username} onChange={(e) => setUsername(e.target.value)} required />
           <input id="password" type="password" placeholder="Jelszó" value={password} onChange={(e) => setPassword(e.target.value)} required />
           <button className="submit-btn" type="submit">Bejelentkezés</button>
         </form>
         <p className="auth-p">Nincs fiókod? <Link to="/regisztracio">Regisztráció</Link></p>
       </div>
+      {isModalOpen && (
+        <AuthModal 
+          message={modalMessage} 
+          isSuccess={isSuccess} 
+          onClose={() => navigate("/foodifyhome")} 
+          onRetry={handleRetry} 
+          successRedirect="/foodifyhome" 
+        />
+      )}
       <Footer />
     </div>
   );

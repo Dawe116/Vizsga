@@ -7,10 +7,10 @@ export const Kapcsolat = () => {
         <div id="root">
             <h2>Kapcsolat</h2>
             <h4>Ügyfélszolgálat</h4>
-            <h5><i>Minden nap 0/24</i></h5>
-            <h4>E-mail: maszbal999@gmail.com</h4>
-            <h4>Telefon: +36 1 123 456</h4>
-            <input type='button' content='Ügyfélszolgálat' value='Ügyfélszolgálat' className='btn btn-primary'/>
+            <h4><i>Minden nap 0/24</i></h4>
+            <h4>E-mail: foodifyhelp@gmail.com</h4>
+            <h4>Telefon: +36 70 522 6566</h4>
+            <button type='button' className='contact-btn'> Ügyfélszolgálat</button>
             <Footer />
         </div>
     );
