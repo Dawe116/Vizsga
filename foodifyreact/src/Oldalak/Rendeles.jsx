@@ -9,13 +9,14 @@ const Rendeles = ({ addToCart, cartItems, setCartItems }) => {
     const [menuItems, setMenuItems] = useState([]);
     const [error, setError] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [modalContent, setModalContent] = useState({});
     const navigate = useNavigate();
 
     const token = localStorage.getItem("token");
+    const userData = JSON.parse(localStorage.getItem("userData"));
 
     useEffect(() => {
-        axios.get(`https://localhost:5000/api/Menu`, { 
-        })
+        axios.get(`https://localhost:5000/api/Menu`)
         .then(response => {
             const allMenus = response.data;
             const filteredMenus = allMenus.filter(menu => menu.restaurantId === parseInt(restaurantId));
@@ -32,8 +33,33 @@ const Rendeles = ({ addToCart, cartItems, setCartItems }) => {
     };
 
     const placeOrder = () => {
+        if (!token) {
+            setModalContent({
+                message: "A rendelés leadása előtt be kell jelentkeznie.",
+                buttonText: "Bejelentkezés",
+                buttonAction: () => navigate("/bejelentkezes")
+            });
+            setIsModalOpen(true);
+            return;
+        }
+
+        if (!userData || !userData.address) {
+            setModalContent({
+                message: "Kérjük, adja meg a kiszállítási címét a rendelés leadásához.",
+                buttonText: "Saját fiók",
+                buttonAction: () => navigate("/fiok")
+            });
+            setIsModalOpen(true);
+            return;
+        }
+
+        setModalContent({
+            message: "A rendelést átadtuk a kiszállító partnerünknek.",
+            buttonText: "Rendben",
+            buttonAction: () => { setIsModalOpen(false); clearCart(); navigate("/FoodifyHome"); }
+        });
         setIsModalOpen(true);
-      };
+    };
 
     return (
         <div id="root">
@@ -46,7 +72,7 @@ const Rendeles = ({ addToCart, cartItems, setCartItems }) => {
                     ))}
                 </div>
                 <Cart cartItems={cartItems} setCartItems={setCartItems} clearCart={clearCart} placeOrder={placeOrder} />
-                {isModalOpen && <OrderModal cartItems={cartItems} closeModal={() => { setIsModalOpen(false); clearCart(); }} />}
+                {isModalOpen && <OrderModal modalContent={modalContent} closeModal={() => setIsModalOpen(false)} />}
             </div>
             <Footer />
         </div>
@@ -108,20 +134,16 @@ const Cart = ({ cartItems, setCartItems, clearCart, placeOrder }) => {
     );
 };
 
-const OrderModal = ({ cartItems, closeModal }) => {
-    const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  
+const OrderModal = ({ modalContent, closeModal }) => {
     return (
       <div className="order-modal">
         <div className="modal-content">
-          <h2>Rendelés leadva!</h2>
-          <p>A rendelést átadtuk a kiszállító partnerünknek.</p>
-          <h3>Fizetendő összeg: {totalPrice} Ft</h3>
-          <p>Köszönjük, hogy a Foodify-n rendeltél!</p>
-          <Link to="/FoodifyHome"><button className="close-modal" onClick={closeModal}>Rendben</button></Link>
+          <h2>Rendelés információ</h2>
+          <p>{modalContent.message}</p>
+          <button className="close-modal" onClick={modalContent.buttonAction}>{modalContent.buttonText}</button>
         </div>
       </div>
     );
-  };  
+};
 
 export { Rendeles, MenuItemCard, Cart };
