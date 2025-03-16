@@ -85,19 +85,19 @@ export const Regisztracio = () => {
 
     const requestBody = {
       loginNev: formData.loginNev,
-      name: formData.name,
-      email: formData.email,
       hash: hashedPassword,
+      salt: salt,
+      name: formData.name,
       permissionId: 1,
-      active: false
+      email: formData.email,
+      active : true
     };
 
     setLoading(true);
     try {
       const response = await axios.post(
         "https://localhost:5000/api/Registry",
-        requestBody,
-        { headers: { "Content-Type": "application/json" } }
+        requestBody
       );
 
       if (response.status === 200) {
