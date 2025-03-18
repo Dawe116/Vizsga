@@ -41,22 +41,24 @@ export const Fiok = () => {
 
     axios.get("https://localhost:5000/api/Address")
       .then(response => {
-        if (response.data && Array.isArray(response.data) && response.data.length > 0) {
-          const address = response.data[0];
+        if (response.data && Array.isArray(response.data)) {
           setData(response.data);
           setCimek(response.data);
           localStorage.setItem("cimek", JSON.stringify(response.data));
-
-          setFormData({
-            county: address.countyId || "",
-            postalCode: address.postalCode || "",
-            city: address.city || "",
-            street: address.street || "",
-            houseNumber: address.houseNumber || "",
-            floor: address.floor || "",
-            door: address.door || ""
-          });
-          setOriginalData(address);
+          if (response.data.length > 0) {
+            setFormData({
+              county: response.data[0].countyId,
+              postalCode: response.data[0].postalCode,
+              city: response.data[0].city,
+              street: response.data[0].street,
+              houseNumber: response.data[0].houseNumber,
+              floor: response.data[0].floor,
+              door: response.data[0].door
+            });
+            setOriginalData(response.data[0]);
+          }
+        } else {
+          console.error("Hibás adatformátum az API-tól");
         }
       })
       .catch(error => {
@@ -77,15 +79,12 @@ export const Fiok = () => {
     }
 
     setErrorMessage("");
-    axios.put("https://localhost:5000/api/Address", formData)
+    axios.post("https://localhost:5000/api/Address", formData)
       .then(response => {
-        setCimek(prev => 
-          prev.map(item => item.id === response.data.id ? response.data : item)
-        );
-        localStorage.setItem("cimek", JSON.stringify(cimek));
-
+        setCimek(prev => [...prev, response.data]);
+        localStorage.setItem("cimek", JSON.stringify([...cimek, response.data]));
         setIsEditing(false);
-        setOriginalData(response.data);  // Az új adatokat tároljuk itt
+        setOriginalData(formData);
       })
       .catch(error => {
         console.error("Hiba történt a mentés során:", error);
@@ -119,7 +118,7 @@ export const Fiok = () => {
             <p><strong>Email: {adatok.email}</strong> </p>
           </div>
           <div className="account-address">
-            <label className="address-label"><strong>Szállítási cím:</strong> {cimek.length === 0 ? "Nincs megadva" : ""}</label>
+            <label className="address-label"><strong>Lakcím:</strong> {cimek.length === 0 ? "Nincs megadva" : ""}</label>
             <select
               name="county" className="megye-lista"
               value={formData.county || ""}
@@ -140,7 +139,7 @@ export const Fiok = () => {
                 onChange={handleChange}
                 placeholder={ 
                   key === "postalCode" ? "Irányítószám" :
-                  key === "city" ? "Település" :
+                  key === "city" ? "Város" :
                   key === "street" ? "Utca" :
                   key === "houseNumber" ? "Házszám" :
                   key === "floor" ? "Emelet (nem kötelező)" :
