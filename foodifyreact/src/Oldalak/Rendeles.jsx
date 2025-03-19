@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import '../Stilusok/Rendeles.css';
 import Footer from '../Komponensek/Footer';
@@ -14,6 +14,10 @@ const Rendeles = ({ addToCart, cartItems, setCartItems }) => {
 
     const token = localStorage.getItem("token");
     const userData = JSON.parse(localStorage.getItem("userData"));
+    const addresses = JSON.parse(localStorage.getItem("cimek") || "[]");
+
+    console.log("Bejelentkezett felhasználó adatai:", userData);
+    console.log("Cím adatok:", addresses);
 
     useEffect(() => {
         axios.get(`https://localhost:5000/api/Menu`)
@@ -35,31 +39,37 @@ const Rendeles = ({ addToCart, cartItems, setCartItems }) => {
     const placeOrder = () => {
         if (!token) {
             setModalContent({
-                message: "A rendelés leadása előtt be kell jelentkeznie.",
+                message: ["A rendelés leadása előtt be kell jelentkeznie."],
                 buttonText: "Bejelentkezés",
                 buttonAction: () => navigate("/bejelentkezes")
             });
             setIsModalOpen(true);
             return;
         }
-
-        if (!userData || !userData.address) {
+    
+        if (!addresses || addresses.length === 0) {
             setModalContent({
-                message: "Kérjük, adja meg a kiszállítási címét a rendelés leadásához.",
+                message: ["Kérjük, adja meg a kiszállítási címét a rendelés leadásához."],
                 buttonText: "Saját fiók",
                 buttonAction: () => navigate("/fiok")
             });
             setIsModalOpen(true);
             return;
         }
-
+    
+        const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    
         setModalContent({
-            message: "A rendelést átadtuk a kiszállító partnerünknek.",
+            message: [
+                "A rendelést átadtuk a kiszállító partnerünknek.",
+                `Teljes fizetendő összeg: ${totalPrice} Ft.`,
+                "Köszönjük, hogy a Foodify-al rendelt!"
+            ],
             buttonText: "Rendben",
             buttonAction: () => { setIsModalOpen(false); clearCart(); navigate("/FoodifyHome"); }
         });
         setIsModalOpen(true);
-    };
+    };           
 
     return (
         <div id="root">
@@ -90,8 +100,10 @@ const MenuItemCard = ({ menu, addToCart }) => {
         <div className="menu-card" style={{ backgroundImage: `url(data:image/png;base64,${menu.picture})` }}>
             <div className="menu-content">
                 <h3 className="menu-name">{menu.name}</h3>
-                <p>Leírás: {menu.description}</p>
-                <p>Ár: {menu.price} Ft</p>
+                <div className="menu-description">
+                    Leírás: {menu.description}
+                    <h4>Ár: {menu.price} Ft</h4>
+                </div>
                 <div className="quantity-control">
                     <button className="minus-btn" onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
                     <span>{quantity}</span>
@@ -136,13 +148,15 @@ const Cart = ({ cartItems, setCartItems, clearCart, placeOrder }) => {
 
 const OrderModal = ({ modalContent, closeModal }) => {
     return (
-      <div className="order-modal">
-        <div className="modal-content">
-          <h2>Rendelés információ</h2>
-          <p>{modalContent.message}</p>
-          <button className="close-modal" onClick={modalContent.buttonAction}>{modalContent.buttonText}</button>
+        <div className="order-modal">
+            <div className="modal-content">
+                <h2>Rendelés információ</h2>
+                {modalContent.message.map((line, index) => (
+                    <p key={index}>{line}</p>
+                ))}
+                <button className="close-modal" onClick={modalContent.buttonAction}>{modalContent.buttonText}</button>
+            </div>
         </div>
-      </div>
     );
 };
 

@@ -39,6 +39,7 @@ const Navbar = ({ token, setToken, logged, setLogged, onSearch }) => {
               {logged ? (
                 <>
                   <li><Link to="/Fiok" onClick={() => setMenuOpen(false)}>Saját fiók</Link></li>
+                  <li><Link to="/Kosar" onClick={() => setMenuOpen(false)}>Kosaram</Link></li>
                   <li onClick={() => {
                     localStorage.removeItem("token");
                     setToken("");
