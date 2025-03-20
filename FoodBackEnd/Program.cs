@@ -56,7 +56,6 @@ namespace FoodBackEnd
             SmtpServer.EnableSsl = true;
 
             await SmtpServer.SendMailAsync(mail);
-
         }
 
 

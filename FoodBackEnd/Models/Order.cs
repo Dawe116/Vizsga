@@ -9,8 +9,8 @@ public partial class Order
     public int Id { get; set; }
 
     public int UserId { get; set; }
-    [JsonIgnore]
-    public virtual User User { get; set; } = null!;
 
-    public virtual ICollection<Userorder> Userorders { get; set; } = new List<Userorder>();
+    public virtual User User { get; set; } = null!;
+    [JsonIgnore]
+    public virtual ICollection<Userorder>? Userorders { get; set; } = new List<Userorder>();
 }

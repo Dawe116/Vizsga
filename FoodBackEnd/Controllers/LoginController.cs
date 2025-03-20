@@ -63,7 +63,7 @@ namespace FoodBackEnd.Controllers
                         {
                             Program.LoggedInUsers.Add(token, loggedUser);
                         }
-                        return Ok(new LoggedUser { Name = loggedUser.Name, Email = loggedUser.Email, Permission = loggedUser.PermissionId,  Token = token });
+                        return Ok(new LoggedUser {Id = loggedUser.Id, Name = loggedUser.Name, Email = loggedUser.Email, Permission = loggedUser.PermissionId,  Token = token });
                     }
                     else
                     {

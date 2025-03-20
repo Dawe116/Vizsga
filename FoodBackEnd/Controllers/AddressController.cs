@@ -72,8 +72,6 @@ namespace FoodBackEnd.Controllers
         [HttpPut("{token}")]
         public IActionResult Put(string token, Address address)
         {
-            if (Program.LoggedInUsers.ContainsKey(token) && Program.LoggedInUsers[token].PermissionId == 9)
-            {
                 try
                 {
                     using (var cx = new FoodifyContext())
@@ -87,11 +85,6 @@ namespace FoodBackEnd.Controllers
                 {
                     return BadRequest(ex.InnerException?.Message);
                 }
-            }
-            else
-            {
-                return BadRequest("Nem található a cím!");
-            }
         }
 
         [HttpDelete("{token},{id}")]

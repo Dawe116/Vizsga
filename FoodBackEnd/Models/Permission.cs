@@ -14,5 +14,5 @@ public partial class Permission
 
     public string Leírás { get; set; } = null!;
     [JsonIgnore]
-    public virtual ICollection<User> Users { get; set; } = new List<User>();
+    public virtual ICollection<User>? Users { get; set; } = new List<User>();
 }

@@ -18,5 +18,5 @@ public partial class Restaurant
 
     [JsonIgnore]
 
-    public virtual ICollection<Menu> Menus { get; set; } = new List<Menu>();
+    public virtual ICollection<Menu>? Menus { get; set; } = new List<Menu>();
 }
