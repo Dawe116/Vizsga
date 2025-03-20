@@ -39,28 +39,22 @@ export const Fiok = () => {
         setError("Hiba történt a megyék lekérésekor.");
       });
 
-    axios.get("https://localhost:5000/api/Address")
+    axios.get(`https://localhost:5000/api/Address/${adatok.id}`)
       .then(response => {
-        if (response.data && Array.isArray(response.data)) {
           setData(response.data);
           setCimek(response.data);
           localStorage.setItem("cimek", JSON.stringify(response.data));
-          if (response.data.length > 0) {
-            setFormData({
-              county: response.data[0].countyId,
-              postalCode: response.data[0].postalCode,
-              city: response.data[0].city,
-              street: response.data[0].street,
-              houseNumber: response.data[0].houseNumber,
-              floor: response.data[0].floor,
-              door: response.data[0].door
-            });
-            setOriginalData(response.data[0]);
-          }
-        } else {
-          console.error("Hibás adatformátum az API-tól");
-        }
-      })
+          console.log("Címek:", response.data); 
+          setFormData({
+            county: response.data.countyId || "",
+            postalCode: response.data.postalCode || "",
+            city: response.data.city || "",
+            street: response.data.street || "",
+            houseNumber: response.data.houseNumber || "",
+            floor: response.data.floor || "",
+            door: response.data.door || ""
+          });
+  })
       .catch(error => {
         console.error("Hiba történt:", error);
         setError("Hiba történt az adatok lekérésekor.");

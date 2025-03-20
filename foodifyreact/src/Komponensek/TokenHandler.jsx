@@ -8,7 +8,6 @@ export const TokenHandler = ({ setToken, setLogged }) => {
     const storedToken = localStorage.getItem("token");
     setToken(storedToken || "");
     setLogged(!!storedToken);
-    console.log("Token updated on route change:", storedToken);
   }, [location.pathname]); // Az útvonalváltozást figyeli
 
   useEffect(() => {
