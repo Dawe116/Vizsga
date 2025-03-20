@@ -1,35 +1,41 @@
-import { createContext, useContext, useState } from "react";
+import React, { createContext, useState, useEffect } from 'react';
 
-const KosarContext = createContext();
+export const KosarContext = createContext();
 
 export const KosarProvider = ({ children }) => {
-  const [kosar, setKosar] = useState([]);
+    const [kosar, setKosar] = useState([]);
 
-  const hozzaadKosarhoz = (item) => {
-    setKosar((elozoKosar) => {
-      const letezoElem = elozoKosar.find((elem) => elem.id === item.id);
-      if (letezoElem) {
-        return elozoKosar.map((elem) =>
-          elem.id === item.id ? { ...elem, mennyiseg: elem.mennyiseg + 1 } : elem
-        );
-      }
-      return [...elozoKosar, { ...item, mennyiseg: 1 }];
-    });
-  };
+    useEffect(() => {
+        const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+        setKosar(savedCart);
+    }, []);
 
-  const torolKosarbol = (id) => {
-    setKosar((elozoKosar) => elozoKosar.filter((elem) => elem.id !== id));
-  };
+    const addToCart = (item) => {
+        const existingItem = kosar.find(cartItem => cartItem.id === item.id);
+        if (existingItem) {
+            existingItem.quantity += item.quantity;
+            setKosar([...kosar]);
+        } else {
+            const updatedKosar = [...kosar, item];
+            setKosar(updatedKosar);
+        }
+        localStorage.setItem("cart", JSON.stringify(kosar));
+    };
 
-  const uritKosarat = () => {
-    setKosar([]);
-  };
+    const removeFromCart = (id) => {
+        const updatedKosar = kosar.filter(item => item.id !== id);
+        setKosar(updatedKosar);
+        localStorage.setItem("cart", JSON.stringify(updatedKosar));
+    };
 
-  return (
-    <KosarContext.Provider value={{ kosar, hozzaadKosarhoz, torolKosarbol, uritKosarat }}>
-      {children}
-    </KosarContext.Provider>
-  );
+    const clearCart = () => {
+        setKosar([]);
+        localStorage.setItem("cart", JSON.stringify([]));
+    };
+
+    return (
+        <KosarContext.Provider value={{ kosar, addToCart, removeFromCart, clearCart }}>
+            {children}
+        </KosarContext.Provider>
+    );
 };
-
-export const useKosar = () => useContext(KosarContext);

@@ -22,6 +22,7 @@ import { Rendeles } from './Oldalak/Rendeles';
 import { Ettermek } from './Oldalak/Ettermek';
 import { TokenHandler } from "./Komponensek/TokenHandler";
 import Navbar from "./Komponensek/Navbar";
+import { KosarProvider } from "./Komponensek/KosarTartalom";
 
 export const App = () => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
@@ -53,6 +54,7 @@ export const App = () => {
   }, [window.location.pathname]);
 
   return (
+    <KosarProvider>
     <Router>
       <TokenHandler setToken={setToken} setLogged={setLogged} />
       <Navbar token={token} setToken={setToken} logged={logged} setLogged={setLogged} onSearch={handleSearch} searchTerm={searchTerm} />
@@ -82,5 +84,6 @@ export const App = () => {
         <Route path="/Ettermek" element={<Ettermek searchTerm={searchTerm}/>} />
       </Routes>
     </Router>
+    </KosarProvider>
   );
 };

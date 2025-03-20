@@ -1,27 +1,70 @@
-import React, { useState, useEffect } from "react";
-import "../Stilusok/Kosar.css";
-import Footer from "../Komponensek/Footer";
+import React, { useState, useEffect, useContext } from 'react';
+import { KosarContext } from '../Komponensek/KosarTartalom';
+import { useNavigate } from "react-router-dom";
+import Footer from '../Komponensek/Footer';
 
 export const Kosar = () => {
-    const [cartItems, setCartItems] = useState([]);
+    const { kosar, removeFromCart, clearCart } = useContext(KosarContext);
+    const [cartItems, setCartItems] = useState(kosar);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [modalContent, setModalContent] = useState({});
+    const navigate = useNavigate();
 
     useEffect(() => {
-        const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
-        setCartItems(storedCart);
-    }, []);
-
-    const removeFromCart = (index) => {
-        const updatedCart = cartItems.filter((_, i) => i !== index);
-        setCartItems(updatedCart);
-        localStorage.setItem("cart", JSON.stringify(updatedCart));
-    };
-
-    const clearCart = () => {
-        setCartItems([]);
-        localStorage.removeItem("cart");
-    };
+        setCartItems(kosar);
+    }, [kosar]);
 
     const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
+    const handlePlaceOrder = () => {
+        const token = localStorage.getItem("token");
+        const addresses = JSON.parse(localStorage.getItem("cimek") || "[]");
+
+        if (cartItems.length === 0) {
+            setModalContent({
+                message: ["A kosár üres. Kérjük, válasszon egy menüt a rendeléshez."],
+                buttonText: "Vissza a rendeléshez",
+                buttonAction: () => navigate(`/rendeles/${kosar[0]?.restaurantId}`), // Navigálunk a rendelés oldalra
+            });
+            setIsModalOpen(true);
+            return;
+        }
+
+        if (!token) {
+            setModalContent({
+                message: ["A rendelés leadása előtt be kell jelentkeznie."],
+                buttonText: "Bejelentkezés",
+                buttonAction: () => navigate("/bejelentkezes"),
+            });
+            setIsModalOpen(true);
+            return;
+        }
+
+        if (!addresses || addresses.length === 0) {
+            setModalContent({
+                message: ["Kérjük, adja meg a kiszállítási címét a rendelés leadásához."],
+                buttonText: "Saját fiók",
+                buttonAction: () => navigate("/fiok"),
+            });
+            setIsModalOpen(true);
+            return;
+        }
+
+        setModalContent({
+            message: [
+                "A rendelést átadtuk a kiszállító partnerünknek.",
+                `Teljes fizetendő összeg: ${totalPrice} Ft.`,
+                "Köszönjük, hogy a Foodify-al rendelt!",
+            ],
+            buttonText: "Rendben",
+            buttonAction: () => {
+                clearCart();
+                setIsModalOpen(false);
+                navigate("/FoodifyHome");
+            },
+        });
+        setIsModalOpen(true);
+    };
 
     return (
         <div id="root">
@@ -34,15 +77,31 @@ export const Kosar = () => {
                         {cartItems.map((item, index) => (
                             <li key={index}>
                                 {item.name} x{item.quantity} - {item.price * item.quantity} Ft
-                                <button className="remove-item" onClick={() => removeFromCart(index)}>Törlés</button>
+                                <button className="remove-item" onClick={() => removeFromCart(item.id)}>Törlés</button>
                             </li>
                         ))}
                     </ul>
                     <h3>Összesen: {totalPrice} Ft</h3>
-                    <button className="cancelorder-button" onClick={clearCart}>Kosár kiürítése</button>
+                    <button className="cancelorder-button" onClick={clearCart}>Rendelés törlése</button>
+                    <button className="finalorder-button" onClick={handlePlaceOrder}>Rendelés leadása</button>
                 </div>
             )}
+            {isModalOpen && <OrderModal modalContent={modalContent} closeModal={() => setIsModalOpen(false)} />}
             <Footer />
+        </div>
+    );
+};
+
+const OrderModal = ({ modalContent, closeModal }) => {
+    return (
+        <div className="order-modal">
+            <div className="modal-content">
+                <h2>Rendelés információ</h2>
+                {modalContent.message.map((line, index) => (
+                    <p key={index}>{line}</p>
+                ))}
+                <button className="close-modal" onClick={modalContent.buttonAction}>{modalContent.buttonText}</button>
+            </div>
         </div>
     );
 };

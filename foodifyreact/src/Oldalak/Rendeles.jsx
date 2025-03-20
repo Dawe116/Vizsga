@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { KosarContext } from "../Komponensek/KosarTartalom";
 import '../Stilusok/Rendeles.css';
 import Footer from '../Komponensek/Footer';
 
-const Rendeles = ({ addToCart, cartItems, setCartItems }) => {
+const Rendeles = () => {
     const { restaurantId } = useParams();
     const [menuItems, setMenuItems] = useState([]);
     const [error, setError] = useState(null);
@@ -12,12 +13,7 @@ const Rendeles = ({ addToCart, cartItems, setCartItems }) => {
     const [modalContent, setModalContent] = useState({});
     const navigate = useNavigate();
 
-    const token = localStorage.getItem("token");
-    const userData = JSON.parse(localStorage.getItem("userData"));
-    const addresses = JSON.parse(localStorage.getItem("cimek") || "[]");
-
-    console.log("Bejelentkezett felhasználó adatai:", userData);
-    console.log("Cím adatok:", addresses);
+    const { kosar, addToCart, removeFromCart, clearCart } = useContext(KosarContext);
 
     useEffect(() => {
         axios.get(`https://localhost:5000/api/Menu`)
@@ -32,11 +28,10 @@ const Rendeles = ({ addToCart, cartItems, setCartItems }) => {
         });
     }, [restaurantId]);
 
-    const clearCart = () => {
-        setCartItems([]);
-    };
-
     const placeOrder = () => {
+        const token = localStorage.getItem("token");
+        const addresses = JSON.parse(localStorage.getItem("cimek") || "[]");
+
         if (!token) {
             setModalContent({
                 message: ["A rendelés leadása előtt be kell jelentkeznie."],
@@ -46,7 +41,7 @@ const Rendeles = ({ addToCart, cartItems, setCartItems }) => {
             setIsModalOpen(true);
             return;
         }
-    
+
         if (!addresses || addresses.length === 0) {
             setModalContent({
                 message: ["Kérjük, adja meg a kiszállítási címét a rendelés leadásához."],
@@ -56,9 +51,9 @@ const Rendeles = ({ addToCart, cartItems, setCartItems }) => {
             setIsModalOpen(true);
             return;
         }
-    
-        const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    
+
+        const totalPrice = kosar.reduce((sum, item) => sum + item.price * item.quantity, 0);
+
         setModalContent({
             message: [
                 "A rendelést átadtuk a kiszállító partnerünknek.",
@@ -69,7 +64,7 @@ const Rendeles = ({ addToCart, cartItems, setCartItems }) => {
             buttonAction: () => { setIsModalOpen(false); clearCart(); navigate("/FoodifyHome"); }
         });
         setIsModalOpen(true);
-    };           
+    };
 
     return (
         <div id="root">
@@ -81,7 +76,7 @@ const Rendeles = ({ addToCart, cartItems, setCartItems }) => {
                         <MenuItemCard key={menu.id} menu={menu} addToCart={addToCart} />
                     ))}
                 </div>
-                <Cart cartItems={cartItems} setCartItems={setCartItems} clearCart={clearCart} placeOrder={placeOrder} />
+                <Cart kosar={kosar} removeFromCart={removeFromCart} clearCart={clearCart} placeOrder={placeOrder} />
                 {isModalOpen && <OrderModal modalContent={modalContent} closeModal={() => setIsModalOpen(false)} />}
             </div>
             <Footer />
@@ -115,31 +110,17 @@ const MenuItemCard = ({ menu, addToCart }) => {
     );
 };
 
-const Cart = ({ cartItems, setCartItems, clearCart, placeOrder }) => {
-    useEffect(() => {
-        localStorage.setItem("cart", JSON.stringify(cartItems));
-    }, [cartItems]);
-
-    const removeFromCart = (index) => {
-        const updatedCart = cartItems.filter((_, i) => i !== index);
-        setCartItems(updatedCart);
-        localStorage.setItem("cart", JSON.stringify(updatedCart));
-    };
-
-    if (!cartItems || cartItems.length === 0) {
-        return <div className="cart"><h2>Kosár</h2><p>A kosár üres.</p></div>;
-    }
-
-    const totalPrice = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+const Cart = ({ kosar, removeFromCart, clearCart, placeOrder }) => {
+    const totalPrice = kosar.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
     return (
         <div className="cart">
             <h2>Kosár</h2>
             <ul>
-                {cartItems.map((item, index) => (
+                {kosar.map((item, index) => (
                     <li key={index}>
                         {item.name} x{item.quantity} - {item.price * item.quantity} Ft
-                        <button className="remove-item" onClick={() => removeFromCart(index)}>Törlés</button>
+                        <button className="remove-item" onClick={() => removeFromCart(item.id)}>Törlés</button>
                     </li>
                 ))}
             </ul>

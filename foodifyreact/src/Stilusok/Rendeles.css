@@ -1,7 +1,7 @@
-#title{
-width: 80px;
-height: 80px;
-border-radius: 100%;
+#title {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
 }
 
 /*---------------------------------Rendelés---------------------------------*/
@@ -9,11 +9,7 @@ border-radius: 100%;
 .order-container {
     display: flex;
     position: relative;
-    align-items: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    width: 1200px;
-    min-width: 600px;
     justify-content: space-between;
     padding: 20px;
     background: rgba(255, 255, 255, 0.1);
@@ -21,6 +17,8 @@ border-radius: 100%;
     color: #000;
     margin: 30px auto;
     border-radius: 12px;
+    width: 100%;
+    max-width: 1200px;
 }
 
 .menu-list {
@@ -47,12 +45,13 @@ border-radius: 100%;
 
 @media (min-width: 600px) {
     .menu-card {
-      grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
-    }
-    @media (min-width: 800px) {
+}
+
+@media (min-width: 800px) {
     .menu-card {
-      grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -62,7 +61,7 @@ border-radius: 100%;
     margin: auto;
     border-radius: 20px;
     align-items: center;
-    justify-content:center;
+    justify-content: center;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
 }
@@ -95,13 +94,13 @@ border-radius: 100%;
     transition: background 0.3s;
 }
 
-.minus-btn{
+.minus-btn {
     border: none;
     border-radius: 100px;
     background: #f44336;
 }
 
-.plus-btn{
+.plus-btn {
     border: none;
     border-radius: 100px;
     background: #4caf50;
@@ -195,7 +194,7 @@ border-radius: 100%;
     transition: background 0.3s;
 }
 
-.menu-name{
+.menu-name {
     border-bottom: 3px solid #ffffff;
 }
 
@@ -236,11 +235,31 @@ border-radius: 100%;
     background: #ee2fff;
 }
 
-.menu-description{
+.menu-description {
     background: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(30px);
     border-radius: 10px;
-    text-align:center;
+    text-align: center;
 }
 
 /*---------------------------------Rendelés vége---------------------------------*/
+
+/* Media Queries */
+@media (max-width: 800px) {
+    .order-container {
+        flex-direction: column;
+    }
+
+    .menu-list {
+        width: 100%;
+    }
+
+    .cart {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .menu-card {
+        height: 450px;
+    }
+}
