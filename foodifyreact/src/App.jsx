@@ -27,7 +27,7 @@ export const App = () => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [logged, setLogged] = useState(!!localStorage.getItem("token"));
   const [searchTerm, setSearchTerm] = useState("");
-  const [cartItems, setCartItems] = useState([]);  // Kosár állapot hozzáadása
+  const [cartItems, setCartItems] = useState([]);  
 
   const handleSearch = (query) => {
     setSearchTerm(query);

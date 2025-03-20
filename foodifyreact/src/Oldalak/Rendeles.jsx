@@ -116,9 +116,14 @@ const MenuItemCard = ({ menu, addToCart }) => {
 };
 
 const Cart = ({ cartItems, setCartItems, clearCart, placeOrder }) => {
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cartItems));
+    }, [cartItems]);
+
     const removeFromCart = (index) => {
-        const newCart = cartItems.filter((_, i) => i !== index);
-        setCartItems(newCart);
+        const updatedCart = cartItems.filter((_, i) => i !== index);
+        setCartItems(updatedCart);
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
     };
 
     if (!cartItems || cartItems.length === 0) {
@@ -139,7 +144,6 @@ const Cart = ({ cartItems, setCartItems, clearCart, placeOrder }) => {
                 ))}
             </ul>
             <h3>Összesen: {totalPrice} Ft</h3>
-            
             <button className="cancelorder-button" onClick={clearCart}>Rendelés törlése</button>
             <button className="finalorder-button" onClick={placeOrder}>Rendelés leadása</button>
         </div>

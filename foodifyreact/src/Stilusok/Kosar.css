@@ -1,5 +1,120 @@
-#title{
-width: 80px;
-height: 80px;
-border-radius: 100%;
+/*---------------------------------Kosár---------------------------------*/
+
+.cart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: #000;
+    border-radius: 12px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+.cart-title {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: white;
+    text-align: center;
+}
+
+.cart-list {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    padding: 10px;
+    border-bottom: 1px solid #000;
+    border-top: 1px solid #000;
+}
+
+.cart-item-name {
+    font-weight: bold;
+    color: white;
+}
+
+.cart-item-quantity {
+    font-size: 16px;
+    color: white;
+}
+
+.cart-item-price {
+    font-size: 16px;
+    color: white;
+}
+
+.cart-total {
+    margin-top: 15px;
+    font-size: 20px;
+    color: #ff0000;
+    text-align: center;
+}
+
+.cart-actions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.remove-item-button {
+    background: #ff0000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: background 0.3s;
+    margin: 5px;
+}
+
+.remove-item-button:hover {
+    background: #cc0000;
+}
+
+.clear-cart-button {
+    background: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-size: 18px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 100px;
+    transition: background 0.3s;
+}
+
+.clear-cart-button:hover {
+    background: #cc0000;
+}
+
+.checkout-button {
+    background: #860092;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    font-size: 18px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 100px;
+    transition: background 0.3s;
+}
+
+.checkout-button:hover {
+    background: #ee2fff;
+}
+
+/*---------------------------------Kosár vége---------------------------------*/
