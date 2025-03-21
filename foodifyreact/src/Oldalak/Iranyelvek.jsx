@@ -6,6 +6,7 @@ export const Iranyelvek = () => {
     return (
         <div id="root">
             <h1>Adatvédelmi Irányelvek</h1>
+        <div className="text-container">
         <div className='iranyelvek'>
 <h2>1. Bevezetés</h2>
 
@@ -55,7 +56,7 @@ export const Iranyelvek = () => {
     <h2>8. Kapcsolat</h2>
     <p>Ha bármilyen kérdése van az adatvédelmi irányelveinkkel kapcsolatban, lépjen kapcsolatba velünk az alábbi elérhetőségen:</p>
     <ul>
-        <li><strong>E-mail:</strong> info@foodify.hu</li>
+        <li><strong>E-mail:</strong> foodifyhelp@gmail.com</li>
         <li><strong>Cím:</strong> 3525 Miskolc, Palóczy László utca 3.</li>
     </ul>
     
@@ -63,6 +64,7 @@ export const Iranyelvek = () => {
     <p>Fenntartjuk a jogot, hogy az adatvédelmi irányelveket bármikor módosítsuk. A frissítéseket ezen az oldalon tesszük közzé.</p>
     
     <p><strong>Utolsó frissítés:</strong> 2025.02.19.</p>
+</div>
 </div>
 <Footer />
 </div>

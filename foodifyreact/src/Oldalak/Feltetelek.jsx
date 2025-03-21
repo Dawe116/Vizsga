@@ -6,6 +6,7 @@ export const Feltetelek = () => {
     return (
 <div id="root">
         <h1>Felhasználási feltételek</h1>
+        <div className="text-container">
         <div className='feltetelek'>
         <h2>1. Bevezetés</h2>
     <p>Üdvözöljük weboldalunkon! A weboldal használatával Ön elfogadja az alábbi feltételeket. Ha nem ért egyet, kérjük, ne használja a weboldalt.</p>
@@ -36,9 +37,10 @@ export const Feltetelek = () => {
     <h2>8. Kapcsolat</h2>
     <p>Ha bármilyen kérdése van a felhasználási feltételekkel kapcsolatban, lépjen kapcsolatba velünk:</p>
     <ul>
-        <li><strong>E-mail:</strong> info@foodify.hu</li>
+        <li><strong>E-mail:</strong> foodifyhelp@gmail.com</li>
         <li><strong>Cím:</strong> 3525 Miskolc, Palóczy László utca 3.</li>
     </ul>
+    </div>
     </div>
     <Footer />
     </div>

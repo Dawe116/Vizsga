@@ -15,7 +15,7 @@ const Footer = () => {
         <div className="footer-section">
           <h2>Kapcsolat</h2>
           <p>Email: foodifyhelp@gmail.com</p>
-          <p>Telefon: +36 70 522 6566</p>
+          <p>Telefon: +36 70 123 4567</p>
           <p>Cím: 3525 Miskolc, Palóczy László utca 3.</p>
         </div>
         <div className="footer-section">

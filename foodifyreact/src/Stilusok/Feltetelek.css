@@ -6,4 +6,20 @@
 
   .feltetelek {
     text-align: left;
+    color: white;
+}
+
+.text-container {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  color: #000;
+  margin: 30px auto;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 1200px;
 }
