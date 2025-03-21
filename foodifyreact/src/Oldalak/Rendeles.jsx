@@ -114,7 +114,7 @@ const Cart = ({ kosar, removeFromCart, clearCart, placeOrder }) => {
     const totalPrice = kosar.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
     return (
-        <div className="cart">
+        <div className="main-cart">
             <h2>Kosár</h2>
             <ul>
                 {kosar.map((item, index) => (

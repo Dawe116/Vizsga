@@ -135,7 +135,7 @@
     background: #ee2fff;
 }
 
-.cart {
+.main-cart {
     color: #ffffff;
     width: 30%;
     background: rgba(255, 255, 255, 0.1);
@@ -146,23 +146,23 @@
     text-align: center;
 }
 
-.cart h2 {
+.main-cart h2 {
     margin-bottom: 15px;
 }
 
-.cart ul {
+.main-cart ul {
     list-style: none;
     padding: 0;
 }
 
-.cart li {
+.main-cart li {
     font-size: 16px;
     padding: 10px 0;
     border-bottom: 1px solid #000;
     border-top: 1px solid #000;
 }
 
-.cart h3 {
+.main-cart h3 {
     margin-top: 15px;
     font-size: 20px;
     color: #ff0000;
@@ -244,7 +244,6 @@
 
 /*---------------------------------Rendelés vége---------------------------------*/
 
-/* Media Queries */
 @media (max-width: 800px) {
     .order-container {
         flex-direction: column;
@@ -254,12 +253,12 @@
         width: 100%;
     }
 
-    .cart {
+    .main-cart {
         width: 100%;
         margin-top: 20px;
     }
 
     .menu-card {
-        height: 450px;
+        height: 500px;
     }
 }

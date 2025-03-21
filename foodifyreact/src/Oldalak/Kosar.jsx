@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { KosarContext } from '../Komponensek/KosarTartalom';
 import { useNavigate } from "react-router-dom";
 import Footer from '../Komponensek/Footer';
+import '../Stilusok/Kosar.css';
 
 export const Kosar = () => {
     const { kosar, removeFromCart, clearCart } = useContext(KosarContext);
