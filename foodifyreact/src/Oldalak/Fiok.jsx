@@ -7,6 +7,7 @@ export const Fiok = () => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [counties, setCounties] = useState([]);
+  const [token] = useState(localStorage.getItem("token"));
   const [formData, setFormData] = useState({
     county: "",
     postalCode: "",
@@ -21,7 +22,7 @@ export const Fiok = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [adatok] = useState(JSON.parse(localStorage.getItem("adatok")));
   const [errorMessage, setErrorMessage] = useState("");
-  const token = localStorage.getItem("token");
+
 
   const storedCimek = localStorage.getItem("cimek");
   const [cimek, setCimek] = useState(storedCimek ? JSON.parse(storedCimek) : []);
@@ -73,7 +74,6 @@ export const Fiok = () => {
     }
   
     setErrorMessage("");
-    const token = localStorage.getItem("token");
   
     axios.post(`https://localhost:5000/api/Address/${token}`, {
       userId: adatok.id,
