@@ -140,7 +140,7 @@ export const Fiok = () => {
             <p><strong>Email: {adatok.email}</strong></p>
           </div>
           <div className="account-address">
-            <label className="address-label"><strong>Lakcím:</strong> </label>
+            <label className="address-label"><strong>Szállítási cím:</strong> </label>
             <select name="county" className="megye-lista" value={formData.county || ""} onChange={handleChange} disabled={!isEditing}>
               <option value="">Válassz megyét</option>
               {counties.map(county => (
