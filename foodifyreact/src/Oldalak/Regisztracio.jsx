@@ -52,7 +52,17 @@ export const Regisztracio = () => {
       return;
     }
 
-    const salt = "randomSalt";
+    const generateSalt = (length) => {
+      const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      let salt = "";
+      for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        salt += characters.charAt(randomIndex);
+      }
+      return salt;
+    };
+
+    const salt = generateSalt(64);
     const hashedPassword = sha256(formData.password + salt);
 
     const requestBody = {

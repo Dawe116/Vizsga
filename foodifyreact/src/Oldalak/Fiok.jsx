@@ -153,7 +153,7 @@ export const Fiok = () => {
             ))}
             {errorMessage && <p className="error-message">{errorMessage}</p>}
           </div>
-          <div className="account-buttons">
+           <div className="account-buttons">
             {isEditing ? (
               <>
                 <button onClick={handleUpdate} className="account-button update">Mentés</button>
