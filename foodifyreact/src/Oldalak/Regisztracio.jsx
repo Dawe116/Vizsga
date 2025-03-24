@@ -21,33 +21,28 @@ export const Regisztracio = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const navigate = useNavigate();
 
-  // Segéd funkciók
   const validateEmail = (email) => /\S+@\S+\.\S+/.test(email);
-  const validatePassword = (password) => password.length >= 8;  // Egyszerű jelszó erősség ellenőrzés
+  const validatePassword = (password) => password.length >= 8;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     let errors = {};
 
-    // Üres mezők ellenőrzése
     if (!formData.loginNev) errors.loginNev = "Felhasználónév nem lehet üres!";
     if (!formData.name) errors.name = "Név nem lehet üres!";
     if (!formData.email) errors.email = "Email nem lehet üres!";
     if (!formData.password) errors.password = "Jelszó nem lehet üres!";
     if (!formData.confirmPassword) errors.confirmPassword = "Jelszó megerősítése nem lehet üres!";
 
-    // Email formátum ellenőrzése
     if (formData.email && !validateEmail(formData.email)) {
       errors.email = "Érvénytelen email formátum!";
     }
 
-    // Jelszó erősség ellenőrzése
     if (formData.password && !validatePassword(formData.password)) {
       errors.password = "A jelszónak legalább 8 karakter hosszúnak kell lennie!";
     }
 
-    // Jelszavak egyezősége
     if (formData.password !== formData.confirmPassword) {
       errors.confirmPassword = "A jelszavak nem egyeznek!";
     }
@@ -99,7 +94,7 @@ export const Regisztracio = () => {
 
   return (
     <div id="root">
-      <div className="auth-container">
+      <div className="auth-container register">
         <h2 className="auth-h2">Regisztráció</h2>
         <form onSubmit={handleSubmit}>
           <input 

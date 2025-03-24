@@ -1,4 +1,4 @@
-  .auth-container {
+  .auth-container.register{
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   padding: 2rem;
@@ -7,7 +7,6 @@
   text-align: center;
   max-width: 400px;
   width: 100%;
-  margin: auto;
   }
   
 .auth-h2 {
@@ -26,6 +25,7 @@
   
   .submit-btn {
     width: 100%;
+    margin-top: 10px;
     background: #860092;
     color: white;
     border: none;
