@@ -7,6 +7,7 @@ export const Fiok = () => {
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [counties, setCounties] = useState([]);
+  const [token] = useState(localStorage.getItem("token"));
   const [formData, setFormData] = useState({
     county: "",
     postalCode: "",
@@ -53,6 +54,7 @@ export const Fiok = () => {
             houseNumber: response.data.houseNumber || "",
             floor: response.data.floor || "",
             door: response.data.door || ""
+            
           });
   })
       .catch(error => {
@@ -73,15 +75,17 @@ export const Fiok = () => {
     }
 
     setErrorMessage("");
-    axios.post("https://localhost:5000/api/Address", formData)
+    axios.put(`https://localhost:5000/api/Address/${token}`, formData)
       .then(response => {
         setCimek(prev => [...prev, response.data]);
         localStorage.setItem("cimek", JSON.stringify([...cimek, response.data]));
         setIsEditing(false);
         setOriginalData(formData);
+        
       })
       .catch(error => {
-        console.error("Hiba történt a mentés során:", error);
+        console.log("Elküldött adatok:", formData);
+        console.error("Hiba történt a mentés során:", error.response?.data || error);
         setErrorMessage("Hiba történt a mentés során.");
       });
   };
