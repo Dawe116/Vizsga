@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { KosarContext } from "../Komponensek/KosarTartalom";
+import { KosarTartalom } from "../Komponensek/KosarTartalom";
 import '../Stilusok/Rendeles.css';
 import Footer from '../Komponensek/Footer';
 
@@ -13,19 +13,19 @@ const Rendeles = () => {
     const [modalContent, setModalContent] = useState({});
     const navigate = useNavigate();
 
-    const { kosar, addToCart, removeFromCart, clearCart } = useContext(KosarContext);
+    const { kosar, addToCart, removeFromCart, clearCart } = useContext(KosarTartalom);
 
     useEffect(() => {
         axios.get(`https://localhost:5000/api/Menu`)
-        .then(response => {
-            const allMenus = response.data;
-            const filteredMenus = allMenus.filter(menu => menu.restaurantId === parseInt(restaurantId));
-            setMenuItems(filteredMenus);
-        })
-        .catch(error => {
-            console.error("Hiba történt:", error);
-            setError(error.message);
-        });
+            .then(response => {
+                const allMenus = response.data;
+                const filteredMenus = allMenus.filter(menu => menu.restaurantId === parseInt(restaurantId));
+                setMenuItems(filteredMenus);
+            })
+            .catch(error => {
+                console.error("Hiba történt:", error);
+                setError(error.message);
+            });
     }, [restaurantId]);
 
     const placeOrder = () => {
@@ -44,7 +44,7 @@ const Rendeles = () => {
 
         if (!addresses || addresses.length === 0) {
             setModalContent({
-                message: ["Kérjük, adja meg a kiszállítási címét a rendelés leadásához."],
+                message: ["Kérjük, ellenőrizze a kiszállítási címét. Hogyha hiányos akkor adja meg a kiszállítási címét a rendelés leadásához."],
                 buttonText: "Saját fiók",
                 buttonAction: () => navigate("/fiok")
             });

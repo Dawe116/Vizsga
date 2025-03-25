@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 
-export const KosarContext = createContext();
+export const KosarTartalom = createContext();
 
 export const KosarProvider = ({ children }) => {
     const [kosar, setKosar] = useState([]);
@@ -34,8 +34,8 @@ export const KosarProvider = ({ children }) => {
     };
 
     return (
-        <KosarContext.Provider value={{ kosar, addToCart, removeFromCart, clearCart }}>
+        <KosarTartalom.Provider value={{ kosar, addToCart, removeFromCart, clearCart }}>
             {children}
-        </KosarContext.Provider>
+        </KosarTartalom.Provider>
     );
 };

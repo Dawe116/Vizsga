@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { KosarContext } from '../Komponensek/KosarTartalom';
+import { KosarTartalom } from '../Komponensek/KosarTartalom';
 import { useNavigate } from "react-router-dom";
 import Footer from '../Komponensek/Footer';
 import '../Stilusok/Kosar.css';
 
 export const Kosar = () => {
-    const { kosar, removeFromCart, clearCart } = useContext(KosarContext);
+    const { kosar, removeFromCart, clearCart } = useContext(KosarTartalom);
     const [cartItems, setCartItems] = useState(kosar);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalContent, setModalContent] = useState({});
@@ -25,7 +25,7 @@ export const Kosar = () => {
             setModalContent({
                 message: ["A kosár üres. Kérjük, válasszon egy menüt a rendeléshez."],
                 buttonText: "Vissza a rendeléshez",
-                buttonAction: () => navigate(`/rendeles/${kosar[0]?.restaurantId}`), // Navigálunk a rendelés oldalra
+                buttonAction: () => navigate(`/rendeles/${kosar[0]?.restaurantId}`),
             });
             setIsModalOpen(true);
             return;
@@ -43,7 +43,7 @@ export const Kosar = () => {
 
         if (!addresses || addresses.length === 0) {
             setModalContent({
-                message: ["Kérjük, adja meg a kiszállítási címét a rendelés leadásához."],
+                message: ["Kérjük, ellenőrizze a kiszállítási címét. Hogyha hiányos akkor adja meg a kiszállítási címét a rendelés leadásához."],
                 buttonText: "Saját fiók",
                 buttonAction: () => navigate("/fiok"),
             });
@@ -69,11 +69,13 @@ export const Kosar = () => {
 
     return (
         <div id="root">
-            <h1>Kosár</h1>
+            <div className="order-container">
+
             {cartItems.length === 0 ? (
-                <h2>A kosár üres</h2>
+                <h2 className='cart-h2'>A kosár üres</h2>
             ) : (
                 <div className="cart">
+                    <h1>Kosár</h1>
                     <ul>
                         {cartItems.map((item, index) => (
                             <li key={index}>
@@ -86,7 +88,9 @@ export const Kosar = () => {
                     <button className="cancelorder-button" onClick={clearCart}>Rendelés törlése</button>
                     <button className="finalorder-button" onClick={handlePlaceOrder}>Rendelés leadása</button>
                 </div>
+                
             )}
+                </div>
             {isModalOpen && <OrderModal modalContent={modalContent} closeModal={() => setIsModalOpen(false)} />}
             <Footer />
         </div>

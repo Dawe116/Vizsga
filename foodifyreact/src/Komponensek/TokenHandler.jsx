@@ -8,7 +8,7 @@ export const TokenHandler = ({ setToken, setLogged }) => {
     const storedToken = localStorage.getItem("token");
     setToken(storedToken || "");
     setLogged(!!storedToken);
-  }, [location.pathname]); // Az útvonalváltozást figyeli
+  }, [location.pathname]);
 
   useEffect(() => {
     const handleTokenChange = (e) => {
@@ -23,5 +23,5 @@ export const TokenHandler = ({ setToken, setLogged }) => {
     };
   }, []);
 
-  return null; // Nem jelenít meg semmit, csak a token állapotát kezeli
+  return null;
 };

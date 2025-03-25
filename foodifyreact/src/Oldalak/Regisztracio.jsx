@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../Stilusok/Regisztracio.css";
@@ -13,13 +13,33 @@ export const Regisztracio = () => {
     email: "",
     password: "",
     confirmPassword: "",
+    county: "",
+    postalCode: "",
+    city: "",
+    street: "",
+    houseNumber: "",
+    floor: "",
+    door: ""
   });
 
   const [errorMessages, setErrorMessages] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
+  const [counties, setCounties] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    axios.get("https://localhost:5000/api/County")
+      .then(response => {
+        if (response.data && Array.isArray(response.data)) {
+          setCounties(response.data);
+        }
+      })
+      .catch(error => {
+        setErrorMessages({ ...errorMessages, counties: "Hiba történt a megyék lekérésekor." });
+      });
+  }, []);
 
   const validateEmail = (email) => /\S+@\S+\.\S+/.test(email);
   const validatePassword = (password) => password.length >= 8;
@@ -73,6 +93,15 @@ export const Regisztracio = () => {
       permissionId: 1,
       email: formData.email,
       active: true,
+      address: {
+        countyId: formData.county,
+        postalCode: formData.postalCode,
+        city: formData.city,
+        street: formData.street,
+        houseNumber: formData.houseNumber,
+        floor: formData.floor || null,
+        door: formData.door || null
+      }
     };
 
     try {
@@ -98,6 +127,13 @@ export const Regisztracio = () => {
       email: "",
       password: "",
       confirmPassword: "",
+      county: "",
+      postalCode: "",
+      city: "",
+      street: "",
+      houseNumber: "",
+      floor: "",
+      door: ""
     });
     setErrorMessages({});
   };
@@ -151,6 +187,50 @@ export const Regisztracio = () => {
             className={errorMessages.confirmPassword ? "error" : ""}
           />
           {errorMessages.confirmPassword && <span className="error-message">{errorMessages.confirmPassword}</span>}
+          <label className="address-label"><strong>Szállítási cím:</strong> </label>
+          <select name="county" value={formData.county} className="megye-lista" onChange={(e) => setFormData({ ...formData, county: e.target.value })}>
+            <option value="">Válassz megyét</option>
+            {counties.map(county => (
+              <option key={county.id} value={county.id}>{county.name}</option>
+            ))}
+          </select>
+
+          <input 
+            type="text" 
+            placeholder="Irányítószám" 
+            value={formData.postalCode} 
+            onChange={(e) => setFormData({ ...formData, postalCode: e.target.value })}
+          />
+          <input 
+            type="text" 
+            placeholder="Város" 
+            value={formData.city} 
+            onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+          />
+          <input 
+            type="text" 
+            placeholder="Utca" 
+            value={formData.street} 
+            onChange={(e) => setFormData({ ...formData, street: e.target.value })}
+          />
+          <input 
+            type="text" 
+            placeholder="Házszám" 
+            value={formData.houseNumber} 
+            onChange={(e) => setFormData({ ...formData, houseNumber: e.target.value })}
+          />
+          <input 
+            type="text" 
+            placeholder="Emelet (nem kötelező)" 
+            value={formData.floor} 
+            onChange={(e) => setFormData({ ...formData, floor: e.target.value })}
+          />
+          <input 
+            type="text" 
+            placeholder="Ajtó (nem kötelező)" 
+            value={formData.door} 
+            onChange={(e) => setFormData({ ...formData, door: e.target.value })}
+          />
 
           <button className="submit-btn" type="submit">Regisztráció</button>
         </form>

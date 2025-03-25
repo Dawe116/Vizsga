@@ -32,6 +32,15 @@
     padding: 0;
 }
 
+.cart-h2{
+    color: white;
+    margin-bottom: 1rem;
+    align-items: center;
+    display: flex;
+    margin: auto;
+    padding: auto;
+}
+
 .cart-item {
     display: flex;
     justify-content: space-between;
