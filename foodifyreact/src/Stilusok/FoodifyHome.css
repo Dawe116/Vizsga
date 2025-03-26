@@ -119,7 +119,7 @@ html, body {
   font-size: 1.2rem;
 }
 
-@media (max-width: 1524px) {
+@media (max-width: 1350px) {
   .category-card {
     flex: 1 1 400px;
 }
