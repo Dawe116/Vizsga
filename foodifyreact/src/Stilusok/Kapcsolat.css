@@ -1,8 +1,16 @@
-  #title{
-  width: 80px;
-  height: 80px;
-  border-radius: 100%;
-  }
+.contact-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 400px;
+  max-height: 400px;
+  width: 100%;
+  margin: auto;
+  align-items: center;
+}
 
   .contact-btn {
     background: #860092;

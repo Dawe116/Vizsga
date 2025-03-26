@@ -35,7 +35,7 @@ export const Kapcsolat = () => {
 
   return (
     <div id="root">
-      <div className="auth-container">
+      <div className="contact-container">
         <h1>Kapcsolat</h1>
         <h4>Ügyfélszolgálat</h4>
         <h4><i>Minden nap 0/24</i></h4>

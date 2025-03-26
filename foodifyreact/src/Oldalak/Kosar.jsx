@@ -69,13 +69,13 @@ export const Kosar = () => {
 
     return (
         <div id="root">
-            <div className="order-container">
-
+            <h1>Kosár</h1>
+            <div className="cart-container">
             {cartItems.length === 0 ? (
                 <h2 className='cart-h2'>A kosár üres</h2>
             ) : (
                 <div className="cart">
-                    <h1>Kosár</h1>
+
                     <ul>
                         {cartItems.map((item, index) => (
                             <li key={index}>
@@ -88,10 +88,9 @@ export const Kosar = () => {
                     <button className="cancelorder-button" onClick={clearCart}>Rendelés törlése</button>
                     <button className="finalorder-button" onClick={handlePlaceOrder}>Rendelés leadása</button>
                 </div>
-                
             )}
-                </div>
             {isModalOpen && <OrderModal modalContent={modalContent} closeModal={() => setIsModalOpen(false)} />}
+            </div>
             <Footer />
         </div>
     );
