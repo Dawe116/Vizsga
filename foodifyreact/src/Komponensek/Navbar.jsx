@@ -18,9 +18,8 @@ const Navbar = ({ token, setToken, logged, setLogged, onSearch }) => {
   };
 
   const handleLogout = () => {
-    // Kijelentkezéskor a token törlése és a rendelés törlése
     localStorage.removeItem("token");
-    localStorage.removeItem("cart");  // Töröljük a rendelés adatait is a localStorage-ból
+    localStorage.removeItem("cart");
     setToken("");
     setLogged(false);
     window.location.reload();

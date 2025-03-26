@@ -165,7 +165,7 @@ export const Regisztracio = () => {
                                 value={formData.name}
                                 onChange={(e) => {
                                     setFormData({ ...formData, name: e.target.value });
-                                    if (errorMessages.name) validateStep1(); // Re-validate after change
+                                    if (errorMessages.name) validateStep1();
                                 }}
                             />
                             {errorMessages.name && <span className="error-message">{errorMessages.name}</span>}
@@ -175,7 +175,7 @@ export const Regisztracio = () => {
                                 value={formData.loginNev}
                                 onChange={(e) => {
                                     setFormData({ ...formData, loginNev: e.target.value });
-                                    if (errorMessages.loginNev) validateStep1(); // Re-validate after change
+                                    if (errorMessages.loginNev) validateStep1();
                                 }}
                             />
                             {errorMessages.loginNev && <span className="error-message">{errorMessages.loginNev}</span>}
@@ -185,7 +185,7 @@ export const Regisztracio = () => {
                                 value={formData.email}
                                 onChange={(e) => {
                                     setFormData({ ...formData, email: e.target.value });
-                                    if (errorMessages.email) validateStep1(); // Re-validate after change
+                                    if (errorMessages.email) validateStep1();
                                 }}
                             />
                             {errorMessages.email && <span className="error-message">{errorMessages.email}</span>}
@@ -195,7 +195,7 @@ export const Regisztracio = () => {
                                 value={formData.password}
                                 onChange={(e) => {
                                     setFormData({ ...formData, password: e.target.value });
-                                    if (errorMessages.password) validateStep1(); // Re-validate after change
+                                    if (errorMessages.password) validateStep1();
                                 }}
                             />
                             {errorMessages.password && <span className="error-message">{errorMessages.password}</span>}
@@ -205,7 +205,7 @@ export const Regisztracio = () => {
                                 value={formData.confirmPassword}
                                 onChange={(e) => {
                                     setFormData({ ...formData, confirmPassword: e.target.value });
-                                    if (errorMessages.confirmPassword) validateStep1(); // Re-validate after change
+                                    if (errorMessages.confirmPassword) validateStep1();
                                 }}
                             />
                             {errorMessages.confirmPassword && <span className="error-message">{errorMessages.confirmPassword}</span>}
@@ -233,7 +233,7 @@ export const Regisztracio = () => {
                                 value={formData.postalCode}
                                 onChange={(e) => {
                                     setFormData({ ...formData, postalCode: e.target.value });
-                                    if (errorMessages.postalCode) validateStep2(); // Re-validate after change
+                                    if (errorMessages.postalCode) validateStep2();
                                 }}
                             />
                             {errorMessages.postalCode && <span className="error-message">{errorMessages.postalCode}</span>}
@@ -243,7 +243,7 @@ export const Regisztracio = () => {
                                 value={formData.city}
                                 onChange={(e) => {
                                     setFormData({ ...formData, city: e.target.value });
-                                    if (errorMessages.city) validateStep2(); // Re-validate after change
+                                    if (errorMessages.city) validateStep2();
                                 }}
                             />
                             {errorMessages.city && <span className="error-message">{errorMessages.city}</span>}
@@ -253,7 +253,7 @@ export const Regisztracio = () => {
                                 value={formData.street}
                                 onChange={(e) => {
                                     setFormData({ ...formData, street: e.target.value });
-                                    if (errorMessages.street) validateStep2(); // Re-validate after change
+                                    if (errorMessages.street) validateStep2();
                                 }}
                             />
                             {errorMessages.street && <span className="error-message">{errorMessages.street}</span>}
@@ -263,7 +263,7 @@ export const Regisztracio = () => {
                                 value={formData.houseNumber}
                                 onChange={(e) => {
                                     setFormData({ ...formData, houseNumber: e.target.value });
-                                    if (errorMessages.houseNumber) validateStep2(); // Re-validate after change
+                                    if (errorMessages.houseNumber) validateStep2();
                                 }}
                             />
                             {errorMessages.houseNumber && <span className="error-message">{errorMessages.houseNumber}</span>}

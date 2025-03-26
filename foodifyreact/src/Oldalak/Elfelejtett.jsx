@@ -33,7 +33,7 @@ export const Elfelejtett = () => {
             if (response.status === 200) {
                 setSuccess("Az e-mail sikeresen elküldve!");
                 setError("");
-                setEmail(""); // Mező törlése a sikeres küldés után
+                setEmail("");
             }
         } catch (error) {
             setError(error.response?.data?.message || "Hiba történt az e-mail küldése közben.");

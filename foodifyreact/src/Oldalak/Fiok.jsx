@@ -132,12 +132,12 @@ export const Fiok = () => {
     <div id="root">
       <div className="account-card">
         <div className="account-card-header">
-          <h2>Saját Fiók</h2>
+          <h2 >Saját Fiók</h2>
         </div>
         <div className="account-card-content">
           <div className="account-info">
-            <p><strong>Teljes név: {adatok.name}</strong></p>
-            <p><strong>Email: {adatok.email}</strong></p>
+            <h3>Teljes név: {adatok.name}</h3>
+            <h3>Email: {adatok.email}</h3>
           </div>
           <div className="account-address">
             <label className="address-label"><strong>Szállítási cím:</strong> </label>
