@@ -39,6 +39,24 @@
   .submit-btn:hover {
     background: #ee2fff;
   }
+
+  .next-btn {
+    width: 100%;
+    margin-top: 10px;
+    background: #860092;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+  }
+  
+  .next-btn:hover {
+    background: #ee2fff;
+  }
   
   .error {
     color: red;
@@ -59,4 +77,20 @@
   
   p a:hover {
     text-decoration: underline;
+  }
+
+  .megye-lista{
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+  }
+
+  .address-label{
+    font-size: 18px;
+    font-weight: bold;
+    margin: auto;
   }
