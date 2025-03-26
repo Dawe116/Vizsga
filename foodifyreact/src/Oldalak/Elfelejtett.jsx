@@ -43,7 +43,7 @@ export const Elfelejtett = () => {
 
     return (
 <div id="root">
-            <div className="auth-container">
+            <div className="forgot-container">
                 <h2 className="auth-h2">Elfelejtett jelszó</h2>
                 <h3 className="auth-h2">Kérem adja meg az email címét, amelyre el tudjuk küldeni a helyettesítő jelszót</h3>
                 
