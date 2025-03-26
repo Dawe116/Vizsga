@@ -55,7 +55,7 @@ export const Bejelentkezes = () => {
 
   return (
     <div id="root">
-      <div className="auth-container">
+      <div className="login-container">
         <h2 className="auth-h2">Bejelentkezés</h2>
         <form onSubmit={handleSubmit}>
           <input id="loginNev" type="text" placeholder="Felhasználónév" value={username} onChange={(e) => setUsername(e.target.value)} required />
