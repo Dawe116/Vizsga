@@ -90,6 +90,7 @@ export const Fiok = () => {
       localStorage.setItem("cimek", JSON.stringify([...cimek, response.data]));
       setIsEditing(false);
       setOriginalData(formData);
+      window.location.reload();
     })
     .catch(error => {
       console.error("Hiba történt a mentés során:", error.response?.data || error.message);
@@ -104,7 +105,6 @@ export const Fiok = () => {
     }
   
     setErrorMessage("");
-    const token = localStorage.getItem("token");
   
     axios.put(`https://localhost:5000/api/Address/${token}`, {
       id: data.id,
@@ -122,12 +122,14 @@ export const Fiok = () => {
       setCimek(prev => prev.map(item => (item.id === data.id ? response.data : item)));
       localStorage.setItem("cimek", JSON.stringify(cimek));
       setIsEditing(false);
+      window.location.reload();
     })
     .catch(error => {
       console.error("Hiba történt a frissítés során:", error.response?.data || error.message);
       setErrorMessage("Hiba történt a frissítés során.");
     });
-  };  
+  };
+
   return (
     <div id="root">
       <div className="account-card">

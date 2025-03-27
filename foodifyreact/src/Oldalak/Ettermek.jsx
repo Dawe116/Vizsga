@@ -41,7 +41,7 @@ export const Ettermek = ({ searchTerm }) => {
 
   return (
     <div id="root">
-      <h1>Összes éttermek</h1>
+      <h1>Összes étterem</h1>
       <div className="page-content">
         {loading ? (
           <div className="loading-container">
