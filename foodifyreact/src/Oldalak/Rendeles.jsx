@@ -77,8 +77,8 @@ const Rendeles = () => {
                     ))}
                 </div>
                 <Cart kosar={kosar} removeFromCart={removeFromCart} clearCart={clearCart} placeOrder={placeOrder} />
-                {isModalOpen && <OrderModal modalContent={modalContent} closeModal={() => setIsModalOpen(false)} />}
             </div>
+            {isModalOpen && <OrderModal modalContent={modalContent} closeModal={() => setIsModalOpen(false)} />}
             <Footer />
         </div>
     );

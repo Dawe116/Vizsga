@@ -89,8 +89,8 @@ export const Kosar = () => {
                     <button className="finalorder-button" onClick={handlePlaceOrder}>Rendelés leadása</button>
                 </div>
             )}
-            {isModalOpen && <OrderModal modalContent={modalContent} closeModal={() => setIsModalOpen(false)} />}
             </div>
+            {isModalOpen && <OrderModal modalContent={modalContent} closeModal={() => setIsModalOpen(false)} />}
             <Footer />
         </div>
     );
