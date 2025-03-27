@@ -90,8 +90,8 @@ export const Kosar = () => {
                 </div>
             )}
             </div>
-            {isModalOpen && <OrderModal modalContent={modalContent} closeModal={() => setIsModalOpen(false)} />}
             <Footer />
+            {isModalOpen && <OrderModal modalContent={modalContent} closeModal={() => setIsModalOpen(false)} />}
         </div>
     );
 };

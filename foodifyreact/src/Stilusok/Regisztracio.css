@@ -72,12 +72,13 @@
   }
   
   .auth-p a {
-    color: #b300c4;
+    color: #ff00b7;
     text-decoration: none;
     font-weight: bold;
   }
   
   p a:hover {
+    color:  #ff51ce;
     text-decoration: underline;
   }
 

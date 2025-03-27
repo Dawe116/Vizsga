@@ -14,7 +14,7 @@
     color: #000;
     border-radius: 12px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    min-height: 70vh;
+    max-height: 5000px;
     margin-top: 20px;
     margin-bottom: 30px;
 }
@@ -33,7 +33,7 @@
     color: #000;
     border-radius: 12px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    min-height: 60vh;
+    max-height: 5000px;
     margin-top: 20px;
     margin-bottom: 30px;
 }
@@ -147,17 +147,6 @@
 
 .checkout-button:hover {
     background: #ee2fff;
-}
-
-.cart {
-    color: #ffffff;
-    width: 30%;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
 }
 
 .cart h2 {

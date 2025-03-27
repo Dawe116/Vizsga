@@ -1,6 +1,6 @@
 html, body {
   font-family: "Times New Roman", Times, serif;
-  background: radial-gradient(circle, #4a0658, #5c0b6b, #5f2568, #6b168d, #6e1b7b, #540a5e, #732575, #622a85, #5f2167, #47235b);
+  background: radial-gradient(circle, #4a0658, #741185, #a32c91, #6b168d, #891883, #540a5e, #732575, #c51da6, #5f2167, #47235b);
   background-size: 400% 400%;
   animation: gradientAnimation 50s infinite linear alternate;
   background-attachment: fixed;

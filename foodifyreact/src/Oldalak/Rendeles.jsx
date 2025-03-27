@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react"; 
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { KosarTartalom } from "../Komponensek/KosarTartalom";
@@ -9,6 +9,7 @@ const Rendeles = () => {
     const { restaurantId } = useParams();
     const [menuItems, setMenuItems] = useState([]);
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalContent, setModalContent] = useState({});
     const navigate = useNavigate();
@@ -16,17 +17,32 @@ const Rendeles = () => {
     const { kosar, addToCart, removeFromCart, clearCart } = useContext(KosarTartalom);
 
     useEffect(() => {
-        axios.get(`https://localhost:5000/api/Menu`)
+        setLoading(true);
+        setError(null);
+        const timeout = setTimeout(() => {
+            if (loading) {
+                setError("Hálózati hiba: Az adatok betöltése túl sokáig tart.");
+                setLoading(false);
+            }
+        }, 30000);
+
+        axios.get("https://localhost:5000/api/Menu")
             .then(response => {
                 const allMenus = response.data;
                 const filteredMenus = allMenus.filter(menu => menu.restaurantId === parseInt(restaurantId));
                 setMenuItems(filteredMenus);
+                clearTimeout(timeout);
             })
             .catch(error => {
                 console.error("Hiba történt:", error);
-                setError(error.message);
+                setError("Hálózati vagy szerverhiba: Az adatok nem érhetők el.");
+                clearTimeout(timeout);
+            })
+            .finally(() => {
+                setLoading(false);
             });
     }, [restaurantId]);
+    
 
     const placeOrder = () => {
         const token = localStorage.getItem("token");
@@ -70,16 +86,25 @@ const Rendeles = () => {
         <div id="root">
             <div className="order-container">
                 <div className="menu-list">
-                    {error && <p className="error-message">{error}</p>}
-                    {menuItems.length === 0 && !error && <p>Nincs elérhető menü.</p>}
-                    {menuItems.map(menu => (
-                        <MenuItemCard key={menu.id} menu={menu} addToCart={addToCart} />
-                    ))}
+                    {loading ? (
+                        <div className="loading-container">
+                            <div className="spinner"></div>
+                            <p>Betöltés...</p>
+                        </div>
+                    ) : error ? (
+                        <p className="error-message">{error}</p>
+                    ) : menuItems.length === 0 ? (
+                        <p>Nincs elérhető menü.</p>
+                    ) : (
+                        menuItems.map(menu => (
+                            <MenuItemCard key={menu.id} menu={menu} addToCart={addToCart} />
+                        ))
+                    )}
                 </div>
                 <Cart kosar={kosar} removeFromCart={removeFromCart} clearCart={clearCart} placeOrder={placeOrder} />
             </div>
-            {isModalOpen && <OrderModal modalContent={modalContent} closeModal={() => setIsModalOpen(false)} />}
             <Footer />
+            {isModalOpen && <OrderModal modalContent={modalContent} closeModal={() => setIsModalOpen(false)} />}
         </div>
     );
 };

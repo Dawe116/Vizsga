@@ -285,7 +285,7 @@ export const Regisztracio = () => {
                     )}
                 </form>
             </div>
-
+            <Footer />
             {isModalOpen && (
                 <AuthModal 
                     message={modalMessage} 
@@ -295,7 +295,6 @@ export const Regisztracio = () => {
                     successRedirect="/bejelentkezes" 
                 />
             )}
-            <Footer />
         </div>
     );
 };

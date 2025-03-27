@@ -64,6 +64,7 @@ export const Bejelentkezes = () => {
         </form>
         <p className="auth-p">Nincs fiókod? <Link to="/regisztracio">Regisztráció</Link></p>
       </div>
+      <Footer />
       {isModalOpen && (
         <AuthModal 
           message={modalMessage} 
@@ -73,7 +74,6 @@ export const Bejelentkezes = () => {
           successRedirect="/foodifyhome" 
         />
       )}
-      <Footer />
     </div>
   );
 };
