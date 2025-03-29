@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../Stilusok/Regisztracio.css";
 import sha256 from "js-sha256";
 import Footer from "../Komponensek/Footer";
@@ -210,6 +210,7 @@ export const Regisztracio = () => {
                             />
                             {errorMessages.confirmPassword && <span className="error-message">{errorMessages.confirmPassword}</span>}
                             <button className="submit-btn" onClick={handleNext}>Tovább</button>
+                            <p className="auth-p">Már van fiókod? <Link to="/bejelentkezes">Bejelentkezés</Link></p>
                         </div>
                     )}
                     {step === 2 && (
