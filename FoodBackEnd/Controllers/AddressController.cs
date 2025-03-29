@@ -13,78 +13,72 @@ namespace FoodBackEnd.Controllers
         [HttpGet]
         public async Task<IActionResult> GetFull()
         {
-            
-                try
+
+            try
+            {
+                using (var cx = new FoodifyContext())
                 {
-                    using (var cx = new FoodifyContext())
-                    {
-                        return Ok(await cx.Addresses.ToListAsync());
-                    }
+                    return Ok(await cx.Addresses.ToListAsync());
                 }
-                catch (Exception ex)
-                {
-                    return BadRequest(ex.InnerException?.Message);
-                }
-            
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.InnerException?.Message);
+            }
+
         }
 
         [HttpGet("{userId}")]
         public async Task<IActionResult> GetId(int userId)
         {
-                try
+            try
+            {
+                using (var cx = new FoodifyContext())
                 {
-                    using (var cx = new FoodifyContext())
-                    {
-                        return Ok(await cx.Addresses.FirstOrDefaultAsync(f => f.UserId == userId));
-                    }
+                    return Ok(await cx.Addresses.FirstOrDefaultAsync(f => f.UserId == userId));
                 }
-                catch (Exception ex)
-                {
-                    return BadRequest(ex.InnerException?.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.InnerException?.Message);
+            }
         }
 
         [HttpPost("{token}")]
         public IActionResult Post(string token, Address address)
         {
-            if (Program.LoggedInUsers.ContainsKey(token) && Program.LoggedInUsers[token].PermissionId == 9)
+            try
             {
-                try
+                using (var cx = new FoodifyContext())
                 {
-                    using (var cx = new FoodifyContext())
-                    {
-                        cx.Addresses.Add(address);
-                        cx.SaveChanges();
-                        return Ok("Új cím adatai rögzítve!");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    return BadRequest(ex.InnerException?.Message);
+                    cx.Addresses.Add(address);
+                    cx.SaveChanges();
+                    return Ok("Új cím adatai rögzítve!");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                return BadRequest("Nem található a cím!");
+                return BadRequest(ex.InnerException?.Message);
             }
+
         }
 
         [HttpPut("{token}")]
         public IActionResult Put(string token, Address address)
         {
-                try
+            try
+            {
+                using (var cx = new FoodifyContext())
                 {
-                    using (var cx = new FoodifyContext())
-                    {
-                        cx.Addresses.Update(address);
-                        cx.SaveChanges();
-                        return Ok("A cím adatai módosítva!");
-                    }
+                    cx.Addresses.Update(address);
+                    cx.SaveChanges();
+                    return Ok("A cím adatai módosítva!");
                 }
-                catch (Exception ex)
-                {
-                    return BadRequest(ex.InnerException?.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.InnerException?.Message);
+            }
         }
 
         [HttpDelete("{token},{id}")]
