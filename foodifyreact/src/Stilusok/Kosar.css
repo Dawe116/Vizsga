@@ -115,7 +115,7 @@
     background: #cc0000;
 }
 
-.clear-cart-button {
+.cancelorder-button {
     background: #ff0000;
     color: white;
     border: none;
@@ -128,11 +128,11 @@
     transition: background 0.3s;
 }
 
-.clear-cart-button:hover {
+.cancelorder-button:hover {
     background: #cc0000;
 }
 
-.checkout-button {
+.finalorder-button {
     background: #860092;
     color: white;
     border: none;
@@ -145,7 +145,7 @@
     transition: background 0.3s;
 }
 
-.checkout-button:hover {
+.finalorder-button:hover {
     background: #ee2fff;
 }
 
