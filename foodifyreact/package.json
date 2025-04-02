@@ -12,6 +12,7 @@
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "cra-template": "1.2.0",
+    "emailjs-com": "^3.2.0",
     "jest": "^27.5.1",
     "jest-environment-jsdom": "^29.7.0",
     "js-sha256": "^0.11.0",

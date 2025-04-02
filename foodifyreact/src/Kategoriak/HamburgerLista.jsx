@@ -19,7 +19,7 @@
         }
       }, 30000);
   
-      axios.get("https://localhost:5000/api/Restaurant/category/Hamburger")
+      axios.get("https://localhost:5000/api/Restaurant/category/Burger")
         .then(response => {
           setData(response.data);
           console.log(response.data);
