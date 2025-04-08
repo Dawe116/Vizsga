@@ -49,16 +49,33 @@ namespace FoodBackEnd.Controllers
         {
             try
             {
+                if (address.CountyId == 0 || address.UserId == 0)
+                {
+                    return BadRequest("CountyId és UserId nem lehet 0.");
+                }
+
                 using (var cx = new FoodifyContext())
                 {
+                    var county = cx.Counties.FirstOrDefault(c => c.Id == address.CountyId);
+                    var user = cx.Users.FirstOrDefault(u => u.Id == address.UserId);
+
+                    if (county == null || user == null)
+                    {
+                        return BadRequest("Érvénytelen CountyId vagy UserId.");
+                    }
+
+                    address.County = county;
+                    address.User = user;
+
                     cx.Addresses.Add(address);
                     cx.SaveChanges();
-                    return Ok("Új cím adatai rögzítve!");
+
+                    return Ok("Új cím rögzítve!");
                 }
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.InnerException?.Message);
+                return BadRequest($"Hiba történt: {ex.Message}");
             }
 
         }
@@ -68,16 +85,36 @@ namespace FoodBackEnd.Controllers
         {
             try
             {
+                // A FoodifyContext példányosítása
                 using (var cx = new FoodifyContext())
                 {
-                    cx.Addresses.Update(address);
+                    // Ellenőrizzük, hogy létezik-e már a cím
+                    var existingAddress = cx.Addresses.FirstOrDefault(a => a.Id == address.Id);
+
+                    if (existingAddress == null)
+                    {
+                        return NotFound("Cím nem található.");
+                    }
+
+                    // Csak a módosítandó mezőket frissítjük
+                    existingAddress.City = address.City;
+                    existingAddress.Street = address.Street;
+                    existingAddress.HouseNumber = address.HouseNumber;
+                    existingAddress.Floor = address.Floor;
+                    existingAddress.Door = address.Door;
+                    existingAddress.PostalCode = address.PostalCode;
+                    existingAddress.CountyId = address.CountyId;
+                    existingAddress.UserId = address.UserId;
+
+                    // Mentés
                     cx.SaveChanges();
-                    return Ok("A cím adatai módosítva!");
+
+                    return Ok("Cím frissítve!");
                 }
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.InnerException?.Message);
+                return BadRequest($"Hiba történt: {ex.Message}");
             }
         }
 

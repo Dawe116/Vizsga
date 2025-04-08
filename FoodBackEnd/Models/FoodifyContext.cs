@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace FoodBackEnd.Models;
 
 public partial class FoodifyContext : DbContext
@@ -156,7 +157,7 @@ public partial class FoodifyContext : DbContext
 
             entity.HasIndex(e => e.Name, "Name").IsUnique();
 
-            entity.Property(e => e.Id).HasColumnType("int(11)");
+            entity.Property(e => e.Id).HasColumnType("int(11)").ValueGeneratedOnAdd();
             entity.Property(e => e.Category).HasMaxLength(25);
             entity.Property(e => e.Description).HasMaxLength(50);
             entity.Property(e => e.Logo).HasColumnType("mediumblob");

@@ -65,7 +65,7 @@ namespace FoodBackEnd.Controllers
         }
 
         [HttpPost("{token}")]
-        public IActionResult Post(string token, Restaurant restaurant)
+        public IActionResult Post(string token, [FromBody] Restaurant restaurant)
         {
             if (Program.LoggedInUsers.ContainsKey(token) && Program.LoggedInUsers[token].PermissionId == 9)
             {
