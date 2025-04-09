@@ -18,6 +18,22 @@
                 <MenuItem Header="Felhasználók rögzítése" Click="NewUserWindow_Click"/>
                 <MenuItem Header="Felhasználók módosítás" Click="UserModify_Click"/>
             </MenuItem>
+            
+            <MenuItem Header="Éttermek"
+                      IsEnabled="False"
+                      Name="mitemRestaurant">
+                <MenuItem Header="Éttermek listázása" Click="RestaurantList_Click"/>
+                <MenuItem Header="Éttermek rögzítése" Click="NewRestaurant_Click"/>
+                <MenuItem Header="Éttermek módosítás" Click="ModifyRestaurant_Click"/>
+            </MenuItem>
+
+            <MenuItem Header="Menü"
+                      IsEnabled="False"
+                      Name="mitMenu">
+                <MenuItem Header="Menü listázása" Click="MenuLista_Click"/>
+                <MenuItem Header="Menü rögzítése" Click="MenuAdd_Click"/>
+                <MenuItem Header="Menü módosítás" Click="MenuModify_Click"/>
+            </MenuItem>
         </Menu>
     </Grid>
 </Window>

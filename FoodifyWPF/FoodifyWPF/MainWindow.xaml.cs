@@ -1,6 +1,8 @@
 ﻿using FoodifyWPF.Models;
 using FoodifyWPF.UserManagemant;
+using FoodifyWPF.RestaurantManagement;
 using FoodifyWPF.Windows;
+using FoodifyWPF.MenuManagenment;
 using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
@@ -56,7 +58,7 @@ namespace FoodifyWPF
         #endregion
 
         public static HttpClient sharedClient = new HttpClient() {
-            BaseAddress = new Uri("http://localhost:5000/")
+            BaseAddress = new Uri("https://localhost:5000/")
         };
 
         public MainWindow()
@@ -73,6 +75,8 @@ namespace FoodifyWPF
             {
                 mitemFelhasznalok.IsEnabled = true;
                 mitemBejelentkezes.IsEnabled = false;
+                mitemRestaurant.IsEnabled = true;
+                mitMenu.IsEnabled = true;
             }
             else
             {
@@ -98,5 +102,47 @@ namespace FoodifyWPF
             userModifyWindow.ShowDialog();
         }
 
+        private void RestaurantList_Click(object sender, RoutedEventArgs e)
+        {
+            RestaurantList restaurantList = new RestaurantList();
+            restaurantList.ShowDialog();
+        }
+
+        private void NewRestaurant_Click(object sender, RoutedEventArgs e)
+        {
+            NewRestaurantWindow newRestaurantWindow = new NewRestaurantWindow();
+            newRestaurantWindow.ShowDialog();
+        }
+
+        private void ModifyRestaurant_Click(object sender, RoutedEventArgs e)
+        {
+            ModifyRestaurant modifyRestaurant = new ModifyRestaurant();
+            modifyRestaurant.ShowDialog();
+        }
+
+        private void MenuLista_Click(object sender, RoutedEventArgs e)
+        {
+            if (Thread.CurrentThread.GetApartmentState() != ApartmentState.STA)
+            {
+                MessageBox.Show("Nem STA szálon vagyunk!");
+            }
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                MenuListWindow menulist = new MenuListWindow();
+                menulist.ShowDialog();
+            });
+        }
+
+        private void MenuAdd_Click(object sender, RoutedEventArgs e)
+        {
+            MenuAddWindow menuAdd = new MenuAddWindow();
+            menuAdd.ShowDialog();
+        }
+
+        private void MenuModify_Click(object sender, RoutedEventArgs e)
+        {
+            MenuModifyWindow menuModify = new MenuModifyWindow();
+            menuModify.ShowDialog();
+        }
     }
 }

@@ -7,16 +7,31 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="UserManagemant\DeleteUserWindow.xaml.cs">
+    <Compile Update="MenuManagenment\MenuAddWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserManagemant\ListWindow.xaml.cs">
+    <Compile Update="MenuManagenment\MenuListWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserManagemant\NewUserWindow.xaml.cs">
+    <Compile Update="MenuManagenment\MenuModifyWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="UserManagemant\UserModifyWindow.xaml.cs">
+    <Compile Update="RestaurantManagement\ModifyRestaurantWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="RestaurantManagement\NewRestaurantWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="RestaurantManagement\RestaurantListWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserManagement\ListWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserManagement\NewUserWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="UserManagement\UserModifyWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Windows\LoginWindow.xaml.cs">
@@ -27,16 +42,22 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserManagemant\DeleteUserWindow.xaml">
+    <Page Update="RestaurantManagement\ModifyRestaurantWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserManagemant\ListWindow.xaml">
+    <Page Update="RestaurantManagement\NewRestaurantWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserManagemant\NewUserWindow.xaml">
+    <Page Update="RestaurantManagement\RestaurantListWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="UserManagemant\UserModifyWindow.xaml">
+    <Page Update="UserManagement\ListWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserManagement\NewUserWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UserManagement\UserModifyWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Windows\LoginWindow.xaml">

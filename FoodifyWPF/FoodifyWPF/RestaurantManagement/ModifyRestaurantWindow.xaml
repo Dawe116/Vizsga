@@ -1,0 +1,49 @@
+﻿<Window x:Class="FoodifyWPF.RestaurantManagement.ModifyRestaurant"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FoodifyWPF.RestaurantManagement"
+        mc:Ignorable="d"
+        Title="ModifyRestaurant" Height="350" Width="400">
+    
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Padding" Value="10"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel>
+            <ComboBox Name="cbxRestaurants" SelectionChanged="cbxRestaurants_SelectionChanged"  />
+            <Label Content="Étterem neve:"/>
+            <TextBox x:Name="txbName"/>
+
+            <Label Content="Leírás:"/>
+            <TextBox x:Name="txbDescription"/>
+
+            <Label Content="Kategória"/>
+            <TextBox x:Name="tbxCategory"/>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Content="Logo:"/>
+                <Image x:Name="imgLogo" Width="100" Height="100" Stretch="Uniform" />
+                <Button Content="Kép feltöltése" Click="UploadLogo_Click" Width="100"/>
+            </StackPanel>
+
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="1">
+            <Button Content="Mentés" Click="Save_Click"/>
+            <Button Content="Mégse" Click="Cancel_Click"/>
+            <Button Content="Törlés" Click="DeleteRestaurant_Click"/>
+        </StackPanel>
+    </Grid>
+
+</Window>

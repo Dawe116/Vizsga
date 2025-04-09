@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace FoodifyWPF.Models;
 
@@ -21,11 +22,9 @@ public partial class User
 
     public string Email { get; set; } = null!;
 
-    public string ProfilePicturePath { get; set; } = null!;
-
     public virtual Address? Address { get; set; }
-
+    [JsonIgnore]
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 
-    public virtual Permission? Permission { get; set; } = null!;
+    public virtual Permission Permission { get; set; } = null!;
 }

@@ -1,18 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Dawe\\Desktop\\Vizsga\\Asztali\\Vizsga\\FoodifyWPF\\",
+  "WorkspaceRootPath": "C:\\Users\\Dawe\\Desktop\\Foodify\\Asztali\\Vizsga\\FoodifyWPF\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|c:\\users\\dawe\\desktop\\vizsga\\asztali\\vizsga\\foodifywpf\\foodifywpf\\usermanagemant\\usermodifywindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|solutionrelative:foodifywpf\\usermanagemant\\usermodifywindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|c:\\users\\dawe\\desktop\\foodify\\asztali\\vizsga\\foodifywpf\\foodifywpf\\menumanagenment\\menulistwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|solutionrelative:foodifywpf\\menumanagenment\\menulistwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|c:\\users\\dawe\\desktop\\vizsga\\asztali\\vizsga\\foodifywpf\\foodifywpf\\usermanagemant\\usermodifywindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|solutionrelative:foodifywpf\\usermanagemant\\usermodifywindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|c:\\users\\dawe\\desktop\\vizsga\\asztali\\vizsga\\foodifywpf\\foodifywpf\\usermanagemant\\newuserwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|solutionrelative:foodifywpf\\usermanagemant\\newuserwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|c:\\users\\dawe\\desktop\\foodify\\asztali\\vizsga\\foodifywpf\\foodifywpf\\menumanagenment\\menulistwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|solutionrelative:foodifywpf\\menumanagenment\\menulistwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,39 +50,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "NewUserWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Dawe\\Desktop\\Vizsga\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\UserManagemant\\NewUserWindow.xaml.cs",
-              "RelativeDocumentMoniker": "FoodifyWPF\\UserManagemant\\NewUserWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\Dawe\\Desktop\\Vizsga\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\UserManagemant\\NewUserWindow.xaml.cs",
-              "RelativeToolTip": "FoodifyWPF\\UserManagemant\\NewUserWindow.xaml.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAxwCkAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T10:55:06.114Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UserModifyWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Dawe\\Desktop\\Vizsga\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\UserManagemant\\UserModifyWindow.xaml.cs",
-              "RelativeDocumentMoniker": "FoodifyWPF\\UserManagemant\\UserModifyWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\Dawe\\Desktop\\Vizsga\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\UserManagemant\\UserModifyWindow.xaml.cs",
-              "RelativeToolTip": "FoodifyWPF\\UserManagemant\\UserModifyWindow.xaml.cs",
-              "ViewState": "AgIAAGYAAAAAAAAAAAA/wHoAAAA0AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-04T16:49:37.997Z",
+              "DocumentIndex": 1,
+              "Title": "MenuListWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Dawe\\Desktop\\Foodify\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\MenuManagenment\\MenuListWindow.xaml",
+              "RelativeDocumentMoniker": "FoodifyWPF\\MenuManagenment\\MenuListWindow.xaml",
+              "ToolTip": "C:\\Users\\Dawe\\Desktop\\Foodify\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\MenuManagenment\\MenuListWindow.xaml",
+              "RelativeToolTip": "FoodifyWPF\\MenuManagenment\\MenuListWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-09T07:35:47.663Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserModifyWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Dawe\\Desktop\\Vizsga\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\UserManagemant\\UserModifyWindow.xaml",
-              "RelativeDocumentMoniker": "FoodifyWPF\\UserManagemant\\UserModifyWindow.xaml",
-              "ToolTip": "C:\\Users\\Dawe\\Desktop\\Vizsga\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\UserManagemant\\UserModifyWindow.xaml",
-              "RelativeToolTip": "FoodifyWPF\\UserManagemant\\UserModifyWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-02-04T16:47:20.915Z"
+              "DocumentIndex": 0,
+              "Title": "MenuListWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Dawe\\Desktop\\Foodify\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\MenuManagenment\\MenuListWindow.xaml.cs",
+              "RelativeDocumentMoniker": "FoodifyWPF\\MenuManagenment\\MenuListWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Dawe\\Desktop\\Foodify\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\MenuManagenment\\MenuListWindow.xaml.cs",
+              "RelativeToolTip": "FoodifyWPF\\MenuManagenment\\MenuListWindow.xaml.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAAwDkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T07:36:37.529Z",
+              "EditorCaption": ""
             }
           ]
         }

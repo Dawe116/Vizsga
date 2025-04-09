@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Dawe\Desktop\Vizsga\Asztali\Vizsga\FoodifyWPF\FoodifyWPF\obj\Debug\net8.0-windows\
+C:\Users\Dawe\Desktop\Foodify\Asztali\Vizsga\FoodifyWPF\FoodifyWPF\obj\Debug\net8.0-windows\
 FoodifyWPF
 none
 false
-TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Users\Dawe\Desktop\Vizsga\Asztali\Vizsga\FoodifyWPF\FoodifyWPF\App.xaml
-61372382621
+TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
+C:\Users\Dawe\Desktop\Foodify\Asztali\Vizsga\FoodifyWPF\FoodifyWPF\App.xaml
+11441686931
 
-21401198662
-199-1863121733
-MainWindow.xaml;UserManagemant\DeleteUserWindow.xaml;UserManagemant\ListWindow.xaml;UserManagemant\NewUserWindow.xaml;UserManagemant\UserModifyWindow.xaml;Windows\LoginWindow.xaml;
+26829009770
+199-776544425
+MainWindow.xaml;MenuManagenment\MenuAddWindow.xaml;MenuManagenment\MenuListWindow.xaml;MenuManagenment\MenuModifyWindow.xaml;RestaurantManagement\ModifyRestaurantWindow.xaml;RestaurantManagement\NewRestaurantWindow.xaml;RestaurantManagement\RestaurantListWindow.xaml;UserManagement\ListWindow.xaml;UserManagement\NewUserWindow.xaml;UserManagement\UserModifyWindow.xaml;Windows\LoginWindow.xaml;
 
 False
 
