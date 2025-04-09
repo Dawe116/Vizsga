@@ -72,11 +72,6 @@ namespace FoodifyWPF.UserManagemant
             Close();
         }
 
-        private void ImageSelect_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             Close();

@@ -5,8 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FoodifyWPF.MenuManagenment"
         mc:Ignorable="d"
-        Title="MenuAddWindow" Height="450" Width="800">
+        Title="MenüHozzáAdása" Height="450" Width="500">
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5" />
+            <Setter Property="Height" Value="20" />
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <StackPanel>
+
+            <Label Content="Név"/>
+            <TextBox Name="txbName"/>
+
+            <Label Content="Leírás"/>
+            <TextBox Name="txbDescription"/>
+
+            <Label Content="Ár"/>
+            <TextBox Name="txbPrice"/>
+
+            <Label Content="Kép"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                
+                <Image Name="imgMenu" Width="100" Height="100" Margin="5"/>
+                <Button Content="Kép Hozzáadás" Click="KepHozzadAd_Click"/>
+                
+            </StackPanel>
+
+            <ComboBox Name="cbxRestaurantId"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Click="Add_Click" Content="Hozzáadás"/>
+                <Button Click="Close_Click" Content="Mégse"/>
+            </StackPanel>
+
+
+        </StackPanel>
     </Grid>
 </Window>

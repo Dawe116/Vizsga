@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FoodifyWPF.MenuManagenment"
         mc:Ignorable="d"
-        Title="MenuListWindow" Height="450" Width="800">
+        Title="MenukListája" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
