@@ -90,7 +90,7 @@ namespace FoodifyWPF.RestaurantManagement
                         Name = txbName.Text,
                         Description = txbDescription.Text,
                         Category = tbxCategory.Text,
-                        Logo = !string.IsNullOrEmpty(logoFilePath) ? File.ReadAllBytes(logoFilePath) : null
+                        Logo = File.ReadAllBytes(logoFilePath)
                     };
 
                     string toSend = JsonSerializer.Serialize(newRestaurant, JsonSerializerOptions.Default);
