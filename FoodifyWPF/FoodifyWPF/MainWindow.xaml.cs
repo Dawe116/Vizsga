@@ -57,7 +57,8 @@ namespace FoodifyWPF
         }
         #endregion
 
-        public static HttpClient sharedClient = new HttpClient() {
+        public static HttpClient sharedClient = new HttpClient()
+        {
             BaseAddress = new Uri("https://localhost:5000/")
         };
 
@@ -74,14 +75,28 @@ namespace FoodifyWPF
             if (uId != "")
             {
                 mitemFelhasznalok.IsEnabled = true;
-                mitemBejelentkezes.IsEnabled = false;
                 mitemRestaurant.IsEnabled = true;
                 mitMenu.IsEnabled = true;
+                mitemBejelentkezes.Visibility = Visibility.Collapsed;
+                miteKijelentkezes.Visibility = Visibility.Visible;
             }
             else
             {
                 MessageBox.Show("Sikertelen bejelentkezés!");
             }
+        }
+        private void Kilepes_Click(object sender, RoutedEventArgs e)
+        {
+            uId = "";
+            if(uId == "")
+            {
+                mitemFelhasznalok.IsEnabled = false;
+                mitemRestaurant.IsEnabled = false;
+                mitMenu.IsEnabled = false;
+                mitemBejelentkezes.Visibility = Visibility.Visible;
+                miteKijelentkezes.Visibility = Visibility.Collapsed;
+            }
+            
         }
 
         private void UserListWindow_Click(object sender, RoutedEventArgs e)
@@ -122,15 +137,10 @@ namespace FoodifyWPF
 
         private void MenuLista_Click(object sender, RoutedEventArgs e)
         {
-            if (Thread.CurrentThread.GetApartmentState() != ApartmentState.STA)
-            {
-                MessageBox.Show("Nem STA szálon vagyunk!");
-            }
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                MenuListWindow menulist = new MenuListWindow();
-                menulist.ShowDialog();
-            });
+
+            MenuListWindow menulist = new MenuListWindow();
+            menulist.ShowDialog();
+
         }
 
         private void MenuAdd_Click(object sender, RoutedEventArgs e)
@@ -144,5 +154,7 @@ namespace FoodifyWPF
             MenuModifyWindow menuModify = new MenuModifyWindow();
             menuModify.ShowDialog();
         }
+
+
     }
 }

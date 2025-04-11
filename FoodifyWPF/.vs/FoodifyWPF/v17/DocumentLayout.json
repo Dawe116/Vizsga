@@ -1,7 +1,20 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Dawe\\Desktop\\Foodify\\Asztali\\Vizsga\\FoodifyWPF\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|c:\\users\\dawe\\desktop\\foodify\\asztali\\vizsga\\foodifywpf\\foodifywpf\\windows\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|solutionrelative:foodifywpf\\windows\\loginwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|c:\\users\\dawe\\desktop\\foodify\\asztali\\vizsga\\foodifywpf\\foodifywpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|solutionrelative:foodifywpf\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|c:\\users\\dawe\\desktop\\foodify\\asztali\\vizsga\\foodifywpf\\foodifywpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|solutionrelative:foodifywpf\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,6 +51,41 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoginWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Dawe\\Desktop\\Foodify\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\Windows\\LoginWindow.xaml",
+              "RelativeDocumentMoniker": "FoodifyWPF\\Windows\\LoginWindow.xaml",
+              "ToolTip": "C:\\Users\\Dawe\\Desktop\\Foodify\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\Windows\\LoginWindow.xaml",
+              "RelativeToolTip": "FoodifyWPF\\Windows\\LoginWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-11T08:56:38.063Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Dawe\\Desktop\\Foodify\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "FoodifyWPF\\MainWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\Dawe\\Desktop\\Foodify\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\MainWindow.xaml.cs",
+              "RelativeToolTip": "FoodifyWPF\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAkwGEAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-11T08:45:03.586Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\Dawe\\Desktop\\Foodify\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "FoodifyWPF\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\Dawe\\Desktop\\Foodify\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\MainWindow.xaml",
+              "RelativeToolTip": "FoodifyWPF\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-11T08:44:56.472Z"
             }
           ]
         }
