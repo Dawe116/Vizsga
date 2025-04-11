@@ -53,12 +53,29 @@ namespace FoodifyWPF.RestaurantManagement
 
         private void cbxRestaurants_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (cbxRestaurants.SelectedItem is Restaurant selectedrestaurant)
+            if (cbxRestaurants.SelectedItem is Restaurant selectedRestaurant)
             {
-                txbName.Text = selectedrestaurant.Name;
-                txbDescription.Text = selectedrestaurant.Description;
-                tbxCategory.Text = selectedrestaurant.Category;
+                txbName.Text = selectedRestaurant.Name;
+                txbDescription.Text = selectedRestaurant.Description;
+                tbxCategory.Text = selectedRestaurant.Category;
 
+                if (selectedRestaurant.Logo != null)
+                {
+                    using (MemoryStream ms = new MemoryStream(selectedRestaurant.Logo))
+                    {
+                        BitmapImage bitmapImage = new BitmapImage();
+                        bitmapImage.BeginInit();
+                        bitmapImage.CacheOption = BitmapCacheOption.OnLoad; // EZ FONTOS
+                        bitmapImage.StreamSource = ms;
+                        bitmapImage.EndInit();
+                        bitmapImage.Freeze(); // opcionális, ha async vagy binding környezetben vagy
+                        imgLogo.Source = bitmapImage;
+                    }
+                }
+                else
+                {
+                    imgLogo.Source = null;
+                }
             }
         }
 
@@ -78,33 +95,55 @@ namespace FoodifyWPF.RestaurantManagement
             }
         }
 
+        private byte[]? ImageSourceToByteArray(ImageSource imageSource)
+        {
+            if (imageSource is BitmapSource bitmapSource)
+            {
+                JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create(bitmapSource));
+
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    encoder.Save(ms);
+                    return ms.ToArray();
+                }
+            }
+            return null;
+        }
+
         private async void Save_Click(object sender, RoutedEventArgs e)
         {
-            if (cbxRestaurants.SelectedItem is Restaurant restbody)
+            Restaurant restaurants = cbxRestaurants.SelectedItem as Restaurant;
+            restaurants.Name = txbName.Text;
+            restaurants.Description = txbDescription.Text;
+            restaurants.Category = tbxCategory.Text;
+
+            try
             {
-                try
+                // Ha van kiválasztott fájl (új kép), akkor olvassuk be
+                if (!string.IsNullOrEmpty(logoFilePath))
                 {
-                    Restaurant newRestaurant = new()
+                    restaurants.Logo = File.ReadAllBytes(logoFilePath);
+                }
+                // Ha nincs új kép, de már megjelenik egy a UI-on, azt mentsük
+                else if (imgLogo.Source != null)
+                {
+                    byte[]? bytes = ImageSourceToByteArray(imgLogo.Source);
+                    if (bytes != null)
                     {
-                        Id = 0,
-                        Name = txbName.Text,
-                        Description = txbDescription.Text,
-                        Category = tbxCategory.Text,
-                        Logo = File.ReadAllBytes(logoFilePath)
-                    };
-
-                    string toSend = JsonSerializer.Serialize(newRestaurant, JsonSerializerOptions.Default);
-                    var content = new StringContent(toSend, Encoding.UTF8, "application/json");
-                    var response = await client.PutAsync($"api/Restaurant/{MainWindow.uId}", content);
-                    string rcontent = await response.Content.ReadAsStringAsync();
-                    MessageBox.Show(rcontent);
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
+                        restaurants.Logo = bytes;
+                    }
                 }
 
-
+                string toSend = JsonSerializer.Serialize(restaurants, JsonSerializerOptions.Default);
+                var content = new StringContent(toSend, Encoding.UTF8, "application/json");
+                var response = await client.PutAsync($"api/Restaurant/{MainWindow.uId}", content);
+                string rcontent = await response.Content.ReadAsStringAsync();
+                MessageBox.Show(rcontent);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 

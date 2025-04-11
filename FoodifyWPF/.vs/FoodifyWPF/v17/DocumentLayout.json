@@ -1,16 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Dawe\\Desktop\\Foodify\\Asztali\\Vizsga\\FoodifyWPF\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|c:\\users\\dawe\\desktop\\foodify\\asztali\\vizsga\\foodifywpf\\foodifywpf\\menumanagenment\\menumodifywindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|solutionrelative:foodifywpf\\menumanagenment\\menumodifywindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|c:\\users\\dawe\\desktop\\foodify\\asztali\\vizsga\\foodifywpf\\foodifywpf\\menumanagenment\\menumodifywindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{FB40EB4A-D39D-444E-A86F-2E98EC7B0D62}|FoodifyWPF\\FoodifyWPF.csproj|solutionrelative:foodifywpf\\menumanagenment\\menumodifywindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -18,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -47,31 +38,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MenuModifyWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\Dawe\\Desktop\\Foodify\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\MenuManagenment\\MenuModifyWindow.xaml",
-              "RelativeDocumentMoniker": "FoodifyWPF\\MenuManagenment\\MenuModifyWindow.xaml",
-              "ToolTip": "C:\\Users\\Dawe\\Desktop\\Foodify\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\MenuManagenment\\MenuModifyWindow.xaml",
-              "RelativeToolTip": "FoodifyWPF\\MenuManagenment\\MenuModifyWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-04-09T08:38:06.149Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MenuModifyWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\Dawe\\Desktop\\Foodify\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\MenuManagenment\\MenuModifyWindow.xaml.cs",
-              "RelativeDocumentMoniker": "FoodifyWPF\\MenuManagenment\\MenuModifyWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\Dawe\\Desktop\\Foodify\\Asztali\\Vizsga\\FoodifyWPF\\FoodifyWPF\\MenuManagenment\\MenuModifyWindow.xaml.cs",
-              "RelativeToolTip": "FoodifyWPF\\MenuManagenment\\MenuModifyWindow.xaml.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAawFEAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-09T08:38:12.485Z",
-              "EditorCaption": ""
             }
           ]
         }

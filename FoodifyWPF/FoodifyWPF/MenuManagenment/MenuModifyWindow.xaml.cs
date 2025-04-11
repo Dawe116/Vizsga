@@ -49,19 +49,49 @@ namespace FoodifyWPF.MenuManagenment
                 MessageBox.Show("Hiba történt a menük betöltésekor: " + ex.Message);
             }
         }
+        private byte[]? ImageSourceToByteArray(ImageSource imageSource)
+        {
+            if (imageSource is BitmapSource bitmapSource)
+            {
+                JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+                encoder.Frames.Add(BitmapFrame.Create(bitmapSource));
+
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    encoder.Save(ms);
+                    return ms.ToArray();
+                }
+            }
+            return null;
+        }
+
         private async void Modosit_Click(object sender, RoutedEventArgs e)
         {
             Models.Menu menu = cbxId.SelectedItem as Models.Menu;
             menu.Name = txbName.Text;
             menu.Description = txbDescription.Text;
             menu.Price = int.Parse(txbPrice.Text);
-            menu.Picture = File.ReadAllBytes(logoFilePath);
 
             try
             {
+                // Ha van kiválasztott fájl (új kép), akkor olvassuk be
+                if (!string.IsNullOrEmpty(logoFilePath))
+                {
+                    menu.Picture = File.ReadAllBytes(logoFilePath);
+                }
+                // Ha nincs új kép, de már megjelenik egy a UI-on, azt mentsük
+                else if (imgMenu.Source != null)
+                {
+                    byte[]? bytes = ImageSourceToByteArray(imgMenu.Source);
+                    if (bytes != null)
+                    {
+                        menu.Picture = bytes;
+                    }
+                }
+
                 string toSend = JsonSerializer.Serialize(menu, JsonSerializerOptions.Default);
                 var content = new StringContent(toSend, Encoding.UTF8, "application/json");
-                var response = await client.PutAsync($"api/Menu/${MainWindow.uId}", content);
+                var response = await client.PutAsync($"api/Menu/{MainWindow.uId}", content);
                 string rcontent = await response.Content.ReadAsStringAsync();
                 MessageBox.Show(rcontent);
             }
@@ -70,6 +100,7 @@ namespace FoodifyWPF.MenuManagenment
                 MessageBox.Show(ex.Message);
             }
         }
+
 
         private async void Delete_Click(object sender, RoutedEventArgs e)
         {
@@ -118,6 +149,24 @@ namespace FoodifyWPF.MenuManagenment
                 txbName.Text = selectedMenu.Name;
                 txbDescription.Text = selectedMenu.Description;
                 txbPrice.Text = selectedMenu.Price.ToString();
+
+                if (selectedMenu.Picture != null)
+                {
+                    using (MemoryStream ms = new MemoryStream(selectedMenu.Picture))
+                    {
+                        BitmapImage bitmapImage = new BitmapImage();
+                        bitmapImage.BeginInit();
+                        bitmapImage.CacheOption = BitmapCacheOption.OnLoad; // EZ FONTOS
+                        bitmapImage.StreamSource = ms;
+                        bitmapImage.EndInit();
+                        bitmapImage.Freeze(); // opcionális, ha async vagy binding környezetben vagy
+                        imgMenu.Source = bitmapImage;
+                    }
+                }
+                else
+                {
+                    imgMenu.Source = null;
+                }
             }
         }
 
