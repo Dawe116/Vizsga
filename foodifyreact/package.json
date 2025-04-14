@@ -7,6 +7,8 @@
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "cra-template": "1.2.0",
+    "jest": "^27.5.1",
+    "jest-environment-jsdom": "^29.7.0",
     "js-sha256": "^0.11.0",
     "lucide-react": "^0.479.0",
     "react": "^19.0.0",
@@ -17,7 +19,9 @@
     "react-router-dom": "^7.2.0",
     "react-scripts": "5.0.1",
     "router-dom": "^3.0.1",
-    "sha256": "^0.2.0"
+    "selenium-webdriver": "^4.31.0",
+    "sha256": "^0.2.0",
+    "text-encoding": "^0.7.0"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -115,6 +115,7 @@ export const Regisztracio = () => {
         ))}
         <form onSubmit={handleSubmit}>
           <input
+            id="name"
             type="text"
             placeholder="Teljes név"
             value={formData.name}
@@ -123,6 +124,7 @@ export const Regisztracio = () => {
             required
           />
           <input
+            id="loginNev"
             type="text"
             placeholder="Felhasználónév"
             value={formData.loginNev}
@@ -131,6 +133,7 @@ export const Regisztracio = () => {
             required
           />
           <input
+            id="email"
             type="email"
             placeholder="Email"
             value={formData.email}
@@ -139,6 +142,7 @@ export const Regisztracio = () => {
             required
           />
           <input
+          id="password"
             type="password"
             placeholder="Jelszó"
             value={formData.password}
@@ -147,6 +151,7 @@ export const Regisztracio = () => {
             required
           />
           <input
+            id="confirmPassword"
             type="password"
             placeholder="Jelszó megerősítése"
             value={formData.confirmPassword}
